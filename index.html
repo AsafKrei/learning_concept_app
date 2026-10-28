@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2775.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="he" dir="rtl"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;לימוד מבוסס מושגים&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: 'Heebo', sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-100 min-h-screen text-slate-800"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="bg-white shadow-sm p-4 flex justify-between items-center max-w-4xl mx-auto mt-4 rounded-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="text-xl font-bold text-indigo-700"&gt;כרטיסיות מושגים&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="user-nav" class="hidden items-center gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span id="user-display" class="text-sm font-medium text-slate-600"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="logout-btn" class="bg-slate-200 hover:bg-slate-300 px-3 py-1 rounded text-sm font-semibold transition"&gt;התנתק&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Main Container --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="max-w-2xl mx-auto p-4 mt-6"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Auth View --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="auth-section" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="text-lg font-bold mb-4 text-center"&gt;התחברות למערכת&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="auth-email" type="email" placeholder="אימייל" class="w-full p-2 border rounded-lg focus:outline-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input id="auth-password" type="password" placeholder="סיסמה" class="w-full p-2 border rounded-lg focus:outline-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button id="login-btn" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-bold transition"&gt;התחבר&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button id="signup-btn" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 py-2 rounded-lg font-bold transition"&gt;הרשמה&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="auth-error" class="text-red-500 text-sm mt-3 text-center hidden"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Learning View (Hidden by default) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="study-section" class="hidden space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center text-sm font-medium text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;התקדמות מושג נוכחי: &lt;strong id="concept-rep" class="text-indigo-600"&gt;0&lt;/strong&gt; חזרות&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="concept-tag" class="bg-slate-100 px-2 py-1 rounded"&gt;ACLS&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Dynamic Card Container --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="flashcard-container" class="bg-white p-6 rounded-2xl shadow-sm border transition-all duration-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-xs uppercase tracking-wide text-slate-400 font-bold mb-2" id="prompt-type"&gt;תרחיש&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="prompt-text" class="text-lg font-semibold leading-relaxed mb-6"&gt;&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="answer-section" class="hidden border-t pt-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="text-xs font-bold text-emerald-600 mb-1"&gt;תשובה נכונה:&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div id="answer-text" class="text-base text-slate-700 mb-6"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">          </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="btn-fail" class="flex-1 bg-rose-50 text-rose-600 hover:bg-rose-100 py-2 rounded-lg font-bold transition border border-rose-200"&gt;שכחתי (איפוס)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="btn-pass" class="flex-1 bg-emerald-600 text-white hover:bg-emerald-700 py-2 rounded-lg font-bold transition shadow"&gt;זכרתי (+1)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="btn-reveal" class="w-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 py-2.5 rounded-lg font-bold transition border border-indigo-200"&gt;הצג תשובה&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Firebase Logic --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged }<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>import { getFirestore, doc, getDoc, setDoc }<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 1. Replace with your actual Firebase project config</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const firebaseConfig = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>apiKey: "YOUR_API_KEY",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>authDomain: "YOUR_PROJECT_ID.firebaseapp.com",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>projectId: "YOUR_PROJECT_ID",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>storageBucket: "YOUR_PROJECT_ID.appspot.com",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>messagingSenderId: "YOUR_SENDER_ID",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>appId: "YOUR_APP_ID"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const app = initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const auth = getAuth(app);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const db = getFirestore(app);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 2. Sample Concept Nodes (Multiple questions per node)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const CONCEPT_NODES = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>id: "concept_vf_post_shock",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>category: "ACLS - VF/pVT",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>answer: "חזרה מיידית ל-2 דקות עיסויי חזה (CPR) והשגת נתיב ורידי/תוך-גרמי (IV/IO).",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>prompts: [</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ type: "תרחיש קליני", text: "נתת שוק ראשון למטופל עם VF. המסך התאפס. מה הפעולה המיידית הבאה?" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ type: "שלב באלגוריתם", text: "סיימת מתן שוק 1 ב-pulseless VT. איזו פעולה פולשנית יש לבצע במהלך סבב ה-CPR הנוכחי?" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ type: "נכון / לא נכון", text: "נכון/לא נכון: מיד לאחר שוק 1 ב-VF, יש לעצור עיסויים ל-5 שניות לבדיקת דופק ומקצב." }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>id: "concept_epi_timing",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>category: "ACLS - תרופות",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>answer: "מתן אפינפרין (1 מ\"ג כל 3-5 דקות) החל מסבב ה-CPR השני (לאחר שוק שני).",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>prompts: [</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ type: "תזמון תרופתי", text: "המטופל נותר ב-VF לאחר שוק 1 ו-2 דקות CPR. ניתן שוק 2. איזו תרופה ניתנת כעת במהלך סבב ה-CPR?" },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ type: "זיהוי הפוך", text: "במהלך החייאת VF shockable, ניתנה מנת האפינפרין הראשונה. כמה שוקים ניתנו במצטבר עד לרגע זה?" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// State Variables</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let currentUser = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let userProgress = {}; // { [conceptId]: { repetitions: 0, nextReview: Date } }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let currentConcept = null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// UI Elements</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const authSection = document.getElementById("auth-section");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const studySection = document.getElementById("study-section");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const userNav = document.getElementById("user-nav");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const userDisplay = document.getElementById("user-display");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const authError = document.getElementById("auth-error");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const cardContainer = document.getElementById("flashcard-container");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const promptText = document.getElementById("prompt-text");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const promptType = document.getElementById("prompt-type");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const answerSection = document.getElementById("answer-section");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const answerText = document.getElementById("answer-text");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const btnReveal = document.getElementById("btn-reveal");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 3. Auth Handlers</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("login-btn").onclick = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>authError.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>await signInWithEmailAndPassword(auth, document.getElementById("auth-email").value, document.getElementById("auth-password").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch (err) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>authError.textContent = err.message;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>authError.classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("signup-btn").onclick = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>authError.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>await createUserWithEmailAndPassword(auth, document.getElementById("auth-email").value, document.getElementById("auth-password").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch (err) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>authError.textContent = err.message;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>authError.classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("logout-btn").onclick = () =&gt; signOut(auth);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>onAuthStateChanged(auth, async (user) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (user) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>currentUser = user;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userDisplay.textContent = user.email;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>authSection.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>studySection.classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userNav.classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>await loadUserData();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>loadNextCard();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>currentUser = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>authSection.classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>studySection.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userNav.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 4. Firestore Sync</p>
+<p class="p1"><span class="Apple-converted-space">    </span>async function loadUserData() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const userRef = doc(db, "users", currentUser.uid);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const docSnap = await getDoc(userRef);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (docSnap.exists()) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userProgress = docSnap.data().progress || {};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userProgress = {};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>await setDoc(userRef, { progress: {} });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>async function saveProgression(conceptId, wasCorrect) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!userProgress[conceptId]) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userProgress[conceptId] = { reps: 0 };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>userProgress[conceptId].reps = wasCorrect ? userProgress[conceptId].reps + 1 : 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>await setDoc(doc(db, "users", currentUser.uid), { progress: userProgress }, { merge: true });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 5. Concept &amp; Layout Randomization</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function applyVisualPerturbation() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const borders = ['border-blue-300', 'border-emerald-300', 'border-slate-300', 'border-purple-300'];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cardContainer.className = "bg-white p-6 rounded-2xl shadow-sm transition-all duration-200 border-2 " +<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>borders[Math.floor(Math.random() * borders.length)];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function loadNextCard() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>answerSection.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>btnReveal.classList.remove("hidden");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Pick random concept</p>
+<p class="p1"><span class="Apple-converted-space">      </span>currentConcept = CONCEPT_NODES[Math.floor(Math.random() * CONCEPT_NODES.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Pick random prompt within that concept</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const prompt = currentConcept.prompts[Math.floor(Math.random() * currentConcept.prompts.length)];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>promptType.textContent = `${currentConcept.category} • ${prompt.type}`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>promptText.textContent = prompt.text;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>answerText.textContent = currentConcept.answer;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const reps = userProgress[currentConcept.id]?.reps || 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("concept-rep").textContent = reps;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>applyVisualPerturbation();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>btnReveal.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>btnReveal.classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>answerSection.classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("btn-pass").onclick = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>await saveProgression(currentConcept.id, true);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>loadNextCard();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("btn-fail").onclick = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>await saveProgression(currentConcept.id, false);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>loadNextCard();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
