@@ -337,7 +337,15 @@
               <option value="replied">נענה / טופל</option>
             </select>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btn-dev-start-card-review-messages" type="button" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold transition shadow-2xs flex items-center gap-1.5">
+              <span>🎴</span>
+              <span>סקור הודעות בתצוגת למידה-ניהול</span>
+            </button>
+            <button id="btn-dev-start-card-review-all" type="button" class="px-3 py-1.5 rounded-xl bg-violet-100 hover:bg-violet-200 text-violet-900 border border-violet-300 text-xs font-extrabold transition flex items-center gap-1.5">
+              <span>🎴</span>
+              <span>כל השאלות בתצוגת למידה-ניהול</span>
+            </button>
             <span id="dev-deleted-concepts-pill" class="text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full">0 קונספטים שנמחקו מה-JSON</span>
             <button id="btn-restore-deleted-concepts" type="button" class="hidden px-2 py-0.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-900 text-[11px] font-extrabold transition">
               שחזר מחוקים
@@ -571,6 +579,39 @@
           </button>
           <span id="study-subject-label" class="text-sm font-extrabold text-slate-900">דום לב במבוגר PEA / Asystole</span>
         </div>
+        <div id="study-top-manager-toggle-wrap" class="hidden items-center gap-2">
+          <button id="btn-toggle-study-manager-mode" type="button" class="px-3 py-1.5 rounded-xl bg-violet-50 hover:bg-violet-100 text-violet-900 border border-violet-200 text-xs font-extrabold transition flex items-center gap-1.5">
+            <span>🛠️</span>
+            <span id="btn-toggle-study-manager-label">כלי ניהול בשאלה</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Manager Learning-State Navigation Bar (Visible in Manager Review Mode) -->
+      <div id="manager-study-topbar" class="hidden max-w-3xl mx-auto bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-sm border border-slate-700 flex-wrap items-center justify-between gap-3 animate-fade-in">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2.5 py-1 rounded-lg bg-violet-500/25 border border-violet-400/40 text-violet-200 text-xs font-extrabold">
+            🎴 מצב סקירה וניהול בתצוגת למידה
+          </span>
+          <span id="manager-queue-pos-label" class="text-xs font-extrabold text-white bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-700">
+            קונספט 1 מתוך 1
+          </span>
+          <label class="inline-flex items-center gap-1.5 text-xs text-slate-300 cursor-pointer select-none bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700">
+            <input id="toggle-manager-auto-reveal" type="checkbox" class="rounded accent-violet-500 w-3.5 h-3.5 cursor-pointer">
+            <span>חשוף תשובה אוטומטית</span>
+          </label>
+        </div>
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button id="btn-manager-prev-card" type="button" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-extrabold border border-slate-600 transition">
+            ➡️ קונספט קודם
+          </button>
+          <button id="btn-manager-next-card" type="button" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-extrabold transition">
+            ⬅️ קונספט הבא
+          </button>
+          <button id="btn-manager-return-hub" type="button" class="px-3 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-extrabold transition">
+            📡 רשימת הודעות וייצוא JSON
+          </button>
+        </div>
       </div>
 
       <!-- Dynamic Flashcard Wrapper (Width & Font Perturbed Dynamically) -->
@@ -594,8 +635,105 @@
             </button>
           </div>
 
+          <!-- Manager Mode: All Questions of Current Concept Switcher Bar -->
+          <div id="manager-prompt-switcher-bar" class="hidden mb-4 p-3 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-extrabold text-slate-700">כל השאלות של קונספט זה (לחץ למעבר מהיר בין זוויות השאלה בתצוגת למידה):</span>
+              <button id="btn-manager-cycle-next-prompt" type="button" class="px-2.5 py-1 rounded-lg bg-indigo-100 hover:bg-indigo-200 text-indigo-900 text-[11px] font-extrabold transition">
+                🔄 שאלה הבאה בקונספט זה
+              </button>
+            </div>
+            <div id="manager-prompt-tabs-container" class="flex flex-wrap items-center gap-1.5"></div>
+          </div>
+
+          <!-- Manager Mode: User Messages / Feedback Banner on this Concept & Question -->
+          <div id="manager-card-messages-panel" class="hidden mb-4 p-3.5 rounded-2xl bg-violet-50/90 border-2 border-violet-200 space-y-2.5 animate-fade-in">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-extrabold text-violet-950 flex items-center gap-1.5">
+                <span>💬 הודעות משתמשים על קונספט / שאלה זו:</span>
+                <span id="manager-card-messages-count" class="px-2 py-0.5 rounded-full bg-violet-600 text-white text-[10px] font-extrabold">0</span>
+              </span>
+              <span class="text-[11px] text-violet-700 font-semibold">ניתן להשיב למשתמש, לשנות את השאלה או למחוק מה-JSON ישירות מכאן</span>
+            </div>
+            <div id="manager-card-messages-list" class="space-y-2"></div>
+          </div>
+
           <!-- Prompt Question Text -->
           <p id="prompt-text" class="text-lg sm:text-xl font-bold text-slate-900 leading-relaxed mb-4"></p>
+
+          <!-- Manager Mode: Direct Actions & Inline Question/Concept Editor right on the Flashcard -->
+          <div id="manager-card-actions-panel" class="hidden mb-5 p-4 rounded-2xl bg-slate-900 text-white space-y-3 shadow-sm animate-fade-in">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-violet-300">🛠️ פעולות ניהול מהירות על השאלה והקונספט:</span>
+                <span id="manager-card-concept-id-badge" class="text-[11px] font-mono text-slate-300 bg-slate-800 px-2 py-0.5 rounded-md border border-slate-700"></span>
+              </div>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button id="btn-manager-card-inline-edit" type="button" class="px-3 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-extrabold transition">
+                  ✨ שנה / ערוך שאלה או קונספט
+                </button>
+                <button id="btn-manager-card-full-editor" type="button" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold transition">
+                  ✏️ עורך מלא
+                </button>
+                <button id="btn-manager-delete-current-prompt" type="button" class="px-2.5 py-1.5 rounded-xl bg-amber-600/90 hover:bg-amber-500 text-white text-xs font-extrabold transition" title="מוחק רק את וריאציית השאלה הנוכחית ומשאיר את שאר השאלות בקונספט">
+                  🗑️ הסר שאלה זו בלבד
+                </button>
+                <button id="btn-manager-delete-current-concept" type="button" class="px-2.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold transition" title="מוחק את הקונספט כולו מה-JSON לצמיתות">
+                  🗑️ מחק קונספט מה-JSON
+                </button>
+              </div>
+            </div>
+
+            <!-- Inline Editor Box right inside the Flashcard -->
+            <div id="manager-card-inline-editor-box" class="hidden p-3.5 rounded-xl bg-slate-800 border border-slate-700 space-y-3 text-xs">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="font-extrabold text-violet-200">✨ שכתוב שאלה עם AI או עריכה ישירה במקום:</span>
+                <div class="flex flex-wrap items-center gap-1">
+                  <button type="button" data-mgr-ai-preset="הפוך לשאלת תרחיש קליני מעשי בשטח" class="mgr-ai-preset-btn px-2 py-0.5 rounded bg-slate-700 hover:bg-violet-600 text-slate-200 text-[11px] font-bold transition">תרחיש קליני</button>
+                  <button type="button" data-mgr-ai-preset="הפוך לשאלת השלמת משפט (Cloze) עם ───(רמז)───" class="mgr-ai-preset-btn px-2 py-0.5 rounded bg-slate-700 hover:bg-violet-600 text-slate-200 text-[11px] font-bold transition">השלמת משפט (Cloze)</button>
+                  <button type="button" data-mgr-ai-preset="נסח מחדש את השאלה בצורה בהירה ומדויקת יותר" class="mgr-ai-preset-btn px-2 py-0.5 rounded bg-slate-700 hover:bg-violet-600 text-slate-200 text-[11px] font-bold transition">ניסוח בהיר יותר</button>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <input id="manager-inline-ai-instruction" type="text" class="flex-1 min-w-[200px] p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs" placeholder="הנחיה ל-AI לשינוי השאלה (למשל על בסיס הערת המשתמש)...">
+                <button id="btn-manager-run-inline-ai" type="button" class="px-3.5 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-extrabold text-xs transition">
+                  ✨ שכתב שאלה עם AI
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">סוג השאלה:</label>
+                  <input id="manager-inline-prompt-type" type="text" class="w-full p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs font-bold">
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">כותרת הקונספט:</label>
+                  <input id="manager-inline-concept-title" type="text" class="w-full p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs font-bold">
+                </div>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">נוסח השאלה (ניתן להשתמש ב-<code>───(רמז)───</code> להשלמת משפט):</label>
+                <textarea id="manager-inline-prompt-text" rows="2" class="w-full p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs font-semibold leading-relaxed"></textarea>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">דגש תשובה לזווית זו (Note):</label>
+                  <textarea id="manager-inline-prompt-note" rows="2" class="w-full p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs leading-relaxed"></textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">קונספט ליבה (Answer):</label>
+                  <textarea id="manager-inline-concept-answer" rows="2" class="w-full p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs leading-relaxed"></textarea>
+                </div>
+              </div>
+              <div class="flex items-center justify-end gap-2 pt-1">
+                <button id="btn-manager-cancel-inline-edit" type="button" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold">
+                  סגור עריכה
+                </button>
+                <button id="btn-manager-save-inline-edit" type="button" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold shadow-xs">
+                  💾 שמור שינויים בשאלה ובקונספט
+                </button>
+              </div>
+            </div>
+          </div>
 
           <!-- Inline Question Comment & Developer Broadcast Drawer (Accessible during review) -->
           <div id="card-comments-drawer" class="hidden mb-5 p-4 rounded-2xl bg-sky-50/70 border border-sky-200/90 space-y-3 animate-fade-in">
@@ -712,6 +850,28 @@
               </div>
             </div>
 
+            <!-- Manager Review Mode Bottom Navigation (Step through questions/concepts without altering FSRS) -->
+            <div id="manager-review-grading-box" class="hidden space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-extrabold text-violet-900">🎴 ניווט מהיר במצב סקירה וניהול (ללא שינוי תזמון FSRS):</span>
+                <span class="text-[11px] text-slate-500">ניתן לעבור בין וריאציות השאלה של הקונספט או להמשיך לקונספט הבא</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <button id="btn-manager-bottom-prev" type="button" class="p-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 transition flex flex-col items-center justify-center gap-0.5">
+                  <span class="text-xs font-extrabold">➡️ לקונספט הקודם</span>
+                  <span class="text-[11px] text-slate-500">חזרה לכרטיס הקודם בתור</span>
+                </button>
+                <button id="btn-manager-bottom-next-prompt" type="button" class="p-3 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-900 border border-indigo-200 transition flex flex-col items-center justify-center gap-0.5">
+                  <span class="text-xs font-extrabold">🔄 וריאציית שאלה הבאה</span>
+                  <span id="manager-bottom-prompt-counter" class="text-[11px] text-indigo-700 font-semibold">באותו קונספט</span>
+                </button>
+                <button id="btn-manager-bottom-next" type="button" class="p-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white border border-emerald-700 shadow-xs transition flex flex-col items-center justify-center gap-0.5">
+                  <span class="text-xs font-extrabold">⬅️ לקונספט / הודעה הבאה</span>
+                  <span class="text-[11px] text-emerald-100">המשך בתור הסקירה</span>
+                </button>
+              </div>
+            </div>
+
           </div>
 
           <!-- Session Queue Counters at the bottom, under "גלה תשובה" -->
@@ -778,8 +938,12 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button id="btn-open-dev-feedback-hub" type="button" class="flex px-3.5 py-2 rounded-xl bg-violet-50 hover:bg-violet-100 text-violet-900 border border-violet-200 text-xs font-extrabold transition items-center gap-1.5" title="צפייה בהודעות מכל משתמש, מחיקת קונספטים מה-JSON, מענה למשתמשים ועדכון JSON ללא מחיקת שינויים">
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btn-explorer-start-card-review" type="button" class="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs font-extrabold transition flex items-center gap-1.5" title="פתח את השאלות והקונספטים המסוננים כעת בתצוגת כרטיסיות למידה (כולל אפשרויות ניהול ועריכה)">
+              <span>🎴</span>
+              <span>סקור בתצוגת למידה</span>
+            </button>
+            <button id="btn-open-dev-feedback-hub" type="button" class="hidden px-3.5 py-2 rounded-xl bg-violet-50 hover:bg-violet-100 text-violet-900 border border-violet-200 text-xs font-extrabold transition items-center gap-1.5" title="צפייה בהודעות מכל משתמש, מחיקת קונספטים מה-JSON, מענה למשתמשים ועדכון JSON ללא מחיקת שינויים">
               <span>📡</span>
               <span>הודעות משתמשים וניהול JSON</span>
               <span id="dev-feedback-hub-badge" class="px-1.5 py-0.2 rounded-full bg-violet-600 text-white text-[10px] font-extrabold">0</span>
@@ -1109,7 +1273,11 @@
     let userProgress = {};
     let userDeckSettings = {};
     let userComments = {}; // { [conceptId]: [ { id, conceptId, promptId, promptType, promptText, text, category, broadcasted, createdAt, updatedAt, userEmail } ] }
-    let customConceptOverrides = {}; // { [conceptId]: updatedConceptNode }
+    let userCustomConcepts = []; // Array of custom concepts created by this user
+    let userCustomSchemes = {}; // { [schemeId]: customSchemeObj } created/edited by this user
+    let customConceptOverrides = {}; // { [conceptId]: updatedConceptNode } edited by this user
+    let globalConceptOverrides = {}; // Developer global overrides from globalDatabasePatches/main
+    let globalCustomConcepts = []; // Developer global custom concepts from globalDatabasePatches/main
     let deletedConceptIds = []; // Array of concept IDs permanently deleted by developer
     let developerFeedbackList = []; // Array of broadcasted feedback objects with full question & concept context
     let cloudUsersOverviewList = []; // Array of { uid, email, suspendedIds, commentsCount } from Firestore users
@@ -1124,6 +1292,9 @@
     let selectedSubjectIds = new Set(["pea_asystole"]);
     let sessionMode = "due"; // 'due' | 'all'
     let activeSessionNoSchedule = false; // When true in Free Study, shows "ידעתי" / "לא ידעתי" without updating FSRS
+    let activeManagerReviewMode = false; // When true, shows full manager controls & prompt switcher inside #study-section
+    let managerReviewIndex = 0; // Index in sessionQueue during manager review mode
+    let managerPreferredPromptByConcept = {}; // { [conceptId]: promptId } to open specific commented question
     let sessionSeenPromptsByConcept = {}; // { [conceptId]: [promptId, ...] }
     let sessionLastPromptByConcept = {}; // { [conceptId]: promptId }
     let sessionQueue = [];
@@ -1351,26 +1522,41 @@
     function applyConceptOverridesToMemory() {
       const deletedSet = new Set(Array.isArray(deletedConceptIds) ? deletedConceptIds : []);
       const byId = new Map();
+
+      // 1. Base JSON concepts (minus any globally deleted by developer)
       for (const node of DEFAULT_CONCEPT_NODES) {
         if (node && node.id && !deletedSet.has(node.id)) {
           byId.set(node.id, JSON.parse(JSON.stringify(node)));
         }
       }
-      try {
-        const rawConcepts = localStorage.getItem(CUSTOM_CONCEPTS_KEY);
-        if (rawConcepts) {
-          const parsed = JSON.parse(rawConcepts);
-          if (Array.isArray(parsed)) {
-            for (const c of parsed) {
-              if (c && c.id && !deletedSet.has(c.id)) {
-                byId.set(c.id, JSON.parse(JSON.stringify(c)));
-              }
-            }
+
+      // 2. Developer global custom concepts & global overrides
+      if (Array.isArray(globalCustomConcepts)) {
+        for (const c of globalCustomConcepts) {
+          if (c && c.id && !deletedSet.has(c.id)) {
+            byId.set(c.id, JSON.parse(JSON.stringify(c)));
           }
         }
-      } catch (e) {
-        console.warn("Custom concepts read warning:", e);
       }
+      if (globalConceptOverrides && typeof globalConceptOverrides === "object") {
+        for (const [cid, ovNode] of Object.entries(globalConceptOverrides)) {
+          if (deletedSet.has(cid)) continue;
+          if (ovNode && typeof ovNode === "object") {
+            byId.set(cid, JSON.parse(JSON.stringify(ovNode)));
+          }
+        }
+      }
+
+      // 3. Current user's own created concepts (userCustomConcepts)
+      if (Array.isArray(userCustomConcepts)) {
+        for (const c of userCustomConcepts) {
+          if (c && c.id && !deletedSet.has(c.id)) {
+            byId.set(c.id, JSON.parse(JSON.stringify(c)));
+          }
+        }
+      }
+
+      // 4. Current user's own edited concepts & questions (customConceptOverrides)
       if (customConceptOverrides && typeof customConceptOverrides === "object") {
         for (const [cid, ovNode] of Object.entries(customConceptOverrides)) {
           if (deletedSet.has(cid)) continue;
@@ -1379,6 +1565,7 @@
           }
         }
       }
+
       conceptNodes = Array.from(byId.values());
       const pill = document.getElementById("db-source-pill");
       if (pill) {
@@ -1391,14 +1578,7 @@
       const patchPill = document.getElementById("dev-patch-summary-pill");
       const delPill = document.getElementById("dev-deleted-concepts-pill");
       const restoreBtn = document.getElementById("btn-restore-deleted-concepts");
-      let customAddedCount = 0;
-      try {
-        const raw = localStorage.getItem(CUSTOM_CONCEPTS_KEY);
-        if (raw) {
-          const arr = JSON.parse(raw);
-          if (Array.isArray(arr)) customAddedCount = arr.length;
-        }
-      } catch (e) {}
+      const customAddedCount = Array.isArray(userCustomConcepts) ? userCustomConcepts.length : 0;
       const overridesCount = Object.keys(customConceptOverrides || {}).length;
       const deletedCount = Array.isArray(deletedConceptIds) ? deletedConceptIds.length : 0;
 
@@ -1409,7 +1589,7 @@
         delPill.textContent = `${deletedCount} קונספטים שנמחקו מה-JSON`;
       }
       if (restoreBtn) {
-        if (deletedCount > 0) {
+        if (deletedCount > 0 && isCurrentUserDeveloper()) {
           restoreBtn.classList.remove("hidden");
         } else {
           restoreBtn.classList.add("hidden");
@@ -1426,29 +1606,6 @@
             deletedConceptIds = parsedDel;
           }
         }
-        const rawOverrides = localStorage.getItem(CONCEPT_OVERRIDES_KEY);
-        if (rawOverrides) {
-          const parsedOv = JSON.parse(rawOverrides);
-          if (parsedOv && typeof parsedOv === "object") {
-            customConceptOverrides = parsedOv;
-          }
-        }
-        applyConceptOverridesToMemory();
-
-        const rawSchemes = localStorage.getItem(CUSTOM_SCHEMES_KEY);
-        if (rawSchemes) {
-          const parsedSchemes = JSON.parse(rawSchemes);
-          if (parsedSchemes && typeof parsedSchemes === "object") {
-            // Preserve high-res default imageUrl if cached scheme had old low-res image
-            for (const [k, v] of Object.entries(parsedSchemes)) {
-              if (DEFAULT_REFERENCE_SCHEMES[k] && (!v.imageUrl || v.imageUrl.length < 60000)) {
-                v.imageUrl = DEFAULT_REFERENCE_SCHEMES[k].imageUrl;
-              }
-            }
-            referenceSchemes = { ...DEFAULT_REFERENCE_SCHEMES, ...parsedSchemes };
-          }
-        }
-
         const rawFeedback = localStorage.getItem(DEV_FEEDBACK_BROADCAST_KEY);
         if (rawFeedback) {
           const parsedFb = JSON.parse(rawFeedback);
@@ -1459,22 +1616,25 @@
       } catch (e) {
         console.warn("Local custom data load warning:", e);
       }
+      applyConceptOverridesToMemory();
     }
 
-    function saveCustomConceptToLocal(newNode) {
-      try {
-        const raw = localStorage.getItem(CUSTOM_CONCEPTS_KEY);
-        const existing = raw ? JSON.parse(raw) : [];
-        existing.push(newNode);
-        localStorage.setItem(CUSTOM_CONCEPTS_KEY, JSON.stringify(existing));
-        conceptNodes = [...DEFAULT_CONCEPT_NODES, ...existing];
-      } catch (e) {
-        console.warn("Could not save custom concept:", e);
+    async function saveCustomConceptToLocal(newNode) {
+      if (!Array.isArray(userCustomConcepts)) userCustomConcepts = [];
+      const existingIdx = userCustomConcepts.findIndex(c => c.id === newNode.id);
+      if (existingIdx >= 0) {
+        userCustomConcepts[existingIdx] = newNode;
+      } else {
+        userCustomConcepts.push(newNode);
       }
+      applyConceptOverridesToMemory();
+      await persistUserStateToCloud();
     }
 
     function saveReferenceSchemeUpdate(schemeId, updatedScheme) {
       referenceSchemes[schemeId] = updatedScheme;
+      if (!userCustomSchemes || typeof userCustomSchemes !== "object") userCustomSchemes = {};
+      userCustomSchemes[schemeId] = updatedScheme;
       try {
         const raw = localStorage.getItem(CUSTOM_SCHEMES_KEY);
         const existing = raw ? JSON.parse(raw) : {};
@@ -1491,11 +1651,16 @@
           progress: userProgress,
           deckSettings: userDeckSettings,
           comments: userComments,
+          customConcepts: userCustomConcepts,
           conceptOverrides: customConceptOverrides,
+          customSchemes: userCustomSchemes,
           stats: userStats
         }));
-        localStorage.setItem(CONCEPT_OVERRIDES_KEY, JSON.stringify(customConceptOverrides));
-        localStorage.setItem(DELETED_CONCEPTS_KEY, JSON.stringify(deletedConceptIds));
+        if (isCurrentUserDeveloper()) {
+          localStorage.setItem(CONCEPT_OVERRIDES_KEY, JSON.stringify(customConceptOverrides));
+          localStorage.setItem(CUSTOM_CONCEPTS_KEY, JSON.stringify(userCustomConcepts));
+          localStorage.setItem(DELETED_CONCEPTS_KEY, JSON.stringify(deletedConceptIds));
+        }
         localStorage.setItem(DEV_FEEDBACK_BROADCAST_KEY, JSON.stringify(developerFeedbackList));
         updateDeveloperPatchSummaryUI();
       } catch (e) {
@@ -1511,10 +1676,19 @@
           userProgress = parsed.progress || {};
           userDeckSettings = parsed.deckSettings || {};
           userComments = parsed.comments || {};
-          if (parsed.conceptOverrides && typeof parsed.conceptOverrides === "object") {
-            customConceptOverrides = { ...customConceptOverrides, ...parsed.conceptOverrides };
-            applyConceptOverridesToMemory();
+          userCustomConcepts = Array.isArray(parsed.customConcepts) ? parsed.customConcepts : [];
+          customConceptOverrides = (parsed.conceptOverrides && typeof parsed.conceptOverrides === "object")
+            ? parsed.conceptOverrides
+            : {};
+          userCustomSchemes = (parsed.customSchemes && typeof parsed.customSchemes === "object")
+            ? parsed.customSchemes
+            : {};
+          for (const [k, v] of Object.entries(userCustomSchemes)) {
+            if (DEFAULT_REFERENCE_SCHEMES[k] && (!v.imageUrl || v.imageUrl.length < 60000)) {
+              v.imageUrl = DEFAULT_REFERENCE_SCHEMES[k].imageUrl;
+            }
           }
+          referenceSchemes = { ...DEFAULT_REFERENCE_SCHEMES, ...userCustomSchemes };
           userStats = {
             streakDays: 0,
             lastStudyDate: null,
@@ -1526,11 +1700,16 @@
           userProgress = {};
           userDeckSettings = {};
           userComments = {};
+          userCustomConcepts = [];
+          customConceptOverrides = {};
+          userCustomSchemes = {};
+          referenceSchemes = { ...DEFAULT_REFERENCE_SCHEMES };
           userStats = { streakDays: 0, lastStudyDate: null, dailyHistory: {}, dailyNewStudiedByDeck: {} };
         }
       } catch (e) {
         console.warn("LocalStorage read error:", e);
       }
+      applyConceptOverridesToMemory();
       updateCommentAndFeedbackBadges();
     }
 
@@ -1547,18 +1726,22 @@
               progress: userProgress,
               deckSettings: userDeckSettings,
               comments: userComments,
+              customConcepts: userCustomConcepts,
               conceptOverrides: customConceptOverrides,
-              deletedConceptIds: deletedConceptIds,
+              customSchemes: userCustomSchemes,
               stats: userStats
             },
             { merge: true }
           );
           if (isCurrentUserDeveloper()) {
+            globalConceptOverrides = { ...globalConceptOverrides, ...customConceptOverrides };
+            globalCustomConcepts = [...userCustomConcepts];
             await setDoc(
               doc(db, "globalDatabasePatches", "main"),
               {
                 updatedAt: new Date().toISOString(),
-                conceptOverrides: customConceptOverrides,
+                conceptOverrides: globalConceptOverrides,
+                customConcepts: globalCustomConcepts,
                 deletedConceptIds: deletedConceptIds
               },
               { merge: true }
@@ -1573,6 +1756,15 @@
     }
 
     async function loadUserData() {
+      // Reset per-user memory first so switching accounts never leaks another user's data
+      userProgress = {};
+      userDeckSettings = {};
+      userComments = {};
+      userCustomConcepts = [];
+      customConceptOverrides = {};
+      userCustomSchemes = {};
+      referenceSchemes = { ...DEFAULT_REFERENCE_SCHEMES };
+
       loadCustomDataFromLocal();
       if (isDemoMode || !currentUser || !db) {
         loadStateFromLocal();
@@ -1589,25 +1781,40 @@
               deletedConceptIds = Array.from(new Set([...deletedConceptIds, ...pData.deletedConceptIds]));
             }
             if (pData.conceptOverrides && typeof pData.conceptOverrides === "object") {
-              customConceptOverrides = { ...customConceptOverrides, ...pData.conceptOverrides };
+              globalConceptOverrides = pData.conceptOverrides;
             }
-            applyConceptOverridesToMemory();
+            if (Array.isArray(pData.customConcepts)) {
+              globalCustomConcepts = pData.customConcepts;
+            }
           }
         } catch (patchErr) {
           console.warn("Global patch read info:", patchErr);
         }
+
+        // First load any local cached state for this specific user UID as immediate fallback
+        loadStateFromLocal();
+
         const userRef = doc(db, "users", currentUser.uid);
         const docSnap = await getDoc(userRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
-          userProgress = data.progress || {};
-          userDeckSettings = data.deckSettings || {};
-          userComments = data.comments || {};
+          userProgress = { ...userProgress, ...(data.progress || {}) };
+          userDeckSettings = { ...userDeckSettings, ...(data.deckSettings || {}) };
+          userComments = { ...userComments, ...(data.comments || {}) };
+
+          if (Array.isArray(data.customConcepts)) {
+            const byId = new Map(userCustomConcepts.map(c => [c.id, c]));
+            for (const c of data.customConcepts) {
+              if (c && c.id) byId.set(c.id, c);
+            }
+            userCustomConcepts = Array.from(byId.values());
+          }
+
           if (data.conceptOverrides && typeof data.conceptOverrides === "object") {
             customConceptOverrides = { ...customConceptOverrides, ...data.conceptOverrides };
-            applyConceptOverridesToMemory();
           }
-          if (Array.isArray(data.developerFeedbackSent)) {
+
+          if (Array.isArray(data.developerFeedbackSent) && isCurrentUserDeveloper()) {
             const existingIds = new Set(developerFeedbackList.map(f => f.id));
             for (const fb of data.developerFeedbackSent) {
               if (fb && fb.id && !existingIds.has(fb.id)) {
@@ -1615,28 +1822,39 @@
               }
             }
           }
+
           userStats = {
             streakDays: 0,
             lastStudyDate: null,
             dailyHistory: {},
             dailyNewStudiedByDeck: {},
+            ...userStats,
             ...(data.stats || {})
           };
-          if (data.customSchemes) {
+
+          if (data.customSchemes && typeof data.customSchemes === "object") {
             for (const [k, v] of Object.entries(data.customSchemes)) {
               if (DEFAULT_REFERENCE_SCHEMES[k] && (!v.imageUrl || v.imageUrl.length < 60000)) {
                 v.imageUrl = DEFAULT_REFERENCE_SCHEMES[k].imageUrl;
               }
             }
-            referenceSchemes = { ...referenceSchemes, ...data.customSchemes };
+            userCustomSchemes = { ...userCustomSchemes, ...data.customSchemes };
+            referenceSchemes = { ...DEFAULT_REFERENCE_SCHEMES, ...userCustomSchemes };
           }
         } else {
-          userProgress = {};
-          userDeckSettings = {};
-          userComments = {};
-          userStats = { streakDays: 0, lastStudyDate: null, dailyHistory: {}, dailyNewStudiedByDeck: {} };
-          await setDoc(userRef, { progress: userProgress, deckSettings: userDeckSettings, comments: userComments, stats: userStats });
+          await setDoc(userRef, {
+            email: currentUser.email || "",
+            updatedAt: new Date().toISOString(),
+            progress: userProgress,
+            deckSettings: userDeckSettings,
+            comments: userComments,
+            customConcepts: userCustomConcepts,
+            conceptOverrides: customConceptOverrides,
+            customSchemes: userCustomSchemes,
+            stats: userStats
+          });
         }
+        applyConceptOverridesToMemory();
         saveStateToLocal();
         updateCommentAndFeedbackBadges();
         updateSyncBadge("מסונכרן לענן (Firestore)", "emerald");
@@ -2430,13 +2648,13 @@
       return count;
     }
 
-    // Configure developer email(s) here so ONLY the developer sees the Developer Feedback inbox in the UI
+    // Strict developer email whitelist: ONLY asafikush23@gmail.com can access manager/developer features
     const DEVELOPER_ADMIN_EMAILS = [
-      "asafikush23@gmail.com" // הוסף כאן את כתובת האימייל שלך ב-Firebase כדי לראות את כפתור תיבת המשובים באפליקציה
+      "asafikush23@gmail.com"
     ];
 
     function isCurrentUserDeveloper() {
-      if (!currentUser || !currentUser.email) return false;
+      if (isDemoMode || !currentUser || !currentUser.email) return false;
       return DEVELOPER_ADMIN_EMAILS.includes(currentUser.email.trim().toLowerCase());
     }
 
@@ -2448,8 +2666,18 @@
         expBadge.textContent = `${commentedConceptsCount} קונספטים (${totalComments} הערות)`;
       }
 
+      const devHubBtn = document.getElementById("btn-open-dev-feedback-hub");
       const devBadge = document.getElementById("dev-feedback-hub-badge");
-      if (devBadge) {
+      if (devHubBtn) {
+        if (isCurrentUserDeveloper()) {
+          devHubBtn.classList.remove("hidden");
+          devHubBtn.classList.add("flex");
+        } else {
+          devHubBtn.classList.add("hidden");
+          devHubBtn.classList.remove("flex");
+        }
+      }
+      if (devBadge && isCurrentUserDeveloper()) {
         const mergedCount = getCombinedUserMessagesForDeveloper().length;
         devBadge.textContent = mergedCount;
       }
@@ -3091,6 +3319,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       const cid = document.getElementById("edit-concept-id").value;
       if (!cid) return;
       delete customConceptOverrides[cid];
+      if (isCurrentUserDeveloper()) {
+        delete globalConceptOverrides[cid];
+      }
       applyConceptOverridesToMemory();
       await persistUserStateToCloud();
       conceptEditorModal.classList.add("hidden");
@@ -3111,6 +3342,10 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     const devFeedbackModal = document.getElementById("dev-feedback-modal");
 
     async function deleteConceptFromDatabase(conceptId) {
+      if (!isCurrentUserDeveloper()) {
+        showToast("פעולה זו מורשית למפתח האפליקציה בלבד", "rose");
+        return;
+      }
       if (!conceptId) return;
       const node = conceptNodes.find(n => n.id === conceptId);
       const title = node ? (node.title || node.category || conceptId) : conceptId;
@@ -3148,6 +3383,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     }
 
     async function restoreAllDeletedConcepts() {
+      if (!isCurrentUserDeveloper()) return;
       if (deletedConceptIds.length === 0) return;
       const count = deletedConceptIds.length;
       deletedConceptIds = [];
@@ -3217,7 +3453,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     }
 
     async function syncAllCloudFeedbackAndUsers() {
-      if (isDemoMode || !currentUser || !db) return;
+      if (isDemoMode || !currentUser || !db || !isCurrentUserDeveloper()) return;
       try {
         const fbSnap = await getDocs(collection(db, "developerFeedback"));
         const cloudItems = [];
@@ -3307,6 +3543,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     }
 
     async function sendDeveloperReplyToUser(fbItem, replyText) {
+      if (!isCurrentUserDeveloper()) return;
       const cleanReply = (replyText || "").trim();
       if (!cleanReply) {
         showToast("אנא כתוב תוכן להודעה לפני השליחה למשתמש", "rose");
@@ -3377,6 +3614,10 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     }
 
     async function openDeveloperFeedbackModal() {
+      if (!isCurrentUserDeveloper()) {
+        showToast("גישה למרכז הודעות המשתמשים וניהול ה-JSON מורשית למפתח בלבד", "rose");
+        return;
+      }
       devFeedbackModal.classList.remove("hidden");
       updateDeveloperPatchSummaryUI();
       await syncAllCloudFeedbackAndUsers();
@@ -3498,6 +3739,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               <span class="text-[11px] text-slate-400">${dateStr}</span>
             </div>
             <div class="flex flex-wrap items-center gap-1.5">
+              <button type="button" class="dev-open-in-study-btn px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition shadow-2xs" title="פתח שאלה וקונספט זה בתצוגת כרטיסיית למידה עם אפשרויות ניהול">🎴 פתח בתצוגת למידה-ניהול</button>
               <button type="button" class="dev-toggle-inline-change-btn px-2.5 py-1 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-extrabold transition">✨ שנה שאלה / קונספט</button>
               <button type="button" class="edit-from-fb-btn px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition">✏️ עורך מלא</button>
               <button type="button" class="dev-toggle-reply-btn px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition">↩️ השב למשתמש</button>
@@ -3550,6 +3792,15 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
             </div>
           </div>
         `;
+
+        card.querySelector(".dev-open-in-study-btn").addEventListener("click", () => {
+          if (!liveNode) {
+            showToast("הקונספט נמחק או לא נמצא במאגר הפעיל", "rose");
+            return;
+          }
+          devFeedbackModal.classList.add("hidden");
+          startManagerFlashcardReviewSession("messages", liveNode.id, q.promptId || null);
+        });
 
         card.querySelector(".dev-toggle-inline-change-btn").addEventListener("click", () => {
           card.querySelector(".dev-inline-change-box").classList.toggle("hidden");
@@ -3639,6 +3890,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     // Export updated JSON for a specific topic ("routine_emergency" -> database.json, "mtls" -> mtls.json)
     // with all customConceptOverrides, customConcepts, referenceSchemes, and deletedConceptIds baked in!
     function exportTopicDatabaseJson(topicId, filename) {
+      if (!isCurrentUserDeveloper()) return;
       const topicObj = TOPICS.find(t => t.id === topicId) || TOPICS[0];
       const topicSubjects = SUBJECTS.filter(s => (s.topicId || "routine_emergency") === topicId);
       const topicSubjectIds = new Set(topicSubjects.map(s => s.id));
@@ -3687,7 +3939,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     // Non-destructive JSON merge importer: updates base concepts/subjects from an external JSON file
     // while strictly preserving all developer edits (customConceptOverrides), added concepts, and deletedConceptIds!
     async function mergeExternalJsonNonDestructively(file) {
-      if (!file) return;
+      if (!isCurrentUserDeveloper() || !file) return;
       try {
         const text = await file.text();
         const data = JSON.parse(text);
@@ -3709,7 +3961,345 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       }
     }
 
+    // Launch the Flashcard Learning View (#study-section) in Manager/Review Mode
+    // sourceMode: 'messages' (questions/concepts with user messages) | 'all' (all concepts) | 'explorer_filtered'
+    function startManagerFlashcardReviewSession(sourceMode = "messages", startConceptId = null, startPromptId = null) {
+      managerPreferredPromptByConcept = {};
+      let targetConcepts = [];
+
+      if (sourceMode === "messages") {
+        const allMsgs = isCurrentUserDeveloper()
+          ? getCombinedUserMessagesForDeveloper()
+          : Object.values(userComments || {}).flat().map(c => ({
+              conceptContext: { conceptId: c.conceptId },
+              questionContext: { promptId: c.promptId }
+            }));
+
+        const seenConceptIds = new Set();
+        for (const m of allMsgs) {
+          const cid = m.conceptContext?.conceptId;
+          const pid = m.questionContext?.promptId;
+          if (!cid) continue;
+          const node = conceptNodes.find(n => n.id === cid);
+          if (!node) continue;
+          if (pid && !managerPreferredPromptByConcept[cid]) {
+            managerPreferredPromptByConcept[cid] = pid;
+          }
+          if (!seenConceptIds.has(cid)) {
+            seenConceptIds.add(cid);
+            targetConcepts.push(node);
+          }
+        }
+        if (targetConcepts.length === 0) {
+          showToast("אין כרגע שאלות עם הודעות משתמשים — פותח את כלל השאלות במצב ניהול", "amber");
+          targetConcepts = [...conceptNodes];
+        }
+      } else if (sourceMode === "explorer_filtered") {
+        const topicFilter = document.getElementById("explorer-topic-filter")?.value || "all";
+        const subjFilter = document.getElementById("explorer-subject-filter")?.value || "all";
+        const searchQuery = (document.getElementById("explorer-search-input")?.value || "").trim().toLowerCase();
+
+        const subjectsForTopic = topicFilter === "all"
+          ? SUBJECTS
+          : SUBJECTS.filter(s => (s.topicId || "routine_emergency") === topicFilter);
+        const allowedSubjIds = new Set(subjectsForTopic.map(s => s.id));
+
+        let filtered = subjFilter === "all"
+          ? conceptNodes.filter(n => allowedSubjIds.has(n.subjectId))
+          : conceptNodes.filter(n => n.subjectId === subjFilter);
+
+        if (explorerCommentsOnlyFilter) {
+          const msgConceptIds = new Set(getCombinedUserMessagesForDeveloper().map(m => m.conceptContext?.conceptId).filter(Boolean));
+          filtered = filtered.filter(n => getConceptComments(n.id).length > 0 || msgConceptIds.has(n.id));
+        }
+        if (searchQuery) {
+          filtered = filtered.filter(n => {
+            const commentsText = getConceptComments(n.id).map(c => c.text).join(" ");
+            const promptsText = (n.prompts || []).map(p => `${p.text} ${p.note}`).join(" ");
+            const haystack = `${n.id} ${n.title || ""} ${n.category || ""} ${n.answer || ""} ${promptsText} ${commentsText}`.toLowerCase();
+            return haystack.includes(searchQuery);
+          });
+        }
+        targetConcepts = filtered.length > 0 ? filtered : [...conceptNodes];
+      } else {
+        targetConcepts = [...conceptNodes];
+      }
+
+      if (targetConcepts.length === 0) {
+        showToast("לא נמצאו קונספטים להצגה", "rose");
+        return;
+      }
+
+      if (startConceptId && startPromptId) {
+        managerPreferredPromptByConcept[startConceptId] = startPromptId;
+      }
+
+      sessionQueue = [...targetConcepts];
+      const foundIdx = startConceptId ? sessionQueue.findIndex(c => c.id === startConceptId) : 0;
+      managerReviewIndex = foundIdx >= 0 ? foundIdx : 0;
+
+      // Put the current item at sessionQueue[0] while keeping full ordered list in sessionQueue
+      if (managerReviewIndex > 0) {
+        const rotated = [
+          ...sessionQueue.slice(managerReviewIndex),
+          ...sessionQueue.slice(0, managerReviewIndex)
+        ];
+        sessionQueue = rotated;
+        managerReviewIndex = 0;
+      }
+
+      activeManagerReviewMode = true;
+      activeSessionNoSchedule = true;
+      sessionCompletedCount = 0;
+      sessionHistoryStack = [];
+      sessionSeenPromptsByConcept = {};
+      sessionLastPromptByConcept = {};
+      updateUndoButtonsUI();
+
+      sessionCompleteCard.classList.add("hidden");
+      cardOuterWrapper.classList.remove("hidden");
+
+      switchView("study");
+      const firstConcept = sessionQueue[0];
+      const prefPid = managerPreferredPromptByConcept[firstConcept.id];
+      const forcedPrompt = (firstConcept.prompts || []).find(p => p.id === prefPid) || firstConcept.prompts?.[0] || null;
+      const autoReveal = Boolean(document.getElementById("toggle-manager-auto-reveal")?.checked);
+      loadNextCard(forcedPrompt, autoReveal);
+    }
+
+    function stepManagerCard(delta) {
+      if (sessionQueue.length === 0) return;
+      if (delta > 0) {
+        const first = sessionQueue.shift();
+        sessionQueue.push(first);
+        managerReviewIndex = (managerReviewIndex + 1) % sessionQueue.length;
+      } else if (delta < 0) {
+        const last = sessionQueue.pop();
+        sessionQueue.unshift(last);
+        managerReviewIndex = (managerReviewIndex - 1 + sessionQueue.length) % sessionQueue.length;
+      }
+      const nextConcept = sessionQueue[0];
+      const prefPid = managerPreferredPromptByConcept[nextConcept.id];
+      const forcedPrompt = (nextConcept.prompts || []).find(p => p.id === prefPid) || nextConcept.prompts?.[0] || null;
+      const autoReveal = Boolean(document.getElementById("toggle-manager-auto-reveal")?.checked);
+      loadNextCard(forcedPrompt, autoReveal);
+    }
+
+    function renderManagerFlashcardElements() {
+      const topToggleWrap = document.getElementById("study-top-manager-toggle-wrap");
+      const topManagerBar = document.getElementById("manager-study-topbar");
+      const promptSwitcherBar = document.getElementById("manager-prompt-switcher-bar");
+      const messagesPanel = document.getElementById("manager-card-messages-panel");
+      const actionsPanel = document.getElementById("manager-card-actions-panel");
+      const managerBottomBox = document.getElementById("manager-review-grading-box");
+      const fsrsBox = document.getElementById("fsrs-grading-box");
+      const freeBinaryBox = document.getElementById("free-binary-grading-box");
+
+      // Show toggle button in top bar if user is developer or in manager review mode
+      if (topToggleWrap) {
+        if (isCurrentUserDeveloper() || activeManagerReviewMode) {
+          topToggleWrap.classList.remove("hidden");
+          topToggleWrap.classList.add("flex");
+          const lbl = document.getElementById("btn-toggle-study-manager-label");
+          if (lbl) {
+            lbl.textContent = activeManagerReviewMode ? "סגור מצב ניהול" : "🎴 מצב ניהול בעמוד זה";
+          }
+        } else {
+          topToggleWrap.classList.add("hidden");
+          topToggleWrap.classList.remove("flex");
+        }
+      }
+
+      if (!activeManagerReviewMode || !currentConcept) {
+        if (topManagerBar) {
+          topManagerBar.classList.add("hidden");
+          topManagerBar.classList.remove("flex");
+        }
+        if (promptSwitcherBar) promptSwitcherBar.classList.add("hidden");
+        if (messagesPanel) messagesPanel.classList.add("hidden");
+        if (actionsPanel) actionsPanel.classList.add("hidden");
+        if (managerBottomBox) managerBottomBox.classList.add("hidden");
+        return;
+      }
+
+      // Active Manager Review Mode UI
+      if (topManagerBar) {
+        topManagerBar.classList.remove("hidden");
+        topManagerBar.classList.add("flex");
+      }
+      const posLabel = document.getElementById("manager-queue-pos-label");
+      if (posLabel) {
+        posLabel.textContent = `קונספט ${managerReviewIndex + 1} מתוך ${sessionQueue.length} בתור`;
+      }
+
+      // Hide regular grading boxes and show Manager Bottom Navigation Box
+      if (fsrsBox) fsrsBox.classList.add("hidden");
+      if (freeBinaryBox) freeBinaryBox.classList.add("hidden");
+      if (managerBottomBox) managerBottomBox.classList.remove("hidden");
+
+      // Gather all messages for this concept (from all users if developer, or current user's comments)
+      const allDevMsgs = isCurrentUserDeveloper() ? getCombinedUserMessagesForDeveloper() : [];
+      const conceptMsgs = allDevMsgs.filter(m => m.conceptContext?.conceptId === currentConcept.id);
+      const localConceptCmts = getConceptComments(currentConcept.id);
+
+      // Merge any local comments not already in conceptMsgs
+      const msgById = new Map();
+      for (const m of conceptMsgs) {
+        msgById.set(m.commentId || m.id, m);
+      }
+      for (const c of localConceptCmts) {
+        if (!msgById.has(c.id)) {
+          msgById.set(c.id, {
+            id: `devfb_${c.id}`,
+            commentId: c.id,
+            userUid: currentUser?.uid || "demo_local_user",
+            userEmail: c.userEmail || currentUser?.email || "משתמש מקומי",
+            feedbackType: c.category || "הערה על שאלה",
+            commentText: c.text,
+            developerReply: c.developerReply || null,
+            conceptContext: { conceptId: currentConcept.id, title: currentConcept.title || currentConcept.category },
+            questionContext: { promptId: c.promptId || "general", promptType: c.promptType || "" }
+          });
+        }
+      }
+      const mergedConceptMessages = Array.from(msgById.values());
+
+      // 1. Render Prompt Variations Switcher Tabs for currentConcept
+      if (promptSwitcherBar) {
+        promptSwitcherBar.classList.remove("hidden");
+        const tabsContainer = document.getElementById("manager-prompt-tabs-container");
+        tabsContainer.innerHTML = "";
+        const prompts = currentConcept.prompts || [];
+        prompts.forEach((p, idx) => {
+          const isCurrent = currentPrompt && p.id === currentPrompt.id;
+          const pMsgCount = mergedConceptMessages.filter(m => m.questionContext?.promptId === p.id).length;
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = isCurrent
+            ? "px-3 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-extrabold shadow-2xs transition flex items-center gap-1.5"
+            : "px-3 py-1.5 rounded-xl bg-white hover:bg-indigo-50 text-slate-700 border border-slate-200 text-xs font-bold transition flex items-center gap-1.5";
+          btn.innerHTML = `
+            <span>שאלה #${idx + 1}: ${escapeHtmlSafe(p.type || "שאלה")}</span>
+            ${pMsgCount > 0 ? `<span class="px-1.5 py-0.2 rounded-full ${isCurrent ? "bg-white text-indigo-800" : "bg-violet-100 text-violet-900"} text-[10px] font-extrabold">💬 ${pMsgCount}</span>` : ""}
+          `;
+          btn.addEventListener("click", () => {
+            currentPrompt = p;
+            managerPreferredPromptByConcept[currentConcept.id] = p.id;
+            loadNextCard(p, !answerSection.classList.contains("hidden"));
+          });
+          tabsContainer.appendChild(btn);
+        });
+
+        const bottomPromptCounter = document.getElementById("manager-bottom-prompt-counter");
+        if (bottomPromptCounter) {
+          const curIdx = Math.max(0, prompts.findIndex(p => p.id === currentPrompt?.id));
+          bottomPromptCounter.textContent = `שאלה ${curIdx + 1} מתוך ${prompts.length} בקונספט זה`;
+        }
+      }
+
+      // 2. Render User Messages Banner on this Flashcard
+      if (messagesPanel) {
+        const msgListEl = document.getElementById("manager-card-messages-list");
+        const msgCountEl = document.getElementById("manager-card-messages-count");
+        if (mergedConceptMessages.length > 0) {
+          messagesPanel.classList.remove("hidden");
+          msgCountEl.textContent = mergedConceptMessages.length;
+          msgListEl.innerHTML = "";
+          mergedConceptMessages.forEach(m => {
+            const isThisPrompt = currentPrompt && m.questionContext?.promptId === currentPrompt.id;
+            const mBox = document.createElement("div");
+            mBox.className = isThisPrompt
+              ? "p-3 rounded-xl bg-white border-2 border-violet-400 space-y-2 text-xs shadow-2xs"
+              : "p-3 rounded-xl bg-white/80 border border-violet-200 space-y-2 text-xs";
+            mBox.innerHTML = `
+              <div class="flex flex-wrap items-center justify-between gap-1.5">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded-md bg-slate-900 text-white font-extrabold text-[11px]">👤 ${escapeHtmlSafe(m.userEmail || "משתמש")}</span>
+                  <span class="px-2 py-0.5 rounded-md ${isThisPrompt ? "bg-violet-100 text-violet-900 font-extrabold" : "bg-slate-100 text-slate-600 font-bold"} text-[10px]">
+                    ${isThisPrompt ? "על וריאציית שאלה זו" : `על שאלה אחרת בקונספט (${escapeHtmlSafe(m.questionContext?.promptId || "")})`}
+                  </span>
+                  <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 font-bold text-[10px]">${escapeHtmlSafe(m.feedbackType || "הערה")}</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  ${!isThisPrompt && m.questionContext?.promptId ? `<button type="button" class="mgr-jump-to-msg-prompt px-2 py-0.5 rounded-lg bg-indigo-100 hover:bg-indigo-200 text-indigo-900 font-extrabold text-[11px]">עבור לשאלה זו</button>` : ""}
+                  <button type="button" class="mgr-use-msg-for-ai px-2 py-0.5 rounded-lg bg-violet-100 hover:bg-violet-200 text-violet-900 font-extrabold text-[11px]">✨ העבר להנחיית עריכה</button>
+                </div>
+              </div>
+              <div class="text-slate-900 font-bold leading-relaxed whitespace-pre-wrap">💬 ${escapeHtmlSafe(m.commentText || "")}</div>
+              ${m.developerReply ? `
+                <div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 text-[11px]">
+                  <strong>💌 תגובת המפתח שנשלחה:</strong> ${escapeHtmlSafe(m.developerReply.text)}
+                </div>
+              ` : ""}
+              ${isCurrentUserDeveloper() ? `
+                <div class="flex flex-wrap items-center gap-1.5 pt-1">
+                  <input type="text" class="mgr-card-reply-input flex-1 min-w-[180px] px-2.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs" value="${escapeHtmlSafe(m.developerReply?.text || "")}" placeholder="כתוב הודעה חזרה למשתמש...">
+                  <button type="button" class="mgr-card-send-reply-btn px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-[11px] transition">↩️ שלח למשתמש</button>
+                </div>
+              ` : ""}
+            `;
+            const jumpBtn = mBox.querySelector(".mgr-jump-to-msg-prompt");
+            if (jumpBtn) {
+              jumpBtn.addEventListener("click", () => {
+                const targetP = (currentConcept.prompts || []).find(p => p.id === m.questionContext?.promptId);
+                if (targetP) {
+                  currentPrompt = targetP;
+                  loadNextCard(targetP, !answerSection.classList.contains("hidden"));
+                }
+              });
+            }
+            mBox.querySelector(".mgr-use-msg-for-ai").addEventListener("click", () => {
+              const editorBox = document.getElementById("manager-card-inline-editor-box");
+              const aiInput = document.getElementById("manager-inline-ai-instruction");
+              if (editorBox && aiInput) {
+                editorBox.classList.remove("hidden");
+                aiInput.value = m.commentText || "";
+                aiInput.focus();
+              }
+            });
+            const replyBtn = mBox.querySelector(".mgr-card-send-reply-btn");
+            if (replyBtn) {
+              replyBtn.addEventListener("click", async () => {
+                const val = mBox.querySelector(".mgr-card-reply-input").value;
+                await sendDeveloperReplyToUser(m, val);
+                renderManagerFlashcardElements();
+              });
+            }
+            msgListEl.appendChild(mBox);
+          });
+        } else {
+          messagesPanel.classList.add("hidden");
+        }
+      }
+
+      // 3. Render Manager Actions & Populate Inline Editor Fields for currentConcept & currentPrompt
+      if (actionsPanel) {
+        actionsPanel.classList.remove("hidden");
+        const cidBadge = document.getElementById("manager-card-concept-id-badge");
+        if (cidBadge) {
+          cidBadge.textContent = `${currentConcept.id} / ${currentPrompt?.id || ""}`;
+        }
+        const delConceptBtn = document.getElementById("btn-manager-delete-current-concept");
+        if (delConceptBtn) {
+          if (isCurrentUserDeveloper()) {
+            delConceptBtn.classList.remove("hidden");
+          } else {
+            delConceptBtn.classList.add("hidden");
+          }
+        }
+        document.getElementById("manager-inline-prompt-type").value = currentPrompt?.type || "תרחיש קליני";
+        document.getElementById("manager-inline-concept-title").value = currentConcept.title || currentConcept.category || "";
+        document.getElementById("manager-inline-prompt-text").value = currentPrompt?.text || "";
+        document.getElementById("manager-inline-prompt-note").value = currentPrompt?.note || currentConcept.answer || "";
+        document.getElementById("manager-inline-concept-answer").value = currentConcept.answer || "";
+        if (mergedConceptMessages.length > 0 && !document.getElementById("manager-inline-ai-instruction").value) {
+          document.getElementById("manager-inline-ai-instruction").value = mergedConceptMessages[0].commentText || "";
+        }
+      }
+    }
+
     function startStudySession(forceAllMode = false) {
+      activeManagerReviewMode = false;
       const now = getNow();
       const activeIds = getActiveSelectedSubjectIds();
       const selectedSubjects = activeIds.map(id => SUBJECTS.find(s => s.id === id)).filter(Boolean);
@@ -3879,6 +4469,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
       updateGradeButtonPreviews(currentConcept.id);
       applyVisualPerturbation();
+      renderManagerFlashcardElements();
     }
 
     function revealAnswer() {
@@ -4074,6 +4665,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               <button type="button" class="toggle-questions-comments-btn px-2.5 py-1 rounded-lg bg-sky-100 hover:bg-sky-200 text-sky-900 font-extrabold transition">
                 💬 שאלות והערות (${node.prompts.length} שאלות • ${nodeComments.length} הערות)
               </button>
+              <button type="button" class="open-concept-in-study-btn px-2.5 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-extrabold transition" title="צפה וערוך את כל שאלות הקונספט בתצוגת כרטיסיית למידה">
+                🎴 תצוגת למידה
+              </button>
               <button type="button" class="edit-concept-from-explorer px-2.5 py-1 rounded-lg bg-indigo-100 hover:bg-indigo-200 text-indigo-900 font-extrabold transition">
                 ✏️ ערוך קונספט / שאלות
               </button>
@@ -4083,9 +4677,11 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               <button type="button" data-ref-id="${scheme.id}" class="open-ref-from-explorer px-2.5 py-1 rounded-lg bg-violet-100 hover:bg-violet-200 text-violet-800 font-bold transition">
                 📋 סכמת עזר
               </button>
-              <button type="button" class="delete-concept-from-explorer px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold transition" title="מחק קונספט זה מה-JSON לצמיתות">
+              ${isCurrentUserDeveloper() ? `
+              <button type="button" class="delete-concept-from-explorer px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold transition" title="מחק קונספט זה מה-JSON לצמיתות (מפתח בלבד)">
                 🗑️ מחק מה-JSON
               </button>
+              ` : ""}
             </div>
           </div>
           <p class="text-xs text-slate-700 font-medium">${escapeHtmlSafe(node.answer)}</p>
@@ -4328,6 +4924,10 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           }
         });
 
+        item.querySelector(".open-concept-in-study-btn").addEventListener("click", () => {
+          startManagerFlashcardReviewSession("explorer_filtered", node.id, null);
+        });
+
         item.querySelector(".edit-concept-from-explorer").addEventListener("click", () => {
           openConceptEditorModal(node.id);
         });
@@ -4403,9 +5003,11 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     });
 
     document.getElementById("logout-btn").addEventListener("click", async () => {
+      devFeedbackModal.classList.add("hidden");
       if (isDemoMode) {
         isDemoMode = false;
         currentUser = null;
+        updateCommentAndFeedbackBadges();
         switchView("auth");
         return;
       }
@@ -4729,6 +5331,170 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
     document.getElementById("start-session-btn").addEventListener("click", () => startStudySession(false));
 
+    // Manager Flashcard Review Mode Controls
+    document.getElementById("btn-dev-start-card-review-messages").addEventListener("click", () => {
+      devFeedbackModal.classList.add("hidden");
+      startManagerFlashcardReviewSession("messages");
+    });
+    document.getElementById("btn-dev-start-card-review-all").addEventListener("click", () => {
+      devFeedbackModal.classList.add("hidden");
+      startManagerFlashcardReviewSession("all");
+    });
+    document.getElementById("btn-explorer-start-card-review").addEventListener("click", () => {
+      startManagerFlashcardReviewSession("explorer_filtered");
+    });
+    document.getElementById("btn-toggle-study-manager-mode").addEventListener("click", () => {
+      activeManagerReviewMode = !activeManagerReviewMode;
+      renderManagerFlashcardElements();
+    });
+    document.getElementById("btn-manager-prev-card").addEventListener("click", () => stepManagerCard(-1));
+    document.getElementById("btn-manager-next-card").addEventListener("click", () => stepManagerCard(1));
+    document.getElementById("btn-manager-bottom-prev").addEventListener("click", () => stepManagerCard(-1));
+    document.getElementById("btn-manager-bottom-next").addEventListener("click", () => stepManagerCard(1));
+    document.getElementById("btn-manager-return-hub").addEventListener("click", () => {
+      if (isCurrentUserDeveloper()) {
+        openDeveloperFeedbackModal();
+      } else {
+        switchView("explorer");
+      }
+    });
+    document.getElementById("toggle-manager-auto-reveal").addEventListener("change", (e) => {
+      if (e.target.checked) {
+        revealAnswer();
+      }
+    });
+
+    function cycleNextPromptVariationOnCard() {
+      if (!currentConcept || !Array.isArray(currentConcept.prompts) || currentConcept.prompts.length === 0) return;
+      const prompts = currentConcept.prompts;
+      const curIdx = prompts.findIndex(p => p.id === currentPrompt?.id);
+      const nextP = prompts[(curIdx + 1) % prompts.length];
+      currentPrompt = nextP;
+      managerPreferredPromptByConcept[currentConcept.id] = nextP.id;
+      loadNextCard(nextP, !answerSection.classList.contains("hidden"));
+    }
+
+    document.getElementById("btn-manager-cycle-next-prompt").addEventListener("click", cycleNextPromptVariationOnCard);
+    document.getElementById("btn-manager-bottom-next-prompt").addEventListener("click", cycleNextPromptVariationOnCard);
+
+    document.getElementById("btn-manager-card-inline-edit").addEventListener("click", () => {
+      const box = document.getElementById("manager-card-inline-editor-box");
+      box.classList.toggle("hidden");
+      if (!box.classList.contains("hidden")) {
+        document.getElementById("manager-inline-prompt-text").focus();
+      }
+    });
+    document.getElementById("btn-manager-cancel-inline-edit").addEventListener("click", () => {
+      document.getElementById("manager-card-inline-editor-box").classList.add("hidden");
+    });
+    document.getElementById("btn-manager-card-full-editor").addEventListener("click", () => {
+      if (currentConcept) {
+        openConceptEditorModal(currentConcept.id, currentPrompt?.id || null);
+      }
+    });
+
+    document.querySelectorAll(".mgr-ai-preset-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.getElementById("manager-inline-ai-instruction").value = btn.getAttribute("data-mgr-ai-preset") || "";
+      });
+    });
+
+    document.getElementById("btn-manager-run-inline-ai").addEventListener("click", async (ev) => {
+      if (!currentConcept) return;
+      const btn = ev.currentTarget;
+      const inst = document.getElementById("manager-inline-ai-instruction").value.trim();
+      const cTitle = document.getElementById("manager-inline-concept-title").value.trim() || currentConcept.title;
+      const cAns = document.getElementById("manager-inline-concept-answer").value.trim() || currentConcept.answer;
+      const curText = document.getElementById("manager-inline-prompt-text").value.trim();
+      const curType = document.getElementById("manager-inline-prompt-type").value.trim();
+
+      btn.disabled = true;
+      btn.textContent = "⏳ משכתב...";
+      const res = await rewriteSpecificQuestionWithAI(cTitle, cAns, { type: curType, text: curText, note: cAns }, inst);
+      btn.disabled = false;
+      btn.textContent = "✨ שכתב שאלה עם AI";
+      if (res && res.text) {
+        document.getElementById("manager-inline-prompt-type").value = res.type || curType || "תרחיש קליני";
+        document.getElementById("manager-inline-prompt-text").value = res.text;
+        document.getElementById("manager-inline-prompt-note").value = res.note || cAns;
+        showToast("נוסח השאלה שוכתב עם AI — לחץ על 'שמור שינויים בשאלה ובקונספט' לאישור", "emerald");
+      }
+    });
+
+    document.getElementById("btn-manager-save-inline-edit").addEventListener("click", async () => {
+      if (!currentConcept || !currentPrompt) return;
+      const newType = document.getElementById("manager-inline-prompt-type").value.trim() || "תרחיש קליני";
+      const newTitle = document.getElementById("manager-inline-concept-title").value.trim() || currentConcept.title;
+      const newPromptText = document.getElementById("manager-inline-prompt-text").value.trim();
+      const newPromptNote = document.getElementById("manager-inline-prompt-note").value.trim();
+      const newConceptAns = document.getElementById("manager-inline-concept-answer").value.trim();
+
+      if (!newPromptText || !newConceptAns) {
+        showToast("נוסח השאלה וקונספט הליבה אינם יכולים להיות ריקים", "rose");
+        return;
+      }
+
+      const updatedPrompts = (currentConcept.prompts || []).map(p => {
+        if (p.id === currentPrompt.id) {
+          return {
+            ...p,
+            type: newType,
+            text: newPromptText,
+            note: newPromptNote || newConceptAns
+          };
+        }
+        return p;
+      });
+
+      const updatedNode = {
+        ...currentConcept,
+        title: newTitle,
+        category: newTitle,
+        answer: newConceptAns,
+        prompts: updatedPrompts
+      };
+
+      customConceptOverrides[currentConcept.id] = updatedNode;
+      applyConceptOverridesToMemory();
+      await persistUserStateToCloud();
+
+      currentConcept = updatedNode;
+      sessionQueue[0] = updatedNode;
+      currentPrompt = updatedNode.prompts.find(p => p.id === currentPrompt.id) || updatedNode.prompts[0];
+      document.getElementById("manager-card-inline-editor-box").classList.add("hidden");
+      loadNextCard(currentPrompt, !answerSection.classList.contains("hidden"));
+      showToast("השינויים בשאלה ובקונספט נשמרו בהצלחה ועודכנו בכרטיסייה!", "emerald");
+    });
+
+    document.getElementById("btn-manager-delete-current-prompt").addEventListener("click", async () => {
+      if (!currentConcept || !currentPrompt) return;
+      const prompts = currentConcept.prompts || [];
+      if (prompts.length <= 1) {
+        showToast("זו השאלה היחידה בקונספט זה — למחיקת הקונספט כולו לחץ על 'מחק קונספט מה-JSON'", "amber");
+        return;
+      }
+      const removedId = currentPrompt.id;
+      const remainingPrompts = prompts.filter(p => p.id !== removedId);
+      const updatedNode = {
+        ...currentConcept,
+        prompts: remainingPrompts
+      };
+      customConceptOverrides[currentConcept.id] = updatedNode;
+      applyConceptOverridesToMemory();
+      await persistUserStateToCloud();
+
+      currentConcept = updatedNode;
+      sessionQueue[0] = updatedNode;
+      currentPrompt = remainingPrompts[0];
+      loadNextCard(currentPrompt, !answerSection.classList.contains("hidden"));
+      showToast(`וריאציית השאלה (${removedId}) הוסרה מהקונספט!`, "amber");
+    });
+
+    document.getElementById("btn-manager-delete-current-concept").addEventListener("click", async () => {
+      if (!currentConcept) return;
+      await deleteConceptFromDatabase(currentConcept.id);
+    });
+
     // Study View Controls
     document.getElementById("back-to-dashboard-btn").addEventListener("click", () => switchView("dashboard"));
     document.getElementById("finish-back-dashboard-btn").addEventListener("click", () => switchView("dashboard"));
@@ -4799,7 +5565,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       }
     });
 
-    document.getElementById("save-new-concept-btn").addEventListener("click", () => {
+    document.getElementById("save-new-concept-btn").addEventListener("click", async () => {
       const subjectId = document.getElementById("new-concept-subject").value;
       const category = document.getElementById("new-concept-category").value.trim() || "קונספט מותאם";
       const refTitle = document.getElementById("new-concept-ref-title").value.trim() || `סכמת עזר: ${category}`;
@@ -4845,7 +5611,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         prompts
       };
 
-      saveCustomConceptToLocal(newNode);
+      await saveCustomConceptToLocal(newNode);
       document.getElementById("new-concept-category").value = "";
       document.getElementById("new-concept-ref-title").value = "";
       document.getElementById("new-concept-answer").value = "";
