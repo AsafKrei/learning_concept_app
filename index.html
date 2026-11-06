@@ -268,45 +268,104 @@
     </div>
   </div>
 
-  <!-- ========================================================== -->
-  <!-- DEVELOPER FEEDBACK BROADCAST HUB MODAL                     -->
-  <!-- ========================================================== -->
-  <div id="dev-feedback-modal" class="fixed inset-0 z-50 hidden bg-slate-900/65 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-3xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[88vh] animate-fade-in">
-      <div class="px-6 py-4 bg-gradient-to-l from-violet-700 to-indigo-700 text-white flex items-center justify-between gap-3">
-        <div>
-          <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/20 text-white">ערוץ משוב ישיר למפתח האפליקציה</span>
-          <h3 class="text-lg font-extrabold mt-1">📡 הערות ומשובים ששודרו למפתח (כולל הקשר שאלה וקונספט)</h3>
-        </div>
-        <button id="btn-close-dev-feedback" type="button" class="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center font-bold">✕</button>
-      </div>
-
-      <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
-        <div class="bg-indigo-50/80 border border-indigo-200 rounded-2xl p-3.5 text-xs text-indigo-950 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <strong>איך עובד שידור המשוב למפתח?</strong> כל הערה שמסומנת לשידור נשמרת אוטומטית ב-Firestore תחת <code>developerFeedback</code> עם כל פרטי הקונספט והשאלה, וניתנת גם להעתקה/שליחה מרוכזת בלחיצה אחת.
+  <!-- ========================================== -->
+    <!-- MODAL 2B: DEVELOPER HUB - USER MESSAGES, DECISIONS & NON-DESTRUCTIVE JSON SYNC -->
+    <!-- ========================================== -->
+    <div id="dev-feedback-modal" class="hidden fixed inset-0 z-50 bg-slate-900/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6">
+      <div class="bg-white w-full max-w-5xl rounded-3xl border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[92vh] animate-fade-in">
+        <!-- Modal Header -->
+        <div class="px-5 py-4 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div class="flex items-center gap-2.5">
+            <span class="w-9 h-9 rounded-xl bg-violet-500/20 border border-violet-400/30 flex items-center justify-center text-lg">📡</span>
+            <div>
+              <h3 class="text-sm sm:text-base font-extrabold">מרכז הודעות משתמשים, החלטות תוכן ועדכון JSON (מפתח)</h3>
+              <p class="text-[11px] text-slate-300">צפה בהודעות מכל משתמש על כל שאלה וקונספט, מחק קונספטים מה-JSON, ערוך/שנה שאלות, השב למשתמשים ועדכן JSON מבלי לאבד שינויים</p>
+            </div>
           </div>
           <div class="flex flex-wrap items-center gap-2">
-            <button id="btn-copy-all-dev-feedback" type="button" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold transition">
-              📋 העתק דוח משובים מלא
+            <button id="btn-refresh-cloud-feedback" type="button" class="px-3 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-extrabold transition">
+              🔄 סנכרן הודעות ומשתמשים
             </button>
-            <button id="btn-export-dev-feedback-json" type="button" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-indigo-800 border border-indigo-200 font-bold transition">
-              ⬇️ הורד JSON למפתח
+            <button id="btn-copy-all-dev-feedback" type="button" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition">
+              📋 העתק דוח משובים
+            </button>
+            <button id="btn-close-dev-feedback" type="button" class="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center text-sm font-bold transition" aria-label="סגור">
+              ✕
             </button>
           </div>
         </div>
 
-        <div id="dev-feedback-list" class="space-y-3"></div>
-      </div>
+        <!-- Non-Destructive JSON Update & Export Bar -->
+        <div class="px-5 py-3 bg-indigo-50/90 border-b border-indigo-200/80 flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div class="space-y-0.5">
+            <div class="text-xs font-extrabold text-indigo-950 flex items-center gap-1.5">
+              <span>💾 עדכון וייצוא קבצי JSON ללא מחיקת השינויים שלך</span>
+              <span id="dev-patch-summary-pill" class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-extrabold">0 שינויים שמורים</span>
+            </div>
+            <p class="text-[11px] text-indigo-800/90">
+              כל עריכת שאלה, הוספת קונספט או מחיקת קונספט נשמרים בשכבת שינויים מוגנת (Local + Cloud) ולא נמחקים בעת עדכון ה-JSON.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btn-export-routine-json" type="button" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold transition shadow-2xs">
+              📥 הורד database.json מעודכן
+            </button>
+            <button id="btn-export-mtls-json" type="button" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold transition shadow-2xs">
+              📥 הורד mtls.json מעודכן
+            </button>
+            <label for="input-merge-json-file" class="cursor-pointer px-3 py-1.5 rounded-xl bg-white hover:bg-indigo-100 text-indigo-900 border border-indigo-300 text-xs font-extrabold transition shadow-2xs">
+              📂 עדכן/מזג קובץ JSON מבלי לדרוס שינויים
+            </label>
+            <input id="input-merge-json-file" type="file" accept=".json,application/json" class="hidden">
+            <button id="btn-export-dev-feedback-json" type="button" class="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold transition">
+              📄 ייצא הודעות (JSON)
+            </button>
+          </div>
+        </div>
 
-      <div class="px-6 py-3 bg-slate-100 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-        <span id="dev-feedback-count-footer">0 משובים רשומים</span>
-        <button id="btn-close-dev-feedback-footer" type="button" class="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold transition">
-          סגור חלון
-        </button>
+        <!-- Filter & Tabs Bar inside Developer Hub -->
+        <div class="px-5 py-2.5 bg-slate-100 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 shrink-0 text-xs">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-extrabold text-slate-700">סינון לפי משתמש:</span>
+            <select id="dev-filter-user-select" aria-label="סינון לפי משתמש" class="px-2.5 py-1 rounded-lg border border-slate-300 bg-white font-bold text-slate-800">
+              <option value="all">כל המשתמשים</option>
+            </select>
+            <span class="font-extrabold text-slate-700 mr-1">סטטוס:</span>
+            <select id="dev-filter-status-select" aria-label="סינון לפי סטטוס" class="px-2.5 py-1 rounded-lg border border-slate-300 bg-white font-bold text-slate-800">
+              <option value="all">כל ההודעות וההערות</option>
+              <option value="unreplied">ממתין לתגובה / טיפול</option>
+              <option value="replied">נענה / טופל</option>
+            </select>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="dev-deleted-concepts-pill" class="text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full">0 קונספטים שנמחקו מה-JSON</span>
+            <button id="btn-restore-deleted-concepts" type="button" class="hidden px-2 py-0.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-900 text-[11px] font-extrabold transition">
+              שחזר מחוקים
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal Body: Beta Testers Suspended Summary + Messages List -->
+        <div class="p-5 overflow-y-auto space-y-4 flex-1">
+          <!-- Beta Testers Overview (Suspended concepts & comment counts per user) -->
+          <div id="dev-users-activity-box" class="hidden p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="text-xs font-extrabold text-slate-800">👥 סיכום פעילות נסיינים (הודעות וקונספטים מושהים לפי משתמש):</div>
+            <div id="dev-users-activity-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs"></div>
+          </div>
+
+          <!-- Per-Question / Per-Concept User Messages List -->
+          <div id="dev-feedback-list" class="space-y-3"></div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
+          <span id="dev-feedback-count-footer" class="text-xs font-bold text-slate-500">0 הודעות משתמשים</span>
+          <button id="btn-close-dev-feedback-footer" type="button" class="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold transition">
+            סגור חלון
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
   <!-- Main Content Container -->
   <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
@@ -369,183 +428,125 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- VIEW 2: DASHBOARD & SUBJECT SELECTION HUB  -->
+    <!-- VIEW 2: DASHBOARD & MULTI-TOPIC / MULTI-SUBJECT SELECTION -->
     <!-- ========================================== -->
     <section id="dashboard-section" class="hidden space-y-6 animate-fade-in">
 
-      <!-- Top Summary Banner & 3-Column Metrics Grid (Removed Average Memory Stability) -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
-        <!-- Metric 1: Due Today -->
-        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-500">ממתינים לחזרה כעת</span>
-            <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-sm">⏰</span>
-          </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span id="stat-due-count" class="text-2xl sm:text-3xl font-extrabold text-indigo-700">0</span>
-            <span class="text-xs text-slate-500 font-medium">קונספטים בתור להיום</span>
-          </div>
-          <p id="stat-new-breakdown" class="text-[11px] text-slate-400 mt-1">לפי מכסת הקונספטים החדשים בכל חפיסה</p>
-        </div>
-
-        <!-- Metric 2: Completed Today -->
-        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-500">הושלמו היום</span>
-            <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">✓</span>
-          </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span id="stat-completed-today" class="text-2xl sm:text-3xl font-extrabold text-emerald-600">0</span>
-            <span class="text-xs text-slate-500 font-medium">חזרות פעילות</span>
-          </div>
-          <div class="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
-            <div id="daily-goal-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
-          </div>
-        </div>
-
-        <!-- Metric 3: Study Streak -->
-        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-500">רצף למידה יומי</span>
-            <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">🔥</span>
-          </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span id="stat-streak-days" class="text-2xl sm:text-3xl font-extrabold text-amber-600">0</span>
-            <span class="text-xs text-slate-500 font-medium">ימים רצופים</span>
-          </div>
-          <p id="stat-last-studied" class="text-[11px] text-slate-400 mt-1">התמדה מחזקת יציבות FSRS</p>
-        </div>
-      </div>
-
-      <!-- Subject Selection Hub + Launch Panel (2-Column Responsive Layout) -->
+      <!-- Subject Selection & Session Launch Grid (Clean - No Top Statistics Windows) -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
 
-        <!-- Left/Main 2 Columns: Subject Cards Grid -->
+        <!-- Left 2 Columns: Major Topics & Multi-Subject Selector -->
         <div class="lg:col-span-2 space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-wrap items-center justify-between gap-2">
             <div>
-              <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">בחירת נושא לימוד</h2>
-              <p class="text-xs sm:text-sm text-slate-500">בחר נושא מהרשימה כדי להגדיר ולהתחיל סשן כרטיסיות קונספטים</p>
+              <div class="flex flex-wrap items-center gap-2"><h2 class="text-base sm:text-lg font-extrabold text-slate-900">בחירת תחומים ונושאים למבחן / תרגול</h2><span id="db-source-pill" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">2 תחומי-על • 15 נושאים</span></div>
+              <p class="text-xs text-slate-500 font-medium">ניתן לבחור נושא בודד או לשלב מספר נושאים ותחומי-על (חירום שבשגרה + MTLS) במבחן אחד</p>
             </div>
-            <span id="db-source-pill" class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-200/70 text-slate-700">
-              5 תחומי לימוד במערכת
-            </span>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button id="btn-select-all-subjects" type="button" class="px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-extrabold transition">
+                ☑️ בחר את כל הנושאים
+              </button>
+              <button id="btn-clear-selected-subjects" type="button" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+                נקה בחירה
+              </button>
+            </div>
           </div>
 
-          <!-- Subject Cards Container (No descriptions under titles) -->
           <div id="subjects-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <!-- Rendered dynamically via JS -->
+            <!-- Dynamically populated by JS -->
           </div>
         </div>
 
-        <!-- Right/Side Column: Selected Subject Details & Session Launcher -->
-        <aside class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-5 sm:p-6 sticky top-24 space-y-5">
-          <div class="flex items-center justify-between gap-3 border-b border-slate-100 pb-4">
-            <div>
-              <span id="selected-subject-badge" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 mb-1">
-                נבחר כעת
-              </span>
-              <h3 id="selected-subject-title" class="text-xl font-extrabold text-slate-900">דום לב במבוגר PEA / Asystole</h3>
+        <!-- Right Column: Selected Subject(s) Action Card -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs space-y-5 sticky top-24">
+          <div class="space-y-2">
+            <div class="flex items-center gap-3">
+              <div id="selected-subject-icon" class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center text-2xl font-extrabold shrink-0">
+                ⚡
+              </div>
+              <div>
+                <span id="selected-subjects-count-badge" class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">נושא אחד נבחר</span>
+                <h3 id="selected-subject-title" class="text-lg font-extrabold text-slate-900 leading-snug">דום לב במבוגר: PEA / Asystole</h3>
+              </div>
             </div>
-            <div id="selected-subject-icon" class="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl shrink-0">
-              ⚡
-            </div>
+            <!-- Selected Subjects Chips List (for Multi-Topic / Multi-Subject Combined Exam) -->
+            <div id="selected-subjects-chips" class="flex flex-wrap gap-1.5 pt-1"></div>
           </div>
 
-          <!-- Subject Queue Breakdown -->
-          <div class="grid grid-cols-3 gap-2 text-center bg-slate-50 p-3 rounded-2xl border border-slate-200/60">
-            <div>
-              <div id="panel-total-concepts" class="text-lg font-extrabold text-slate-800">0</div>
-              <div class="text-[11px] font-semibold text-slate-500">סה"כ קונספטים</div>
-            </div>
-            <div class="border-x border-slate-200/80">
-              <div id="panel-due-concepts" class="text-lg font-extrabold text-indigo-600">0</div>
-              <div class="text-[11px] font-semibold text-slate-500">לתרגול היום</div>
-            </div>
-            <div>
-              <div id="panel-total-prompts" class="text-lg font-extrabold text-emerald-600">0</div>
-              <div class="text-[11px] font-semibold text-slate-500">וריאציות שאלה</div>
-            </div>
-          </div>
-
-          <!-- Per-Deck New Cards Per Day Picker (Applies to both Daily Due & Free Practice) -->
-          <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 space-y-2.5">
+          <!-- User-Configurable New Concepts Per Day Picker -->
+          <div class="p-3.5 rounded-2xl bg-indigo-50/60 border border-indigo-200/80 space-y-2.5">
             <div class="flex items-center justify-between gap-2">
-              <label for="new-cards-limit-input" class="text-xs font-extrabold text-slate-800">
-                מספר קונספטים חדשים להיום בחפיסה זו:
-              </label>
-              <input id="new-cards-limit-input" type="number" min="0" max="300" step="1" value="10"
-                class="w-20 px-2.5 py-1 text-center font-extrabold text-sm text-indigo-700 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <div>
+                <label for="new-cards-limit-input" class="block text-xs font-extrabold text-indigo-950">מכסת קונספטים חדשים להיום (לכל נושא):</label>
+                <p id="new-cards-quota-status" class="text-[11px] text-indigo-700 font-medium mt-0.5">
+                  היום נלמדו: 0 מתוך 10 חדשים
+                </p>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <input id="new-cards-limit-input" type="number" min="0" max="200" step="1" value="10" class="w-16 px-2.5 py-1.5 rounded-xl border border-indigo-300 bg-white text-center text-sm font-extrabold text-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              </div>
             </div>
-            <div class="flex flex-wrap items-center gap-1.5">
-              <span class="text-[11px] text-slate-500 ml-1">בחירה מהירה:</span>
-              <button type="button" data-new-preset="0" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-50 text-slate-700 border border-slate-200 text-[11px] font-bold transition">0</button>
-              <button type="button" data-new-preset="5" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-50 text-slate-700 border border-slate-200 text-[11px] font-bold transition">5</button>
-              <button type="button" data-new-preset="10" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-50 text-slate-700 border border-slate-200 text-[11px] font-bold transition">10</button>
-              <button type="button" data-new-preset="15" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-50 text-slate-700 border border-slate-200 text-[11px] font-bold transition">15</button>
-              <button type="button" data-new-preset="30" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-50 text-slate-700 border border-slate-200 text-[11px] font-bold transition">30 (הכל)</button>
-            </div>
-            <div id="new-cards-quota-status" class="text-[11px] text-slate-500 font-medium leading-relaxed">
-              חל על "כרטיסים מתוזמנים להיום" ועל "תרגול חופשי"
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="text-[11px] text-slate-500 font-semibold ml-1">בחירה מהירה:</span>
+              <button type="button" data-new-preset="0" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-100 text-slate-700 border border-slate-200 text-[11px] font-bold transition">0 (חזרות בלבד)</button>
+              <button type="button" data-new-preset="3" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-100 text-slate-700 border border-slate-200 text-[11px] font-bold transition">3</button>
+              <button type="button" data-new-preset="5" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-100 text-slate-700 border border-slate-200 text-[11px] font-bold transition">5</button>
+              <button type="button" data-new-preset="10" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-100 text-slate-700 border border-slate-200 text-[11px] font-bold transition">10</button>
+              <button type="button" data-new-preset="20" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-100 text-slate-700 border border-slate-200 text-[11px] font-bold transition">20</button>
+              <button type="button" data-new-preset="50" class="px-2 py-0.5 rounded-lg bg-white hover:bg-indigo-100 text-slate-700 border border-slate-200 text-[11px] font-bold transition">הכל</button>
             </div>
           </div>
 
-          <!-- Session Settings -->
-          <div class="space-y-3">
-            <label class="block text-xs font-bold text-slate-700">מצב תור הלמידה:</label>
-            <div class="grid grid-cols-2 gap-2">
+          <!-- Session Mode Toggle -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-slate-600">מצב תרגול:</label>
+            <div class="grid grid-cols-2 gap-2 text-xs font-bold">
               <button id="mode-due-btn" type="button" class="p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/70 text-indigo-900 text-right transition">
-                <div class="text-xs font-extrabold">כרטיסים מתוזמנים להיום</div>
-                <div id="mode-due-subtext" class="text-[11px] text-indigo-700/80 mt-0.5">לפי תזמון + מכסת חדשים</div>
+                <div class="font-extrabold">כרטיסים מתוזמנים להיום</div>
+                <div id="mode-due-subtext" class="text-[11px] text-indigo-700/80 font-normal mt-0.5">לפי FSRS + מכסת חדשים</div>
               </button>
               <button id="mode-all-btn" type="button" class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-right transition">
-                <div class="text-xs font-extrabold">תרגול חופשי</div>
-                <div id="mode-all-subtext" class="text-[11px] text-slate-500 mt-0.5">נלמדו + מכסת חדשים</div>
+                <div class="font-extrabold">תרגול חופשי</div>
+                <div id="mode-all-subtext" class="text-[11px] text-slate-500 font-normal mt-0.5">כל הנלמדים + מכסת חדשים</div>
               </button>
             </div>
 
-            <!-- Free Study Option: Do NOT update scheduling ("ידעתי" / "לא ידעתי") -->
-            <div id="free-study-options-box" class="hidden pt-1 animate-fade-in">
-              <label class="flex items-center justify-between gap-2 cursor-pointer select-none bg-indigo-50/80 px-3 py-2.5 rounded-xl border border-indigo-200">
+            <!-- Free Study Option: Do NOT update FSRS scheduling ("ידעתי" / "לא ידעתי") -->
+            <div id="free-study-options-box" class="hidden pt-1">
+              <label class="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50/80 border border-amber-200/90 cursor-pointer text-xs">
+                <input id="toggle-free-no-schedule" type="checkbox" checked class="mt-0.5 rounded border-amber-400 text-indigo-600 focus:ring-indigo-500">
                 <div>
-                  <div class="text-xs font-extrabold text-indigo-950">ללא עדכון תזמון (מצב "ידעתי" / "לא ידעתי")</div>
-                  <div class="text-[11px] text-indigo-800/90 leading-snug mt-0.5">תזמון ה-FSRS לא ישתנה — "ידעתי" יסיר את הקונספט מסשן זה, ו"לא ידעתי" יציג אותו שוב בשאלה אחרת עד שתסמן "ידעתי"</div>
+                  <div class="font-extrabold text-amber-950">אל תעדכן תזמון FSRS בסשן זה (מצב "ידעתי" / "לא ידעתי")</div>
+                  <div class="text-[11px] text-amber-800/90 mt-0.5 leading-relaxed">
+                    בלחיצה על <strong>"ידעתי"</strong> הקונספט ירד מהתור בסשן הנוכחי. בלחיצה על <strong>"לא ידעתי"</strong> הקונספט יופיע שוב בהמשך הסשן עם שאלה אחרת עד שתסמן שידעת אותו.
+                  </div>
                 </div>
-                <input id="toggle-free-no-schedule" type="checkbox" checked class="w-4 h-4 accent-indigo-600 rounded cursor-pointer shrink-0">
-              </label>
-            </div>
-
-            <!-- Toggle Options (Visual Perturbation only; Prerequisite Graph removed) -->
-            <div class="pt-1">
-              <label class="flex items-center justify-between gap-2 cursor-pointer select-none bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/70">
-                <div>
-                  <div class="text-xs font-bold text-slate-800">הפרעה ויזואלית (Visual Perturbation)</div>
-                  <div class="text-[11px] text-slate-500">שינוי דינמי של גופן, רוחב ומסגרת למניעת קיבעון</div>
-                </div>
-                <input id="toggle-perturbation" type="checkbox" checked class="w-4 h-4 accent-indigo-600 rounded cursor-pointer">
               </label>
             </div>
           </div>
 
-          <!-- Empty Subject Warning (Shown when subject has 0 concepts) -->
-          <div id="empty-subject-notice" class="hidden bg-amber-50 border border-amber-200/90 rounded-2xl p-3.5 text-amber-900 text-xs space-y-1.5">
-            <div class="font-extrabold flex items-center gap-1.5">
-              <span>🚧</span>
-              <span>נושא זה ריק כעת (מיועד להרחבה עתידית)</span>
-            </div>
-            <p class="text-amber-800/90 leading-relaxed">
-              אין כרגע קונספטים בנושא זה. תוכל להוסיף קונספט חדש דרך לשונית <strong>"מאגר קונספטים"</strong>.
-            </p>
+          <!-- Visual Perturbation Toggle -->
+          <div class="pt-1 border-t border-slate-100">
+            <label class="flex items-center justify-between cursor-pointer py-1">
+              <div>
+                <span class="text-xs font-bold text-slate-700 block">שינוי ויזואלי אוטומטי (Visual Perturbation)</span>
+                <span class="text-[11px] text-slate-400">משנה גופן, רוחב ומסגרת למניעת שינון צילומי של הכרטיס</span>
+              </div>
+              <input id="toggle-perturbation" type="checkbox" checked class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
+            </label>
           </div>
 
-          <!-- Start Learning Button -->
-          <button id="start-session-btn" type="button" class="w-full py-3.5 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-extrabold text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 disabled:opacity-45 disabled:pointer-events-none">
-            <span>התחל סשן כרטיסיות קונספטים</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-            </svg>
+          <!-- Empty Deck Notice -->
+          <div id="empty-subject-notice" class="hidden p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-800 leading-relaxed">
+            טרם נבחרו נושאים עם קונספטים פעילים. סמן לפחות נושא אחד מהרשימה כדי להתחיל.
+          </div>
+
+          <!-- Launch Button -->
+          <button id="start-session-btn" type="button" class="w-full py-3.5 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-extrabold text-sm shadow-sm transition flex items-center justify-center gap-2">
+            <span>התחל סשן למידה</span>
+            <span>←</span>
           </button>
-        </aside>
+        </div>
 
       </div>
     </section>
@@ -778,9 +779,9 @@
           </div>
 
           <div class="flex items-center gap-2">
-            <button id="btn-open-dev-feedback-hub" type="button" class="hidden px-3.5 py-2 rounded-xl bg-violet-50 hover:bg-violet-100 text-violet-900 border border-violet-200 text-xs font-extrabold transition items-center gap-1.5" title="גלוי למפתח האפליקציה בלבד">
+            <button id="btn-open-dev-feedback-hub" type="button" class="flex px-3.5 py-2 rounded-xl bg-violet-50 hover:bg-violet-100 text-violet-900 border border-violet-200 text-xs font-extrabold transition items-center gap-1.5" title="צפייה בהודעות מכל משתמש, מחיקת קונספטים מה-JSON, מענה למשתמשים ועדכון JSON ללא מחיקת שינויים">
               <span>📡</span>
-              <span>תיבת משובים (מפתח)</span>
+              <span>הודעות משתמשים וניהול JSON</span>
               <span id="dev-feedback-hub-badge" class="px-1.5 py-0.2 rounded-full bg-violet-600 text-white text-[10px] font-extrabold">0</span>
             </button>
             <button id="toggle-add-concept-form-btn" type="button" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-extrabold transition shadow-xs">
@@ -1089,6 +1090,7 @@
     const CUSTOM_CONCEPTS_KEY = "concept_hebrew_custom_nodes_v9";
     const CUSTOM_SCHEMES_KEY = "concept_hebrew_custom_schemes_v9";
     const CONCEPT_OVERRIDES_KEY = "concept_hebrew_concept_overrides_v9";
+    const DELETED_CONCEPTS_KEY = "concept_hebrew_deleted_concepts_v9";
     const DEV_FEEDBACK_BROADCAST_KEY = "concept_hebrew_dev_feedback_v9";
 
     let currentUser = null;
@@ -1108,7 +1110,9 @@
     let userDeckSettings = {};
     let userComments = {}; // { [conceptId]: [ { id, conceptId, promptId, promptType, promptText, text, category, broadcasted, createdAt, updatedAt, userEmail } ] }
     let customConceptOverrides = {}; // { [conceptId]: updatedConceptNode }
+    let deletedConceptIds = []; // Array of concept IDs permanently deleted by developer
     let developerFeedbackList = []; // Array of broadcasted feedback objects with full question & concept context
+    let cloudUsersOverviewList = []; // Array of { uid, email, suspendedIds, commentsCount } from Firestore users
     let userStats = {
       streakDays: 0,
       lastStudyDate: null,
@@ -1117,6 +1121,7 @@
     };
 
     let selectedSubjectId = "pea_asystole";
+    let selectedSubjectIds = new Set(["pea_asystole"]);
     let sessionMode = "due"; // 'due' | 'all'
     let activeSessionNoSchedule = false; // When true in Free Study, shows "ידעתי" / "לא ידעתי" without updating FSRS
     let sessionSeenPromptsByConcept = {}; // { [conceptId]: [promptId, ...] }
@@ -1220,6 +1225,40 @@
       }
     }
 
+    function getActiveSelectedSubjectIds() {
+      const validIds = new Set(SUBJECTS.map(s => s.id));
+      const filtered = Array.from(selectedSubjectIds).filter(id => validIds.has(id));
+      if (filtered.length === 0 && selectedSubjectId && validIds.has(selectedSubjectId)) {
+        return [selectedSubjectId];
+      }
+      return filtered;
+    }
+
+    function buildCombinedQueueForMode(subjectIdsArray, mode, now = getNow()) {
+      const combinedQueue = [];
+      let dueLearnedCount = 0;
+      let learnedCount = 0;
+      let newIncludedCount = 0;
+      let totalNewAvailable = 0;
+
+      for (const sid of subjectIdsArray) {
+        const subPlan = buildDeckQueueForMode(sid, mode, now);
+        combinedQueue.push(...subPlan.queue);
+        dueLearnedCount += subPlan.dueLearnedCount;
+        learnedCount += subPlan.learnedCount;
+        newIncludedCount += subPlan.newIncludedCount;
+        totalNewAvailable += subPlan.totalNewAvailable;
+      }
+
+      return {
+        queue: combinedQueue,
+        dueLearnedCount,
+        learnedCount,
+        newIncludedCount,
+        totalNewAvailable
+      };
+    }
+
     function computeFSRSUpdate(prevRecord, grade, now = getNow()) {
       const rec = prevRecord ? { ...getDefaultConceptProgress(), ...prevRecord } : getDefaultConceptProgress();
       const elapsedDays = rec.lastReview
@@ -1310,28 +1349,83 @@
     }
 
     function applyConceptOverridesToMemory() {
-      let baseList = [...DEFAULT_CONCEPT_NODES];
+      const deletedSet = new Set(Array.isArray(deletedConceptIds) ? deletedConceptIds : []);
+      const byId = new Map();
+      for (const node of DEFAULT_CONCEPT_NODES) {
+        if (node && node.id && !deletedSet.has(node.id)) {
+          byId.set(node.id, JSON.parse(JSON.stringify(node)));
+        }
+      }
       try {
         const rawConcepts = localStorage.getItem(CUSTOM_CONCEPTS_KEY);
         if (rawConcepts) {
           const parsed = JSON.parse(rawConcepts);
           if (Array.isArray(parsed)) {
-            baseList = [...baseList, ...parsed];
+            for (const c of parsed) {
+              if (c && c.id && !deletedSet.has(c.id)) {
+                byId.set(c.id, JSON.parse(JSON.stringify(c)));
+              }
+            }
           }
         }
       } catch (e) {
         console.warn("Custom concepts read warning:", e);
       }
-      conceptNodes = baseList.map(node => {
-        if (customConceptOverrides && customConceptOverrides[node.id]) {
-          return JSON.parse(JSON.stringify(customConceptOverrides[node.id]));
+      if (customConceptOverrides && typeof customConceptOverrides === "object") {
+        for (const [cid, ovNode] of Object.entries(customConceptOverrides)) {
+          if (deletedSet.has(cid)) continue;
+          if (ovNode && typeof ovNode === "object") {
+            byId.set(cid, JSON.parse(JSON.stringify(ovNode)));
+          }
         }
-        return node;
-      });
+      }
+      conceptNodes = Array.from(byId.values());
+      const pill = document.getElementById("db-source-pill");
+      if (pill) {
+        pill.textContent = `${TOPICS.length} תחומי-על • ${SUBJECTS.length} נושאים (${conceptNodes.length} קונספטים)`;
+      }
+      updateDeveloperPatchSummaryUI();
+    }
+
+    function updateDeveloperPatchSummaryUI() {
+      const patchPill = document.getElementById("dev-patch-summary-pill");
+      const delPill = document.getElementById("dev-deleted-concepts-pill");
+      const restoreBtn = document.getElementById("btn-restore-deleted-concepts");
+      let customAddedCount = 0;
+      try {
+        const raw = localStorage.getItem(CUSTOM_CONCEPTS_KEY);
+        if (raw) {
+          const arr = JSON.parse(raw);
+          if (Array.isArray(arr)) customAddedCount = arr.length;
+        }
+      } catch (e) {}
+      const overridesCount = Object.keys(customConceptOverrides || {}).length;
+      const deletedCount = Array.isArray(deletedConceptIds) ? deletedConceptIds.length : 0;
+
+      if (patchPill) {
+        patchPill.textContent = `${overridesCount} עריכות • ${customAddedCount} חדשים • ${deletedCount} מחוקים`;
+      }
+      if (delPill) {
+        delPill.textContent = `${deletedCount} קונספטים שנמחקו מה-JSON`;
+      }
+      if (restoreBtn) {
+        if (deletedCount > 0) {
+          restoreBtn.classList.remove("hidden");
+        } else {
+          restoreBtn.classList.add("hidden");
+        }
+      }
     }
 
     function loadCustomDataFromLocal() {
       try {
+        const rawDeleted = localStorage.getItem(DELETED_CONCEPTS_KEY);
+        if (rawDeleted) {
+          const parsedDel = JSON.parse(rawDeleted);
+          if (Array.isArray(parsedDel)) {
+            deletedConceptIds = parsedDel;
+          }
+        }
         const rawOverrides = localStorage.getItem(CONCEPT_OVERRIDES_KEY);
         if (rawOverrides) {
           const parsedOv = JSON.parse(rawOverrides);
@@ -1401,7 +1495,9 @@
           stats: userStats
         }));
         localStorage.setItem(CONCEPT_OVERRIDES_KEY, JSON.stringify(customConceptOverrides));
+        localStorage.setItem(DELETED_CONCEPTS_KEY, JSON.stringify(deletedConceptIds));
         localStorage.setItem(DEV_FEEDBACK_BROADCAST_KEY, JSON.stringify(developerFeedbackList));
+        updateDeveloperPatchSummaryUI();
       } catch (e) {
         console.warn("LocalStorage write error:", e);
       }
@@ -1446,14 +1542,28 @@
           await setDoc(
             doc(db, "users", currentUser.uid),
             {
+              email: currentUser.email || "",
+              updatedAt: new Date().toISOString(),
               progress: userProgress,
               deckSettings: userDeckSettings,
               comments: userComments,
               conceptOverrides: customConceptOverrides,
+              deletedConceptIds: deletedConceptIds,
               stats: userStats
             },
             { merge: true }
           );
+          if (isCurrentUserDeveloper()) {
+            await setDoc(
+              doc(db, "globalDatabasePatches", "main"),
+              {
+                updatedAt: new Date().toISOString(),
+                conceptOverrides: customConceptOverrides,
+                deletedConceptIds: deletedConceptIds
+              },
+              { merge: true }
+            );
+          }
           updateSyncBadge("מסונכרן לענן (Firestore)", "emerald");
         } catch (err) {
           console.warn("Firestore write fallback:", err);
@@ -1471,6 +1581,21 @@
       }
 
       try {
+        try {
+          const patchSnap = await getDoc(doc(db, "globalDatabasePatches", "main"));
+          if (patchSnap.exists()) {
+            const pData = patchSnap.data();
+            if (Array.isArray(pData.deletedConceptIds)) {
+              deletedConceptIds = Array.from(new Set([...deletedConceptIds, ...pData.deletedConceptIds]));
+            }
+            if (pData.conceptOverrides && typeof pData.conceptOverrides === "object") {
+              customConceptOverrides = { ...customConceptOverrides, ...pData.conceptOverrides };
+            }
+            applyConceptOverridesToMemory();
+          }
+        } catch (patchErr) {
+          console.warn("Global patch read info:", patchErr);
+        }
         const userRef = doc(db, "users", currentUser.uid);
         const docSnap = await getDoc(userRef);
         if (docSnap.exists()) {
@@ -1658,36 +1783,13 @@
 
     function renderDashboard() {
       const now = getNow();
-      const todayStr = getTodayDateString(now);
-
-      let totalScheduledToday = 0;
-      let totalNewUnstudied = 0;
-
-      for (const subj of SUBJECTS) {
-        const plan = buildDeckQueueForMode(subj.id, "due", now);
-        totalScheduledToday += plan.queue.length;
+      const activeSelectedIds = getActiveSelectedSubjectIds();
+      selectedSubjectIds = new Set(activeSelectedIds);
+      if (activeSelectedIds.length > 0 && !selectedSubjectIds.has(selectedSubjectId)) {
+        selectedSubjectId = activeSelectedIds[0];
       }
 
-      for (const node of conceptNodes) {
-        if (!isConceptSuspended(node.id) && isConceptNewForUser(node.id)) {
-          totalNewUnstudied += 1;
-        }
-      }
-
-      const completedToday = userStats.dailyHistory?.[todayStr] || 0;
-
-      document.getElementById("stat-due-count").textContent = totalScheduledToday;
-      document.getElementById("stat-new-breakdown").textContent = `${totalNewUnstudied} קונספטים חדשים טרם נלמדו במאגר`;
-      document.getElementById("stat-completed-today").textContent = completedToday;
-      const goalPercent = Math.min(100, Math.round((completedToday / 15) * 100));
-      document.getElementById("daily-goal-bar").style.width = `${goalPercent}%`;
-
-      document.getElementById("stat-streak-days").textContent = userStats.streakDays || 0;
-      document.getElementById("stat-last-studied").textContent = userStats.lastStudyDate
-        ? `פעילות אחרונה: ${userStats.lastStudyDate}`
-        : "השלם כרטיסייה ראשונה כדי להתחיל רצף";
-
-      // Render Major Topics ("חירום שבשגרה", etc.) and only show sub-subjects when a Major Topic is opened!
+      // Render Major Topics ("חירום שבשגרה", "MTLS") and sub-subjects with Multi-Select support!
       const grid = document.getElementById("subjects-grid");
       grid.innerHTML = "";
 
@@ -1696,12 +1798,15 @@
         const topicSubjIds = new Set(topicSubjects.map(s => s.id));
         const topicConcepts = conceptNodes.filter(n => topicSubjIds.has(n.subjectId) && !isConceptSuspended(n.id));
         let topicDueCount = 0;
+        let selectedInTopicCount = 0;
         for (const s of topicSubjects) {
           topicDueCount += buildDeckQueueForMode(s.id, "due", now).queue.length;
+          if (selectedSubjectIds.has(s.id)) selectedInTopicCount += 1;
         }
 
         const isTopicOpen = openedTopicId === topic.id;
         const isTopicLoading = loadingTopicId === topic.id;
+        const allInTopicSelected = topicSubjects.length > 0 && selectedInTopicCount === topicSubjects.length;
 
         const topicWrapper = document.createElement("div");
         topicWrapper.className = "sm:col-span-2 space-y-3";
@@ -1712,14 +1817,17 @@
               ? `<span class="text-xs font-extrabold px-3 py-1 rounded-full bg-indigo-100 text-indigo-800">${topicDueCount} לתרגול היום</span>`
               : `<span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">הכל הושלם להיום ✓</span>`);
 
-        const topicCard = document.createElement("button");
-        topicCard.type = "button";
-        topicCard.className = isTopicOpen
-          ? "w-full text-right p-5 rounded-3xl border-2 border-indigo-600 bg-gradient-to-l from-indigo-50/90 via-white to-white shadow-sm transition flex items-center justify-between gap-4"
-          : "w-full text-right p-5 rounded-3xl border-2 border-slate-200/90 bg-white hover:border-indigo-400 hover:shadow-sm transition flex items-center justify-between gap-4";
+        const selectedTopicPill = selectedInTopicCount > 0
+          ? `<span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-indigo-600 text-white">☑️ ${selectedInTopicCount}/${topicSubjects.length} נושאים נבחרו</span>`
+          : "";
+
+        const topicCard = document.createElement("div");
+        topicCard.className = (isTopicOpen || selectedInTopicCount > 0)
+          ? "w-full text-right p-5 rounded-3xl border-2 border-indigo-600 bg-gradient-to-l from-indigo-50/90 via-white to-white shadow-sm transition flex flex-wrap items-center justify-between gap-4"
+          : "w-full text-right p-5 rounded-3xl border-2 border-slate-200/90 bg-white hover:border-indigo-400 hover:shadow-sm transition flex flex-wrap items-center justify-between gap-4";
 
         topicCard.innerHTML = `
-          <div class="flex items-center gap-3.5">
+          <div class="flex items-center gap-3.5 cursor-pointer flex-1 min-w-[220px] topic-open-trigger">
             <div class="w-12 h-12 rounded-2xl ${isTopicOpen ? "bg-indigo-600 text-white" : "bg-indigo-50 text-indigo-700"} flex items-center justify-center text-2xl shrink-0 transition">
               ${topic.icon || "🚑"}
             </div>
@@ -1727,37 +1835,60 @@
               <div class="flex flex-wrap items-center gap-2">
                 <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">${escapeHtmlSafe(topic.title)}</h3>
                 ${topicBadgeHtml}
+                ${selectedTopicPill}
               </div>
               <p class="text-xs font-semibold text-slate-500 mt-1">
                 ${topicSubjects.length} נושאי לימוד • ${topicConcepts.length} קונספטים פעילים
               </p>
             </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="px-3 py-1.5 rounded-xl text-xs font-extrabold ${isTopicOpen ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700"} transition">
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <button type="button" class="toggle-entire-topic-btn px-3 py-1.5 rounded-xl text-xs font-extrabold border transition ${allInTopicSelected ? "bg-indigo-100 text-indigo-900 border-indigo-300 hover:bg-indigo-200" : "bg-white text-indigo-700 border-indigo-200 hover:bg-indigo-50"}">
+              ${allInTopicSelected ? "☑️ בטל בחירת תחום זה" : "➕ בחר את כל התחום למבחן"}
+            </button>
+            <button type="button" class="topic-expand-btn px-3 py-1.5 rounded-xl text-xs font-extrabold ${isTopicOpen ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"} transition">
               ${isTopicOpen ? "סגור נושאים ▲" : "פתח נושאים ▼"}
-            </span>
+            </button>
           </div>
         `;
 
-        topicCard.addEventListener("click", async () => {
+        const handleToggleOpenTopic = async () => {
           if (openedTopicId === topic.id) {
             openedTopicId = null;
             renderDashboard();
           } else {
             await ensureTopicLoaded(topic.id);
             openedTopicId = topic.id;
-            const updatedTopicSubjects = SUBJECTS.filter(s => (s.topicId || "routine_emergency") === topic.id);
-            if (updatedTopicSubjects.length > 0 && !updatedTopicSubjects.some(s => s.id === selectedSubjectId)) {
-              selectedSubjectId = updatedTopicSubjects[0].id;
-            }
             renderDashboard();
           }
+        };
+
+        topicCard.querySelector(".topic-open-trigger").addEventListener("click", handleToggleOpenTopic);
+        topicCard.querySelector(".topic-expand-btn").addEventListener("click", handleToggleOpenTopic);
+
+        topicCard.querySelector(".toggle-entire-topic-btn").addEventListener("click", async (e) => {
+          e.stopPropagation();
+          await ensureTopicLoaded(topic.id);
+          const updatedTopicSubjects = SUBJECTS.filter(s => (s.topicId || "routine_emergency") === topic.id);
+          const allSelectedNow = updatedTopicSubjects.every(s => selectedSubjectIds.has(s.id));
+          if (allSelectedNow) {
+            updatedTopicSubjects.forEach(s => selectedSubjectIds.delete(s.id));
+            if (selectedSubjectIds.size === 0 && SUBJECTS[0]) {
+              selectedSubjectIds.add(SUBJECTS[0].id);
+              showToast("חייב להישאר לפחות נושא אחד נבחר לתרגול", "amber");
+            }
+          } else {
+            updatedTopicSubjects.forEach(s => selectedSubjectIds.add(s.id));
+            openedTopicId = topic.id;
+            showToast(`כל הנושאים תחת "${topic.title}" נוספו למבחן המשולב!`, "emerald");
+          }
+          selectedSubjectId = Array.from(selectedSubjectIds)[0] || "pea_asystole";
+          renderDashboard();
         });
 
         topicWrapper.appendChild(topicCard);
 
-        // Only when this Major Topic is opened do its sub-subjects appear and become selectable!
+        // When this Major Topic is opened, its sub-subjects appear and can be toggled individually or multi-selected!
         if (isTopicOpen) {
           const subGrid = document.createElement("div");
           subGrid.className = "grid grid-cols-1 sm:grid-cols-2 gap-3.5 pr-2 sm:pr-4 border-r-2 border-indigo-200 animate-fade-in";
@@ -1766,7 +1897,7 @@
             const subjNodes = conceptNodes.filter(n => n.subjectId === subj.id && !isConceptSuspended(n.id));
             const duePlan = buildDeckQueueForMode(subj.id, "due", now);
             const subjScheduledCount = duePlan.queue.length;
-            const isSelected = subj.id === selectedSubjectId;
+            const isSelected = selectedSubjectIds.has(subj.id);
 
             const card = document.createElement("button");
             card.type = "button";
@@ -1782,7 +1913,7 @@
 
             card.innerHTML = `
               <div class="w-full flex items-start justify-between gap-2">
-                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-lg shrink-0">
+                <div class="w-10 h-10 rounded-xl ${isSelected ? "bg-indigo-600 text-white" : "bg-slate-100"} flex items-center justify-center text-lg shrink-0 transition">
                   ${subj.icon}
                 </div>
                 ${badgeHtml}
@@ -1793,13 +1924,22 @@
               <div class="w-full pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-500">
                 <span>${subjNodes.length} קונספטים פעילים</span>
                 <span class="${isSelected ? "text-indigo-700 font-extrabold" : "text-slate-400"}">
-                  ${isSelected ? "נבחר כעת ←" : "בחר נושא"}
+                  ${isSelected ? "☑️ נבחר למבחן (לחץ להסרה)" : "⬜ לחץ להוספה למבחן"}
                 </span>
               </div>
             `;
 
             card.addEventListener("click", () => {
-              selectedSubjectId = subj.id;
+              if (selectedSubjectIds.has(subj.id)) {
+                if (selectedSubjectIds.size > 1) {
+                  selectedSubjectIds.delete(subj.id);
+                } else {
+                  showToast("לפחות נושא אחד חייב להישאר נבחר — בחר נושא אחר כדי להחליף", "amber");
+                }
+              } else {
+                selectedSubjectIds.add(subj.id);
+              }
+              selectedSubjectId = Array.from(selectedSubjectIds)[0] || subj.id;
               renderDashboard();
             });
 
@@ -1817,23 +1957,65 @@
 
     function updateSelectedSubjectPanel() {
       const now = getNow();
-      const subj = SUBJECTS.find(s => s.id === selectedSubjectId) || SUBJECTS[0];
-      const activeSubjNodes = conceptNodes.filter(n => n.subjectId === subj.id && !isConceptSuspended(n.id));
-      const duePlan = buildDeckQueueForMode(subj.id, "due", now);
-      const freePlan = buildDeckQueueForMode(subj.id, "all", now);
-      const totalPrompts = activeSubjNodes.reduce((acc, n) => acc + (n.prompts?.length || 0), 0);
+      const activeIds = getActiveSelectedSubjectIds();
+      const selectedSubjects = activeIds.map(id => SUBJECTS.find(s => s.id === id)).filter(Boolean);
+      const primarySubj = selectedSubjects[0] || SUBJECTS[0];
 
-      document.getElementById("selected-subject-title").textContent = subj.title;
-      document.getElementById("selected-subject-icon").textContent = subj.icon;
+      const activeSubjNodes = conceptNodes.filter(n => activeIds.includes(n.subjectId) && !isConceptSuspended(n.id));
+      const duePlan = buildCombinedQueueForMode(activeIds, "due", now);
+      const freePlan = buildCombinedQueueForMode(activeIds, "all", now);
 
-      document.getElementById("panel-total-concepts").textContent = activeSubjNodes.length;
-      document.getElementById("panel-due-concepts").textContent = duePlan.queue.length;
-      document.getElementById("panel-total-prompts").textContent = totalPrompts;
+      const countBadge = document.getElementById("selected-subjects-count-badge");
+      const titleEl = document.getElementById("selected-subject-title");
+      const iconEl = document.getElementById("selected-subject-icon");
+      const chipsEl = document.getElementById("selected-subjects-chips");
 
-      // Update Per-Deck New Cards Per Day Picker UI
-      const deckLimit = getDeckNewCardsLimit(subj.id);
-      const studiedNewToday = getNewStudiedTodayInDeck(subj.id, now);
-      const remainingNewToday = getRemainingNewQuotaToday(subj.id, now);
+      if (selectedSubjects.length <= 1 && primarySubj) {
+        if (countBadge) countBadge.textContent = "נושא לימוד נבחר";
+        titleEl.textContent = primarySubj.title;
+        iconEl.textContent = primarySubj.icon;
+      } else {
+        const distinctTopics = new Set(selectedSubjects.map(s => s.topicId || "routine_emergency"));
+        if (countBadge) {
+          countBadge.textContent = distinctTopics.size > 1
+            ? `מבחן רב-תחומי משולב (${selectedSubjects.length} נושאים מ-${distinctTopics.size} תחומי-על)`
+            : `מבחן משולב (${selectedSubjects.length} נושאים נבחרו)`;
+        }
+        titleEl.textContent = `מבחן משולב: ${selectedSubjects.length} נושאים (${activeSubjNodes.length} קונספטים)`;
+        iconEl.textContent = "🎯";
+      }
+
+      if (chipsEl) {
+        chipsEl.innerHTML = "";
+        selectedSubjects.forEach(s => {
+          const chip = document.createElement("span");
+          chip.className = "inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-indigo-50 text-indigo-900 border border-indigo-200 text-[11px] font-bold";
+          chip.innerHTML = `<span>${s.icon}</span><span>${escapeHtmlSafe(s.shortTitle || s.title)}</span>`;
+          if (selectedSubjects.length > 1) {
+            const rmBtn = document.createElement("button");
+            rmBtn.type = "button";
+            rmBtn.className = "mr-0.5 text-indigo-500 hover:text-rose-600 font-extrabold";
+            rmBtn.textContent = "✕";
+            rmBtn.title = "הסר נושא זה מהמבחן";
+            rmBtn.addEventListener("click", () => {
+              selectedSubjectIds.delete(s.id);
+              selectedSubjectId = Array.from(selectedSubjectIds)[0] || SUBJECTS[0].id;
+              renderDashboard();
+            });
+            chip.appendChild(rmBtn);
+          }
+          chipsEl.appendChild(chip);
+        });
+      }
+
+      // Update Per-Deck New Cards Per Day Picker UI (applies to all selected subjects)
+      const deckLimit = primarySubj ? getDeckNewCardsLimit(primarySubj.id) : 10;
+      let studiedNewTodayTotal = 0;
+      let remainingNewTodayTotal = 0;
+      for (const sid of activeIds) {
+        studiedNewTodayTotal += getNewStudiedTodayInDeck(sid, now);
+        remainingNewTodayTotal += getRemainingNewQuotaToday(sid, now);
+      }
 
       const limitInput = document.getElementById("new-cards-limit-input");
       if (document.activeElement !== limitInput) {
@@ -1850,7 +2032,7 @@
       });
 
       document.getElementById("new-cards-quota-status").textContent =
-        `היום נלמדו בחפיסה זו ${studiedNewToday} מתוך ${deckLimit} קונספטים חדשים (נותרו להיום: ${remainingNewToday} חדשים מתוך ${duePlan.totalNewAvailable} במאגר)`;
+        `בנושאים שנבחרו נלמדו היום ${studiedNewTodayTotal} חדשים (נותרו להיום: ${remainingNewTodayTotal} חדשים מתוך ${duePlan.totalNewAvailable} במאגר)`;
 
       const freeStudyOptBox = document.getElementById("free-study-options-box");
       if (freeStudyOptBox) {
@@ -1872,7 +2054,7 @@
       if (activeSubjNodes.length === 0) {
         emptyNotice.classList.remove("hidden");
         startBtn.disabled = true;
-        startBtn.querySelector("span").textContent = "אין קונספטים בנושא זה כרגע";
+        startBtn.querySelector("span").textContent = "אין קונספטים בנושאים שנבחרו";
       } else {
         emptyNotice.classList.add("hidden");
         const activePlan = sessionMode === "due" ? duePlan : freePlan;
@@ -1881,8 +2063,10 @@
           startBtn.querySelector("span").textContent = "אין קונספטים לתרגול (הגדל מכסת חדשים להיום)";
         } else {
           startBtn.disabled = false;
-          const modeLabel = sessionMode === "due" ? "כרטיסים מתוזמנים להיום" : "תרגול חופשי";
-          startBtn.querySelector("span").textContent = `התחל ${modeLabel} (${activePlan.queue.length} קונספטים)`;
+          const modeLabel = sessionMode === "due" ? "מבחן מתוזמן" : "תרגול חופשי";
+          startBtn.querySelector("span").textContent = selectedSubjects.length > 1
+            ? `התחל ${modeLabel} משולב (${selectedSubjects.length} נושאים • ${activePlan.queue.length} קונספטים)`
+            : `התחל ${modeLabel} (${activePlan.queue.length} קונספטים)`;
         }
       }
     }
@@ -2248,7 +2432,7 @@
 
     // Configure developer email(s) here so ONLY the developer sees the Developer Feedback inbox in the UI
     const DEVELOPER_ADMIN_EMAILS = [
-      "admin@concept.app" // הוסף כאן את כתובת האימייל שלך ב-Firebase כדי לראות את כפתור תיבת המשובים באפליקציה
+      "asafikush23@gmail.com" // הוסף כאן את כתובת האימייל שלך ב-Firebase כדי לראות את כפתור תיבת המשובים באפליקציה
     ];
 
     function isCurrentUserDeveloper() {
@@ -2264,19 +2448,10 @@
         expBadge.textContent = `${commentedConceptsCount} קונספטים (${totalComments} הערות)`;
       }
 
-      const devHubBtn = document.getElementById("btn-open-dev-feedback-hub");
       const devBadge = document.getElementById("dev-feedback-hub-badge");
-      if (devHubBtn) {
-        if (isCurrentUserDeveloper()) {
-          devHubBtn.classList.remove("hidden");
-          devHubBtn.classList.add("flex");
-        } else {
-          devHubBtn.classList.add("hidden");
-          devHubBtn.classList.remove("flex");
-        }
-      }
       if (devBadge) {
-        devBadge.textContent = developerFeedbackList.length;
+        const mergedCount = getCombinedUserMessagesForDeveloper().length;
+        devBadge.textContent = mergedCount;
       }
 
       if (currentConcept) {
@@ -2450,6 +2625,12 @@
             </div>
           </div>
           <p class="text-slate-800 font-semibold leading-relaxed whitespace-pre-wrap">${escapeHtmlSafe(c.text)}</p>
+          ${c.developerReply ? `
+            <div class="mt-1.5 p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs space-y-0.5">
+              <div class="font-extrabold text-[11px] text-emerald-800">💌 תגובת מפתח האפליקציה (${c.developerReply.repliedAt ? new Date(c.developerReply.repliedAt).toLocaleString("he-IL", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : ""}):</div>
+              <div class="font-semibold whitespace-pre-wrap">${escapeHtmlSafe(c.developerReply.text)}</div>
+            </div>
+          ` : ""}
         `;
 
         row.querySelector(".edit-card-comment-btn").addEventListener("click", () => {
@@ -2925,76 +3106,517 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     }
 
     // ============================================================================
-    // 8E. DEVELOPER FEEDBACK HUB MODAL RENDERING
+    // 8E. DEVELOPER HUB: USER MESSAGES, DECISIONS (DELETE/EDIT/REPLY) & NON-DESTRUCTIVE JSON SYNC
     // ============================================================================
     const devFeedbackModal = document.getElementById("dev-feedback-modal");
 
-    async function openDeveloperFeedbackModal() {
-      devFeedbackModal.classList.remove("hidden");
-      if (!isDemoMode && currentUser && db && isCurrentUserDeveloper()) {
-        try {
-          const snap = await getDocs(collection(db, "developerFeedback"));
-          const cloudItems = [];
-          snap.forEach(d => {
-            if (d.exists()) cloudItems.push(d.data());
-          });
-          if (cloudItems.length > 0) {
-            cloudItems.sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")));
-            developerFeedbackList = cloudItems;
+    async function deleteConceptFromDatabase(conceptId) {
+      if (!conceptId) return;
+      const node = conceptNodes.find(n => n.id === conceptId);
+      const title = node ? (node.title || node.category || conceptId) : conceptId;
+      if (!deletedConceptIds.includes(conceptId)) {
+        deletedConceptIds.push(conceptId);
+      }
+      delete customConceptOverrides[conceptId];
+      try {
+        const rawCustom = localStorage.getItem(CUSTOM_CONCEPTS_KEY);
+        if (rawCustom) {
+          const parsed = JSON.parse(rawCustom);
+          if (Array.isArray(parsed)) {
+            localStorage.setItem(CUSTOM_CONCEPTS_KEY, JSON.stringify(parsed.filter(c => c.id !== conceptId)));
           }
-        } catch (err) {
-          console.warn("Could not fetch developerFeedback collection:", err);
+        }
+      } catch (e) {}
+
+      applyConceptOverridesToMemory();
+      await persistUserStateToCloud();
+
+      if (currentConcept && currentConcept.id === conceptId) {
+        sessionQueue = sessionQueue.filter(c => c.id !== conceptId);
+        loadNextCard();
+      }
+      if (!explorerSection.classList.contains("hidden")) {
+        renderExplorerView();
+      }
+      if (!dashboardSection.classList.contains("hidden")) {
+        renderDashboard();
+      }
+      if (!devFeedbackModal.classList.contains("hidden")) {
+        renderDeveloperFeedbackList();
+      }
+      showToast(`הקונספט "${title}" (${conceptId}) נמחק מה-JSON לצמיתות!`, "rose");
+    }
+
+    async function restoreAllDeletedConcepts() {
+      if (deletedConceptIds.length === 0) return;
+      const count = deletedConceptIds.length;
+      deletedConceptIds = [];
+      applyConceptOverridesToMemory();
+      await persistUserStateToCloud();
+      if (!explorerSection.classList.contains("hidden")) renderExplorerView();
+      if (!dashboardSection.classList.contains("hidden")) renderDashboard();
+      if (!devFeedbackModal.classList.contains("hidden")) renderDeveloperFeedbackList();
+      showToast(`שוחזרו ${count} קונספטים שנמחקו חזרה למאגר!`, "emerald");
+    }
+
+    // Build a unified list of all messages across developerFeedbackList, cloud users' comments, and local userComments
+    function getCombinedUserMessagesForDeveloper() {
+      const byKey = new Map();
+
+      // 1. Broadcasted developerFeedbackList items
+      for (const fb of developerFeedbackList) {
+        if (!fb) continue;
+        const key = fb.commentId || fb.id;
+        byKey.set(key, {
+          ...fb,
+          sourceType: "broadcast"
+        });
+      }
+
+      // 2. Current user's local/cloud comments on questions & concepts
+      for (const [cid, arr] of Object.entries(userComments || {})) {
+        if (!Array.isArray(arr)) continue;
+        const node = conceptNodes.find(n => n.id === cid) || DEFAULT_CONCEPT_NODES.find(n => n.id === cid);
+        const subj = SUBJECTS.find(s => s.id === (node?.subjectId || ""));
+        for (const c of arr) {
+          const key = c.id;
+          const existing = byKey.get(key);
+          const promptObj = (node?.prompts || []).find(p => p.id === c.promptId);
+          const mergedItem = {
+            id: existing?.id || `devfb_${c.id}`,
+            commentId: c.id,
+            createdAt: c.updatedAt || c.createdAt || existing?.createdAt || new Date().toISOString(),
+            userUid: currentUser?.uid || "demo_local_user",
+            userEmail: c.userEmail || currentUser?.email || "משתמש מקומי",
+            feedbackType: c.category || "הערה על שאלה",
+            commentText: c.text,
+            developerReply: c.developerReply || existing?.developerReply || null,
+            conceptContext: {
+              conceptId: cid,
+              subjectId: node?.subjectId || c.subjectId || "",
+              subjectTitle: subj ? subj.title : (node?.subjectId || c.subjectId || ""),
+              category: node?.category || c.conceptTitle || "",
+              title: node?.title || node?.category || c.conceptTitle || cid,
+              coreAnswer: node?.answer || "",
+              referenceId: node?.referenceId || ""
+            },
+            questionContext: {
+              promptId: c.promptId || "general",
+              promptType: promptObj?.type || c.promptType || "כללי",
+              promptText: promptObj?.text || c.promptText || "",
+              promptNote: promptObj?.note || node?.answer || ""
+            }
+          };
+          byKey.set(key, mergedItem);
         }
       }
+
+      const allItems = Array.from(byKey.values());
+      allItems.sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")));
+      return allItems;
+    }
+
+    async function syncAllCloudFeedbackAndUsers() {
+      if (isDemoMode || !currentUser || !db) return;
+      try {
+        const fbSnap = await getDocs(collection(db, "developerFeedback"));
+        const cloudItems = [];
+        fbSnap.forEach(d => {
+          if (d.exists()) cloudItems.push(d.data());
+        });
+        if (cloudItems.length > 0) {
+          const byId = new Map(developerFeedbackList.map(x => [x.id, x]));
+          for (const item of cloudItems) {
+            if (item && item.id) byId.set(item.id, item);
+          }
+          developerFeedbackList = Array.from(byId.values());
+        }
+      } catch (err) {
+        console.warn("Could not fetch developerFeedback collection:", err);
+      }
+
+      // Also scan users collection to pull all beta testers' question comments & suspended concepts
+      try {
+        const usersSnap = await getDocs(collection(db, "users"));
+        const overview = [];
+        usersSnap.forEach(uDoc => {
+          if (!uDoc.exists()) return;
+          const uData = uDoc.data();
+          const uid = uDoc.id;
+          const uEmail = uData.email || uData.developerFeedbackSent?.[0]?.userEmail || `משתמש (${uid.slice(0, 6)})`;
+          const prog = uData.progress || {};
+          const suspendedIds = Object.keys(prog).filter(k => prog[k]?.suspended);
+          let uCommentsCount = 0;
+
+          if (uData.comments && typeof uData.comments === "object") {
+            for (const [cid, cArr] of Object.entries(uData.comments)) {
+              if (!Array.isArray(cArr)) continue;
+              const node = conceptNodes.find(n => n.id === cid) || DEFAULT_CONCEPT_NODES.find(n => n.id === cid);
+              const subj = SUBJECTS.find(s => s.id === (node?.subjectId || ""));
+              for (const c of cArr) {
+                uCommentsCount += 1;
+                const fbId = `devfb_${c.id}`;
+                const existingIdx = developerFeedbackList.findIndex(x => x.commentId === c.id || x.id === fbId);
+                const promptObj = (node?.prompts || []).find(p => p.id === c.promptId);
+                const itemPayload = {
+                  id: fbId,
+                  commentId: c.id,
+                  createdAt: c.updatedAt || c.createdAt || new Date().toISOString(),
+                  userUid: uid,
+                  userEmail: c.userEmail || uEmail,
+                  feedbackType: c.category || "הערה על שאלה",
+                  commentText: c.text,
+                  developerReply: c.developerReply || (existingIdx >= 0 ? developerFeedbackList[existingIdx].developerReply : null),
+                  conceptContext: {
+                    conceptId: cid,
+                    subjectId: node?.subjectId || c.subjectId || "",
+                    subjectTitle: subj ? subj.title : (node?.subjectId || c.subjectId || ""),
+                    category: node?.category || c.conceptTitle || "",
+                    title: node?.title || node?.category || c.conceptTitle || cid,
+                    coreAnswer: node?.answer || "",
+                    referenceId: node?.referenceId || ""
+                  },
+                  questionContext: {
+                    promptId: c.promptId || "general",
+                    promptType: promptObj?.type || c.promptType || "כללי",
+                    promptText: promptObj?.text || c.promptText || "",
+                    promptNote: promptObj?.note || node?.answer || ""
+                  }
+                };
+                if (existingIdx >= 0) {
+                  developerFeedbackList[existingIdx] = { ...developerFeedbackList[existingIdx], ...itemPayload };
+                } else {
+                  developerFeedbackList.push(itemPayload);
+                }
+              }
+            }
+          }
+          overview.push({
+            uid,
+            email: uEmail,
+            suspendedIds,
+            commentsCount: uCommentsCount
+          });
+        });
+        cloudUsersOverviewList = overview;
+      } catch (uErr) {
+        console.warn("Users collection read info:", uErr);
+      }
+      saveStateToLocal();
+      updateCommentAndFeedbackBadges();
+    }
+
+    async function sendDeveloperReplyToUser(fbItem, replyText) {
+      const cleanReply = (replyText || "").trim();
+      if (!cleanReply) {
+        showToast("אנא כתוב תוכן להודעה לפני השליחה למשתמש", "rose");
+        return;
+      }
+      const replyObj = {
+        text: cleanReply,
+        repliedAt: new Date().toISOString(),
+        repliedBy: currentUser?.email || "מפתח האפליקציה"
+      };
+
+      fbItem.developerReply = replyObj;
+      const idx = developerFeedbackList.findIndex(x => x.id === fbItem.id || (fbItem.commentId && x.commentId === fbItem.commentId));
+      if (idx >= 0) {
+        developerFeedbackList[idx].developerReply = replyObj;
+      } else {
+        developerFeedbackList.unshift(fbItem);
+      }
+
+      // Update local userComments if this comment belongs to current user or local storage
+      const cid = fbItem.conceptContext?.conceptId;
+      if (cid && Array.isArray(userComments[cid])) {
+        const cIdx = userComments[cid].findIndex(c => c.id === fbItem.commentId);
+        if (cIdx >= 0) {
+          userComments[cid][cIdx].developerReply = replyObj;
+        }
+      }
+
+      await persistUserStateToCloud();
+
+      // Also persist reply to Firestore developerFeedback/{id} and target user's document
+      if (!isDemoMode && currentUser && db) {
+        try {
+          await setDoc(doc(db, "developerFeedback", fbItem.id), { developerReply: replyObj }, { merge: true });
+          if (fbItem.userUid && fbItem.userUid !== "demo_local_user") {
+            const targetUserRef = doc(db, "users", fbItem.userUid);
+            const targetSnap = await getDoc(targetUserRef);
+            if (targetSnap.exists()) {
+              const tData = targetSnap.data();
+              const tComments = tData.comments || {};
+              if (cid && Array.isArray(tComments[cid])) {
+                const tcIdx = tComments[cid].findIndex(c => c.id === fbItem.commentId);
+                if (tcIdx >= 0) {
+                  tComments[cid][tcIdx].developerReply = replyObj;
+                }
+              }
+              const devMsgs = Array.isArray(tData.developerMessages) ? tData.developerMessages : [];
+              devMsgs.unshift({
+                id: `msg_${Date.now()}`,
+                conceptId: cid || "",
+                promptId: fbItem.questionContext?.promptId || "",
+                originalComment: fbItem.commentText || "",
+                replyText: cleanReply,
+                repliedAt: replyObj.repliedAt
+              });
+              await setDoc(targetUserRef, { comments: tComments, developerMessages: devMsgs }, { merge: true });
+            }
+          }
+        } catch (err) {
+          console.warn("Firestore reply sync warning:", err);
+        }
+      }
+
+      if (!explorerSection.classList.contains("hidden")) renderExplorerView();
+      if (currentConcept && currentConcept.id === cid) renderCardCommentsDrawer();
+      renderDeveloperFeedbackList();
+      showToast(`ההודעה נשלחה חזרה למשתמש (${fbItem.userEmail || "משתמש"}) ותוצג לו בשאלה!`, "emerald");
+    }
+
+    async function openDeveloperFeedbackModal() {
+      devFeedbackModal.classList.remove("hidden");
+      updateDeveloperPatchSummaryUI();
+      await syncAllCloudFeedbackAndUsers();
       renderDeveloperFeedbackList();
     }
 
     function renderDeveloperFeedbackList() {
       const listEl = document.getElementById("dev-feedback-list");
       const footerCount = document.getElementById("dev-feedback-count-footer");
-      listEl.innerHTML = "";
-      footerCount.textContent = `${developerFeedbackList.length} משובים ששודרו למפתח`;
+      const userFilterSelect = document.getElementById("dev-filter-user-select");
+      const statusFilterSelect = document.getElementById("dev-filter-status-select");
+      const usersBox = document.getElementById("dev-users-activity-box");
+      const usersListEl = document.getElementById("dev-users-activity-list");
 
-      if (developerFeedbackList.length === 0) {
+      updateDeveloperPatchSummaryUI();
+
+      const allMessages = getCombinedUserMessagesForDeveloper();
+      const distinctUsers = Array.from(new Set(allMessages.map(m => m.userEmail || "משתמש מקומי")));
+
+      if (userFilterSelect) {
+        const prevUser = userFilterSelect.value || "all";
+        userFilterSelect.innerHTML = `<option value="all">כל המשתמשים (${distinctUsers.length})</option>` +
+          distinctUsers.map(u => `<option value="${escapeHtmlSafe(u)}">${escapeHtmlSafe(u)}</option>`).join("");
+        userFilterSelect.value = distinctUsers.includes(prevUser) ? prevUser : "all";
+      }
+
+      // Render Beta Testers Activity Summary (including local user + cloud users)
+      const localSuspendedIds = Object.keys(userProgress || {}).filter(k => userProgress[k]?.suspended);
+      const combinedUsersOverview = [...cloudUsersOverviewList];
+      const currentEmail = currentUser?.email || "משתמש מקומי (Local Storage)";
+      if (!combinedUsersOverview.some(u => u.email === currentEmail)) {
+        combinedUsersOverview.unshift({
+          uid: currentUser?.uid || "demo_local_user",
+          email: currentEmail,
+          suspendedIds: localSuspendedIds,
+          commentsCount: getTotalCommentsCount()
+        });
+      }
+
+      if (usersBox && usersListEl) {
+        if (combinedUsersOverview.length > 0) {
+          usersBox.classList.remove("hidden");
+          usersListEl.innerHTML = "";
+          combinedUsersOverview.forEach(u => {
+            const uCard = document.createElement("div");
+            uCard.className = "p-2.5 rounded-xl bg-white border border-slate-200 flex flex-col justify-between gap-1";
+            const suspTitles = u.suspendedIds.map(id => {
+              const n = conceptNodes.find(x => x.id === id);
+              return n ? `${n.title || n.category} (${id})` : id;
+            });
+            uCard.innerHTML = `
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-extrabold text-slate-900">👤 ${escapeHtmlSafe(u.email)}</span>
+                <div class="flex items-center gap-1">
+                  <span class="px-2 py-0.5 rounded-full bg-sky-100 text-sky-900 font-bold text-[10px]">💬 ${u.commentsCount} הודעות</span>
+                  <span class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold text-[10px]">⏸️ ${u.suspendedIds.length} מושהים</span>
+                </div>
+              </div>
+              <div class="text-[11px] text-slate-600">
+                ${u.suspendedIds.length > 0 ? `<strong>קונספטים שהשהו:</strong> ${escapeHtmlSafe(suspTitles.join(" • "))}` : "ללא קונספטים מושהים"}
+              </div>
+            `;
+            usersListEl.appendChild(uCard);
+          });
+        } else {
+          usersBox.classList.add("hidden");
+        }
+      }
+
+      const selectedUserFilter = userFilterSelect ? userFilterSelect.value : "all";
+      const selectedStatusFilter = statusFilterSelect ? statusFilterSelect.value : "all";
+
+      let filtered = allMessages;
+      if (selectedUserFilter !== "all") {
+        filtered = filtered.filter(m => (m.userEmail || "משתמש מקומי") === selectedUserFilter);
+      }
+      if (selectedStatusFilter === "unreplied") {
+        filtered = filtered.filter(m => !m.developerReply);
+      } else if (selectedStatusFilter === "replied") {
+        filtered = filtered.filter(m => Boolean(m.developerReply));
+      }
+
+      listEl.innerHTML = "";
+      footerCount.textContent = `מציג ${filtered.length} מתוך ${allMessages.length} הודעות משתמשים`;
+
+      if (filtered.length === 0) {
         listEl.innerHTML = `
           <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center text-slate-500 text-xs space-y-1">
             <div class="text-lg">📭</div>
-            <div class="font-bold text-slate-700">טרם שודרו הערות למפתח האפליקציה</div>
-            <div>במהלך תרגול שאלות או דרך מאגר הקונספטים, לחץ על "💬 הערה / משוב" וסמן שידור למפתח.</div>
+            <div class="font-bold text-slate-700">אין הודעות משתמשים התואמות לסינון הנוכחי</div>
+            <div>כל הערה שמשתמש שומר או משדר על שאלה או קונספט מופיעה כאן עם אפשרות למחוק את הקונספט מה-JSON, לשנות את השאלה/הקונספט או להשיב למשתמש.</div>
           </div>
         `;
         return;
       }
 
-      for (const fb of developerFeedbackList) {
+      for (const fb of filtered) {
         const c = fb.conceptContext || {};
         const q = fb.questionContext || {};
+        const liveNode = conceptNodes.find(n => n.id === c.conceptId);
+        const livePrompt = (liveNode?.prompts || []).find(p => p.id === q.promptId) || liveNode?.prompts?.[0];
+        const isDeleted = deletedConceptIds.includes(c.conceptId);
+
         const card = document.createElement("div");
-        card.className = "p-4 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-2 text-xs";
+        card.className = isDeleted
+          ? "p-4 rounded-2xl border-2 border-rose-300 bg-rose-50/40 space-y-2.5 text-xs opacity-80"
+          : "p-4 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-2.5 text-xs";
         const dateStr = fb.createdAt ? new Date(fb.createdAt).toLocaleString("he-IL") : "";
 
         card.innerHTML = `
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div class="flex flex-wrap items-center gap-1.5">
-              <span class="px-2.5 py-0.5 rounded-lg bg-violet-100 text-violet-900 font-extrabold">${escapeHtmlSafe(fb.feedbackType || "משוב")}</span>
+              <span class="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-extrabold">👤 ${escapeHtmlSafe(fb.userEmail || "משתמש מקומי")}</span>
+              <span class="px-2.5 py-0.5 rounded-lg bg-violet-100 text-violet-900 font-extrabold">${escapeHtmlSafe(fb.feedbackType || "הודעה")}</span>
               <span class="px-2 py-0.5 rounded-lg bg-indigo-50 text-indigo-800 font-bold">${escapeHtmlSafe(c.subjectTitle || c.subjectId || "")}</span>
               <span class="font-mono text-[11px] text-slate-500">${escapeHtmlSafe(c.conceptId || "")} / ${escapeHtmlSafe(q.promptId || "")}</span>
+              ${isDeleted ? `<span class="px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px]">🗑️ נמחק מה-JSON</span>` : ""}
+              ${fb.developerReply ? `<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-[10px]">✓ נענה למשתמש</span>` : ""}
               <span class="text-[11px] text-slate-400">${dateStr}</span>
             </div>
-            <div class="flex items-center gap-1.5">
-              <button type="button" class="copy-single-fb-btn px-2.5 py-1 rounded-lg bg-white hover:bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold transition">📋 העתק דיווח</button>
-              <button type="button" class="edit-from-fb-btn px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition">✏️ ערוך שאלה</button>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button type="button" class="dev-toggle-inline-change-btn px-2.5 py-1 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-extrabold transition">✨ שנה שאלה / קונספט</button>
+              <button type="button" class="edit-from-fb-btn px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition">✏️ עורך מלא</button>
+              <button type="button" class="dev-toggle-reply-btn px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition">↩️ השב למשתמש</button>
+              <button type="button" class="dev-delete-concept-btn px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-extrabold transition" ${isDeleted ? "disabled" : ""}>🗑️ מחק קונספט מה-JSON</button>
             </div>
           </div>
-          <div class="p-3 rounded-xl bg-white border border-violet-200/80 text-slate-900 font-bold leading-relaxed whitespace-pre-wrap">💬 ${escapeHtmlSafe(fb.commentText)}</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-600 bg-white/80 p-2.5 rounded-xl border border-slate-200/70">
-            <div><strong class="text-slate-800">שאלה (${escapeHtmlSafe(q.promptType || "")}):</strong> ${escapeHtmlSafe(q.promptText || "")}</div>
-            <div><strong class="text-slate-800">קונספט (${escapeHtmlSafe(c.title || "")}):</strong> ${escapeHtmlSafe(c.coreAnswer || "")}</div>
+
+          <div class="p-3 rounded-xl bg-white border border-violet-200/80 text-slate-900 font-bold leading-relaxed whitespace-pre-wrap">💬 הודעת המשתמש: ${escapeHtmlSafe(fb.commentText)}</div>
+
+          ${fb.developerReply ? `
+            <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 space-y-0.5">
+              <div class="font-extrabold text-[11px] text-emerald-800">💌 ההודעה ששלחת חזרה למשתמש:</div>
+              <div class="font-semibold whitespace-pre-wrap">${escapeHtmlSafe(fb.developerReply.text)}</div>
+            </div>
+          ` : ""}
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-600 bg-white/90 p-2.5 rounded-xl border border-slate-200/80">
+            <div><strong class="text-slate-800">שאלה נוכחית (${escapeHtmlSafe(livePrompt?.type || q.promptType || "")}):</strong> ${escapeHtmlSafe(livePrompt?.text || q.promptText || "")}</div>
+            <div><strong class="text-slate-800">קונספט (${escapeHtmlSafe(liveNode?.title || c.title || "")}):</strong> ${escapeHtmlSafe(liveNode?.answer || c.coreAnswer || "")}</div>
+          </div>
+
+          <!-- Inline Box 1: Quick Change Question or Concept (AI instruction or direct edit) -->
+          <div class="dev-inline-change-box hidden p-3 rounded-xl bg-violet-50 border border-violet-200 space-y-2.5">
+            <div class="font-extrabold text-violet-950">✨ שינוי מהיר של השאלה או הקונספט (נשמר מבלי לאבד שינויים בעדכון JSON):</div>
+            <div class="flex flex-wrap items-center gap-2">
+              <input type="text" class="dev-ai-change-instruction flex-1 min-w-[220px] p-2 rounded-lg border border-violet-300 bg-white text-xs" value="${escapeHtmlSafe(fb.commentText || "")}" placeholder="הנחיה לשינוי השאלה (למשל על בסיס הערת המשתמש)...">
+              <button type="button" class="dev-run-ai-change-btn px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-extrabold transition">✨ שכתב שאלה עם AI</button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-0.5">נוסח השאלה המעודכן:</label>
+                <textarea rows="2" class="dev-direct-prompt-text w-full p-2 rounded-lg border border-slate-300 bg-white text-xs font-semibold">${escapeHtmlSafe(livePrompt?.text || q.promptText || "")}</textarea>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-0.5">תשובת הקונספט המעודכנת:</label>
+                <textarea rows="2" class="dev-direct-concept-answer w-full p-2 rounded-lg border border-slate-300 bg-white text-xs font-semibold">${escapeHtmlSafe(liveNode?.answer || c.coreAnswer || "")}</textarea>
+              </div>
+            </div>
+            <div class="flex justify-end gap-2">
+              <button type="button" class="dev-save-inline-change-btn px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold transition">💾 שמור שינוי בקונספט ובשאלה</button>
+            </div>
+          </div>
+
+          <!-- Inline Box 2: Send Reply Message Back to User -->
+          <div class="dev-inline-reply-box hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 space-y-2">
+            <label class="block font-extrabold text-emerald-950">↩️ שלח הודעה חזרה למשתמש (${escapeHtmlSafe(fb.userEmail || "משתמש")}):</label>
+            <div class="flex flex-wrap items-center gap-2">
+              <input type="text" class="dev-reply-input flex-1 min-w-[220px] p-2 rounded-lg border border-emerald-300 bg-white text-xs" value="${escapeHtmlSafe(fb.developerReply?.text || "")}" placeholder="כתוב תגובה למשתמש (למשל: תודה! עדכנתי את השאלה בהתאם להערתך)...">
+              <button type="button" class="dev-send-reply-confirm-btn px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition">📨 שלח הודעה למשתמש</button>
+            </div>
           </div>
         `;
 
-        card.querySelector(".copy-single-fb-btn").addEventListener("click", () => {
-          copyTextWithFallback(formatFeedbackReportForDeveloper(fb), "הדיווח הועתק ללוח עם הקשר השאלה והקונספט!");
+        card.querySelector(".dev-toggle-inline-change-btn").addEventListener("click", () => {
+          card.querySelector(".dev-inline-change-box").classList.toggle("hidden");
+        });
+
+        card.querySelector(".dev-toggle-reply-btn").addEventListener("click", () => {
+          const box = card.querySelector(".dev-inline-reply-box");
+          box.classList.toggle("hidden");
+          if (!box.classList.contains("hidden")) {
+            card.querySelector(".dev-reply-input").focus();
+          }
+        });
+
+        card.querySelector(".dev-run-ai-change-btn").addEventListener("click", async (ev) => {
+          if (!liveNode) {
+            showToast("הקונספט לא נמצא במאגר הפעיל", "rose");
+            return;
+          }
+          const btn = ev.currentTarget;
+          const inst = card.querySelector(".dev-ai-change-instruction").value.trim();
+          const curAns = card.querySelector(".dev-direct-concept-answer").value.trim() || liveNode.answer;
+          const curQ = card.querySelector(".dev-direct-prompt-text").value.trim();
+          btn.disabled = true;
+          btn.textContent = "⏳ משכתב...";
+          const rewritten = await rewriteSpecificQuestionWithAI(liveNode.title || liveNode.category, curAns, { type: livePrompt?.type || "תרחיש קליני", text: curQ, note: curAns }, inst);
+          btn.disabled = false;
+          btn.textContent = "✨ שכתב שאלה עם AI";
+          if (rewritten && rewritten.text) {
+            card.querySelector(".dev-direct-prompt-text").value = rewritten.text;
+            showToast("נוסח השאלה שוכתב עם AI — לחץ על 'שמור שינוי בקונספט ובשאלה' לאישור", "emerald");
+          }
+        });
+
+        card.querySelector(".dev-save-inline-change-btn").addEventListener("click", async () => {
+          if (!liveNode) {
+            showToast("הקונספט לא נמצא במאגר הפעיל", "rose");
+            return;
+          }
+          const newPromptText = card.querySelector(".dev-direct-prompt-text").value.trim();
+          const newConceptAns = card.querySelector(".dev-direct-concept-answer").value.trim();
+          if (!newPromptText || !newConceptAns) {
+            showToast("אנא ודא שנוסח השאלה ותשובת הקונספט אינם ריקים", "rose");
+            return;
+          }
+          const targetPid = livePrompt?.id || q.promptId;
+          const updatedPrompts = (liveNode.prompts || []).map((p, idx) => {
+            if (p.id === targetPid || (!targetPid && idx === 0)) {
+              return { ...p, text: newPromptText, note: newConceptAns };
+            }
+            return p;
+          });
+          const updatedNode = {
+            ...liveNode,
+            answer: newConceptAns,
+            prompts: updatedPrompts
+          };
+          customConceptOverrides[liveNode.id] = updatedNode;
+          applyConceptOverridesToMemory();
+          await persistUserStateToCloud();
+          renderDeveloperFeedbackList();
+          if (!explorerSection.classList.contains("hidden")) renderExplorerView();
+          showToast("השאלה והקונספט עודכנו ונשמרו בשכבת השינויים המוגנת!", "emerald");
+        });
+
+        card.querySelector(".dev-send-reply-confirm-btn").addEventListener("click", async () => {
+          const replyText = card.querySelector(".dev-reply-input").value;
+          await sendDeveloperReplyToUser(fb, replyText);
         });
 
         card.querySelector(".edit-from-fb-btn").addEventListener("click", () => {
@@ -3004,13 +3626,95 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           }
         });
 
+        card.querySelector(".dev-delete-concept-btn").addEventListener("click", async () => {
+          if (c.conceptId) {
+            await deleteConceptFromDatabase(c.conceptId);
+          }
+        });
+
         listEl.appendChild(card);
+      }
+    }
+
+    // Export updated JSON for a specific topic ("routine_emergency" -> database.json, "mtls" -> mtls.json)
+    // with all customConceptOverrides, customConcepts, referenceSchemes, and deletedConceptIds baked in!
+    function exportTopicDatabaseJson(topicId, filename) {
+      const topicObj = TOPICS.find(t => t.id === topicId) || TOPICS[0];
+      const topicSubjects = SUBJECTS.filter(s => (s.topicId || "routine_emergency") === topicId);
+      const topicSubjectIds = new Set(topicSubjects.map(s => s.id));
+      const deletedSet = new Set(deletedConceptIds || []);
+
+      // All active concepts belonging to this topic (already includes overrides and custom added concepts, and excludes deletedConceptIds)
+      const topicConcepts = conceptNodes.filter(c => topicSubjectIds.has(c.subjectId) && !deletedSet.has(c.id));
+
+      // Include relevant reference schemes for this topic
+      const topicSchemes = {};
+      for (const [k, v] of Object.entries(referenceSchemes || {})) {
+        const isMtlsScheme = v.topicId === "mtls" || String(k).startsWith("ref_mtls_");
+        if ((topicId === "mtls" && isMtlsScheme) || (topicId !== "mtls" && !isMtlsScheme)) {
+          topicSchemes[k] = v;
+        }
+      }
+
+      const payload = {
+        version: "4.0-non-destructive-synced",
+        updatedAt: new Date().toISOString(),
+        topic: {
+          id: topicObj.id,
+          title: topicObj.title,
+          icon: topicObj.icon,
+          color: topicObj.color,
+          jsonUrl: topicObj.jsonUrl
+        },
+        subjects: topicSubjects,
+        referenceSchemes: topicSchemes,
+        concepts: topicConcepts
+      };
+
+      const jsonStr = JSON.stringify(payload, null, 2);
+      const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`הקובץ ${filename} הורד בהצלחה עם כל העריכות, התוספות והמחיקות שלך (${topicConcepts.length} קונספטים)!`, "emerald");
+    }
+
+    // Non-destructive JSON merge importer: updates base concepts/subjects from an external JSON file
+    // while strictly preserving all developer edits (customConceptOverrides), added concepts, and deletedConceptIds!
+    async function mergeExternalJsonNonDestructively(file) {
+      if (!file) return;
+      try {
+        const text = await file.text();
+        const data = JSON.parse(text);
+        if (!data || (!Array.isArray(data.concepts) && !Array.isArray(data.subjects))) {
+          showToast("קובץ ה-JSON אינו מכיל מערך concepts או subjects תקין", "rose");
+          return;
+        }
+        const inferredTopicId = data.topic?.id || data.topicId || (String(file.name).toLowerCase().includes("mtls") ? "mtls" : "routine_emergency");
+        applyDatabaseObject(data, true, inferredTopicId, true);
+        applyConceptOverridesToMemory();
+        await persistUserStateToCloud();
+        if (!dashboardSection.classList.contains("hidden")) renderDashboard();
+        if (!explorerSection.classList.contains("hidden")) renderExplorerView();
+        if (!devFeedbackModal.classList.contains("hidden")) renderDeveloperFeedbackList();
+        showToast(`הקובץ ${file.name} מוזג בהצלחה! כל העריכות והמחיקות שביצעת נשמרו במלואן.`, "emerald");
+      } catch (err) {
+        console.warn("JSON merge error:", err);
+        showToast("שגיאה בקריאת קובץ ה-JSON למיזוג", "rose");
       }
     }
 
     function startStudySession(forceAllMode = false) {
       const now = getNow();
-      const subj = SUBJECTS.find(s => s.id === selectedSubjectId) || SUBJECTS[0];
+      const activeIds = getActiveSelectedSubjectIds();
+      const selectedSubjects = activeIds.map(id => SUBJECTS.find(s => s.id === id)).filter(Boolean);
+      const primarySubj = selectedSubjects[0] || SUBJECTS[0];
+
       if (forceAllMode) {
         sessionMode = "all";
         updateSelectedSubjectPanel();
@@ -3019,7 +3723,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       const noSchedCheckbox = document.getElementById("toggle-free-no-schedule");
       activeSessionNoSchedule = (effectiveMode === "all") && Boolean(noSchedCheckbox ? noSchedCheckbox.checked : true);
 
-      const plan = buildDeckQueueForMode(subj.id, effectiveMode, now);
+      const plan = buildCombinedQueueForMode(activeIds, effectiveMode, now);
 
       if (plan.queue.length === 0) {
         showToast("אין קונספטים זמינים בתור זה כעת — ניתן להגדיל את מכסת הקונספטים החדשים להיום", "amber");
@@ -3034,7 +3738,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       sessionLastPromptByConcept = {};
       updateUndoButtonsUI();
 
-      document.getElementById("study-subject-label").textContent = subj.title;
+      document.getElementById("study-subject-label").textContent = selectedSubjects.length > 1
+        ? `מבחן משולב (${selectedSubjects.length} נושאים)`
+        : primarySubj.title;
 
       sessionCompleteCard.classList.add("hidden");
       cardOuterWrapper.classList.remove("hidden");
@@ -3150,6 +3856,15 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         renderCardCommentsDrawer();
       }
       updateCommentAndFeedbackBadges();
+
+      // Update header subject title dynamically for single or multi-topic exam
+      const activeIds = getActiveSelectedSubjectIds();
+      const cardSubj = SUBJECTS.find(s => s.id === currentConcept.subjectId);
+      if (cardSubj) {
+        document.getElementById("study-subject-label").textContent = activeIds.length > 1
+          ? `מבחן משולב (${activeIds.length} נושאים) • ${cardSubj.title}`
+          : cardSubj.title;
+      }
 
       // Keep Reference Button Label strictly as "חומר עזר"
       document.getElementById("btn-open-reference-label").textContent = "חומר עזר";
@@ -3368,6 +4083,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               <button type="button" data-ref-id="${scheme.id}" class="open-ref-from-explorer px-2.5 py-1 rounded-lg bg-violet-100 hover:bg-violet-200 text-violet-800 font-bold transition">
                 📋 סכמת עזר
               </button>
+              <button type="button" class="delete-concept-from-explorer px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold transition" title="מחק קונספט זה מה-JSON לצמיתות">
+                🗑️ מחק מה-JSON
+              </button>
             </div>
           </div>
           <p class="text-xs text-slate-700 font-medium">${escapeHtmlSafe(node.answer)}</p>
@@ -3448,6 +4166,11 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
                   </div>
                 </div>
                 <p class="text-slate-800 font-semibold whitespace-pre-wrap">${escapeHtmlSafe(c.text)}</p>
+                ${c.developerReply ? `
+                  <div class="mt-1.5 p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-950 text-[11px]">
+                    <strong class="text-emerald-800">💌 תגובת המפתח:</strong> ${escapeHtmlSafe(c.developerReply.text)}
+                  </div>
+                ` : ""}
               `;
 
               cRow.querySelector(".exp-edit-cmt-btn").addEventListener("click", () => {
@@ -3619,6 +4342,13 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           renderExplorerView();
           showToast(nextState ? `הקונספט "${node.title}" הושהה עבורך` : `השהיית הקונספט "${node.title}" בוטלה`, nextState ? "amber" : "emerald");
         });
+
+        const delConceptBtn = item.querySelector(".delete-concept-from-explorer");
+        if (delConceptBtn) {
+          delConceptBtn.addEventListener("click", async () => {
+            await deleteConceptFromDatabase(node.id);
+          });
+        }
 
         listEl.appendChild(item);
       }
@@ -3839,16 +4569,45 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     document.getElementById("btn-close-dev-feedback-footer").addEventListener("click", () => {
       devFeedbackModal.classList.add("hidden");
     });
+    document.getElementById("btn-refresh-cloud-feedback").addEventListener("click", async () => {
+      await syncAllCloudFeedbackAndUsers();
+      renderDeveloperFeedbackList();
+      showToast("הודעות המשתמשים ונתוני הנסיינים סונכרנו!", "emerald");
+    });
+    document.getElementById("dev-filter-user-select").addEventListener("change", () => {
+      renderDeveloperFeedbackList();
+    });
+    document.getElementById("dev-filter-status-select").addEventListener("change", () => {
+      renderDeveloperFeedbackList();
+    });
+    document.getElementById("btn-restore-deleted-concepts").addEventListener("click", () => {
+      restoreAllDeletedConcepts();
+    });
+    document.getElementById("btn-export-routine-json").addEventListener("click", () => {
+      exportTopicDatabaseJson("routine_emergency", "database.json");
+    });
+    document.getElementById("btn-export-mtls-json").addEventListener("click", () => {
+      exportTopicDatabaseJson("mtls", "mtls.json");
+    });
+    document.getElementById("input-merge-json-file").addEventListener("change", async (e) => {
+      const file = e.target.files?.[0];
+      if (file) {
+        await mergeExternalJsonNonDestructively(file);
+        e.target.value = "";
+      }
+    });
     document.getElementById("btn-copy-all-dev-feedback").addEventListener("click", () => {
-      if (developerFeedbackList.length === 0) {
+      const allMsgs = getCombinedUserMessagesForDeveloper();
+      if (allMsgs.length === 0) {
         showToast("אין משובים להעתקה כעת", "amber");
         return;
       }
-      const combined = developerFeedbackList.map(fb => formatFeedbackReportForDeveloper(fb)).join("\n\n");
-      copyTextWithFallback(combined, `הועתקו ${developerFeedbackList.length} משובים עם הקשר שאלה וקונספט מלא!`);
+      const combined = allMsgs.map(fb => formatFeedbackReportForDeveloper(fb)).join("\n\n");
+      copyTextWithFallback(combined, `הועתקו ${allMsgs.length} משובים עם הקשר שאלה וקונספט מלא!`);
     });
     document.getElementById("btn-export-dev-feedback-json").addEventListener("click", () => {
-      const jsonStr = JSON.stringify(developerFeedbackList, null, 2);
+      const allMsgs = getCombinedUserMessagesForDeveloper();
+      const jsonStr = JSON.stringify(allMsgs, null, 2);
       const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -3898,18 +4657,51 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     document.getElementById("tab-dashboard-btn").addEventListener("click", () => switchView("dashboard"));
     document.getElementById("tab-explorer-btn").addEventListener("click", () => switchView("explorer"));
 
-    // Per-Deck New Cards Limit Controls
+    // Multi-Topic / Multi-Subject Select All & Clear Controls
+    document.getElementById("btn-select-all-subjects").addEventListener("click", async () => {
+      for (const t of TOPICS) {
+        await ensureTopicLoaded(t.id);
+      }
+      SUBJECTS.forEach(s => selectedSubjectIds.add(s.id));
+      selectedSubjectId = SUBJECTS[0]?.id || "pea_asystole";
+      renderDashboard();
+      showToast(`נבחרו כל ${SUBJECTS.length} הנושאים מכל תחומי-העל למבחן משולב אחד!`, "emerald");
+    });
+
+    document.getElementById("btn-clear-selected-subjects").addEventListener("click", () => {
+      const firstId = SUBJECTS[0]?.id || "pea_asystole";
+      selectedSubjectIds = new Set([firstId]);
+      selectedSubjectId = firstId;
+      renderDashboard();
+      showToast("הבחירה אופסה לנושא בודד", "amber");
+    });
+
+    // Per-Deck New Cards Limit Controls (applies across all currently selected subjects)
+    async function applyNewCardsLimitToSelectedSubjects(limitValue) {
+      const activeIds = getActiveSelectedSubjectIds();
+      const cleanVal = Math.max(0, Math.min(500, parseInt(limitValue, 10) || 0));
+      if (!userDeckSettings) userDeckSettings = {};
+      for (const sid of activeIds) {
+        userDeckSettings[sid] = {
+          ...(userDeckSettings[sid] || {}),
+          newCardsPerDay: cleanVal
+        };
+      }
+      await persistUserStateToCloud();
+      renderDashboard();
+    }
+
     document.getElementById("new-cards-limit-input").addEventListener("change", (e) => {
-      setDeckNewCardsLimit(selectedSubjectId, e.target.value);
+      applyNewCardsLimitToSelectedSubjects(e.target.value);
     });
     document.getElementById("new-cards-limit-input").addEventListener("input", (e) => {
-      setDeckNewCardsLimit(selectedSubjectId, e.target.value);
+      applyNewCardsLimitToSelectedSubjects(e.target.value);
     });
     document.querySelectorAll("[data-new-preset]").forEach(btn => {
       btn.addEventListener("click", () => {
         const val = parseInt(btn.getAttribute("data-new-preset"), 10);
         document.getElementById("new-cards-limit-input").value = val;
-        setDeckNewCardsLimit(selectedSubjectId, val);
+        applyNewCardsLimitToSelectedSubjects(val);
       });
     });
 
