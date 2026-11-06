@@ -91,7 +91,7 @@
             <span id="ref-modal-badge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/20 text-white">
               סכמת טיפול / חומר עזר
             </span>
-            <span id="ref-modal-id" class="text-[11px] font-mono text-indigo-200"></span>
+            
           </div>
           <h3 id="ref-modal-title" class="text-lg sm:text-xl font-extrabold mt-1">סכמת טיפול</h3>
         </div>
@@ -141,7 +141,7 @@
       <!-- Modal Body (Easy-to-Use Content Editor View) -->
       <div id="ref-modal-edit-view" class="hidden p-6 overflow-y-auto space-y-4 bg-slate-50/60">
         <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-xs text-amber-900">
-          <strong>ממשק עריכת חומר עזר:</strong> השינויים נשמרים תחת מזהה הסכמה (<code id="ref-edit-id-label" class="font-mono font-bold"></code>) כך שכל כרטיסייה המקושרת לסכמה זו תציג את התוכן המעודכן.
+          <strong>ממשק עריכת חומר עזר:</strong> השינויים נשמרים בסכמה זו כך שכל כרטיסייה המקושרת לסכמה זו תציג את התוכן המעודכן.
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -240,9 +240,7 @@
           <div class="flex flex-wrap items-center justify-between gap-2">
             <label class="text-xs font-extrabold text-slate-800">וריאציות שאלה (Prompts) לקונספט זה:</label>
             <div class="flex flex-wrap items-center gap-1.5">
-              <button id="btn-ai-add-prompt-row" type="button" class="px-3 py-1 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold transition shadow-2xs flex items-center gap-1">
-                <span>✨ צור שאלה חדשה עם AI</span>
-              </button>
+
               <button id="btn-add-prompt-row" type="button" class="px-3 py-1 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-extrabold transition">
                 + הוסף וריאציית שאלה ידנית
               </button>
@@ -665,20 +663,22 @@
           <div id="manager-card-actions-panel" class="hidden mb-5 p-4 rounded-2xl bg-slate-900 text-white space-y-3 shadow-sm animate-fade-in">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-2">
-                <span class="text-xs font-extrabold text-violet-300">🛠️ פעולות ניהול מהירות על השאלה והקונספט:</span>
-                <span id="manager-card-concept-id-badge" class="text-[11px] font-mono text-slate-300 bg-slate-800 px-2 py-0.5 rounded-md border border-slate-700"></span>
+                <span class="text-xs font-extrabold text-violet-300">🛠️ פעולות ניהול על השאלה, הקונספט וההודעות:</span>
               </div>
               <div class="flex flex-wrap items-center gap-1.5">
                 <button id="btn-manager-card-inline-edit" type="button" class="px-3 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-extrabold transition">
-                  ✨ שנה / ערוך שאלה או קונספט
+                  ✏️ שנה / ערוך שאלה או קונספט
                 </button>
                 <button id="btn-manager-card-full-editor" type="button" class="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold transition">
-                  ✏️ עורך מלא
+                  עורך כל השאלות
                 </button>
-                <button id="btn-manager-delete-current-prompt" type="button" class="px-2.5 py-1.5 rounded-xl bg-amber-600/90 hover:bg-amber-500 text-white text-xs font-extrabold transition" title="מוחק רק את וריאציית השאלה הנוכחית ומשאיר את שאר השאלות בקונספט">
-                  🗑️ הסר שאלה זו בלבד
+                <button id="btn-manager-ignore-card-messages" type="button" class="hidden px-2.5 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-100 border border-slate-500 text-xs font-extrabold transition" title="התעלם מההודעות על קונספט זה והסר אותן מרשימת ההודעות">
+                  🚫 התעלם והסר הודעה
                 </button>
-                <button id="btn-manager-delete-current-concept" type="button" class="px-2.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold transition" title="מוחק את הקונספט כולו מה-JSON לצמיתות">
+                <button id="btn-manager-delete-current-prompt" type="button" class="px-2.5 py-1.5 rounded-xl bg-amber-600/90 hover:bg-amber-500 text-white text-xs font-extrabold transition" title="מוחק רק את וריאציית השאלה הנוכחית ומסיר את ההודעות עליה">
+                  🗑️ מחק שאלה זו בלבד
+                </button>
+                <button id="btn-manager-delete-current-concept" type="button" class="px-2.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold transition" title="מוחק את הקונספט כולו מה-JSON לצמיתות ומסיר את ההודעות עליו">
                   🗑️ מחק קונספט מה-JSON
                 </button>
               </div>
@@ -686,20 +686,7 @@
 
             <!-- Inline Editor Box right inside the Flashcard -->
             <div id="manager-card-inline-editor-box" class="hidden p-3.5 rounded-xl bg-slate-800 border border-slate-700 space-y-3 text-xs">
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="font-extrabold text-violet-200">✨ שכתוב שאלה עם AI או עריכה ישירה במקום:</span>
-                <div class="flex flex-wrap items-center gap-1">
-                  <button type="button" data-mgr-ai-preset="הפוך לשאלת תרחיש קליני מעשי בשטח" class="mgr-ai-preset-btn px-2 py-0.5 rounded bg-slate-700 hover:bg-violet-600 text-slate-200 text-[11px] font-bold transition">תרחיש קליני</button>
-                  <button type="button" data-mgr-ai-preset="הפוך לשאלת השלמת משפט (Cloze) עם ───(רמז)───" class="mgr-ai-preset-btn px-2 py-0.5 rounded bg-slate-700 hover:bg-violet-600 text-slate-200 text-[11px] font-bold transition">השלמת משפט (Cloze)</button>
-                  <button type="button" data-mgr-ai-preset="נסח מחדש את השאלה בצורה בהירה ומדויקת יותר" class="mgr-ai-preset-btn px-2 py-0.5 rounded bg-slate-700 hover:bg-violet-600 text-slate-200 text-[11px] font-bold transition">ניסוח בהיר יותר</button>
-                </div>
-              </div>
-              <div class="flex flex-wrap items-center gap-2">
-                <input id="manager-inline-ai-instruction" type="text" class="flex-1 min-w-[200px] p-2 rounded-lg bg-slate-900 border border-slate-600 text-white text-xs" placeholder="הנחיה ל-AI לשינוי השאלה (למשל על בסיס הערת המשתמש)...">
-                <button id="btn-manager-run-inline-ai" type="button" class="px-3.5 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-extrabold text-xs transition">
-                  ✨ שכתב שאלה עם AI
-                </button>
-              </div>
+              <div class="font-extrabold text-violet-200">✏️ עריכת השאלה והקונספט (שמירה תעדכן את הכרטיסייה ותסיר אוטומטית את ההודעה שטופלה):</div>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <div>
                   <label class="block text-[11px] font-bold text-slate-300 mb-1">סוג השאלה:</label>
@@ -729,7 +716,7 @@
                   סגור עריכה
                 </button>
                 <button id="btn-manager-save-inline-edit" type="button" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold shadow-xs">
-                  💾 שמור שינויים בשאלה ובקונספט
+                  💾 שמור שינויים והסר הודעה שטופלה
                 </button>
               </div>
             </div>
@@ -740,7 +727,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-extrabold text-sky-900">💬 הערות על שאלה זו ומשוב למפתח האפליקציה</span>
-                <span id="card-comment-prompt-id-pill" class="text-[11px] font-mono text-sky-700 bg-white px-2 py-0.5 rounded-md border border-sky-200"></span>
+                <span id="card-comment-prompt-id-pill" class="text-[11px] font-bold text-sky-700 bg-white px-2 py-0.5 rounded-md border border-sky-200"></span>
               </div>
               <button id="btn-close-card-comments" type="button" class="text-xs font-bold text-slate-500 hover:text-slate-800">סגור ✕</button>
             </div>
@@ -789,7 +776,7 @@
             <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 space-y-2.5">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-extrabold text-emerald-800 uppercase tracking-wide">דגש לזווית זו:</span>
-                <span id="concept-id-pill" class="text-[11px] font-mono text-emerald-700/80"></span>
+                
               </div>
               <div id="prompt-specific-note" class="text-base sm:text-lg font-extrabold text-slate-900 leading-relaxed"></div>
               <div class="bg-white/80 p-2.5 rounded-xl border border-emerald-200/60">
@@ -954,11 +941,10 @@
           </div>
         </div>
 
-        <!-- Add New Concept Form with Free AI Question Generator -->
+        <!-- Add New Concept Form -->
         <div id="add-concept-form-box" class="hidden bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-3.5 animate-fade-in">
           <div class="flex flex-wrap items-center justify-between gap-2">
-            <h3 class="text-sm font-extrabold text-slate-800">הוספת קונספט חדש למאגר ויצירת שאלות אוטומטית עם AI</h3>
-            <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-violet-100 text-violet-800">✨ מחולל שאלות AI מובנה</span>
+            <h3 class="text-sm font-extrabold text-slate-800">הוספת קונספט חדש ושאלות למאגר</h3>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
@@ -976,30 +962,22 @@
           </div>
 
           <div>
-            <label for="new-concept-answer" class="block text-xs font-bold text-slate-600 mb-1">משפט קונספט הליבה (הזן את הקונספט וה-AI ייצר ממנו שאלות)</label>
+            <label for="new-concept-answer" class="block text-xs font-bold text-slate-600 mb-1">משפט קונספט הליבה (התשובה המלאה)</label>
             <textarea id="new-concept-answer" rows="2" placeholder="כתוב כאן את העיקרון הקליני, המינון או שלב הפרוטוקול..." class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white leading-relaxed"></textarea>
-          </div>
-
-          <!-- Free AI Question Generator Bar -->
-          <div class="p-3 rounded-xl bg-violet-50/80 border border-violet-200 flex flex-wrap items-center justify-between gap-2">
-            <input id="new-concept-ai-prompt" type="text" placeholder="הנחיה ל-AI (אופציונלי — למשל: צור שאלת תרחיש בשטח ושאלת השלמת משפט Cloze)..." class="flex-1 min-w-[200px] p-2 rounded-lg border border-violet-200 text-xs bg-white">
-            <button id="btn-ai-generate-new-concept-questions" type="button" class="px-3.5 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold transition shadow-2xs flex items-center gap-1.5">
-              <span>✨ צור שאלות לקונספט עם AI</span>
-            </button>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
               <label for="new-concept-p1" class="block text-xs font-bold text-slate-600 mb-1">וריאציית שאלה 1 (תרחיש קליני)</label>
-              <textarea id="new-concept-p1" rows="2" placeholder="ייווצר ע״י ה-AI או הזן ידנית..." class="w-full p-2 rounded-xl border border-slate-300 text-xs bg-white"></textarea>
+              <textarea id="new-concept-p1" rows="2" placeholder="הזן נוסח שאלה 1..." class="w-full p-2 rounded-xl border border-slate-300 text-xs bg-white"></textarea>
             </div>
             <div>
-              <label for="new-concept-p2" class="block text-xs font-bold text-slate-600 mb-1">וריאציית שאלה 2 (השלמת משפט Cloze)</label>
-              <textarea id="new-concept-p2" rows="2" placeholder="ייווצר ע״י ה-AI או הזן ידנית..." class="w-full p-2 rounded-xl border border-slate-300 text-xs bg-white"></textarea>
+              <label for="new-concept-p2" class="block text-xs font-bold text-slate-600 mb-1">וריאציית שאלה 2 (השלמת משפט Cloze - אופציונלי)</label>
+              <textarea id="new-concept-p2" rows="2" placeholder="ניתן להשתמש ב-───(רמז)───..." class="w-full p-2 rounded-xl border border-slate-300 text-xs bg-white"></textarea>
             </div>
             <div>
-              <label for="new-concept-p3" class="block text-xs font-bold text-slate-600 mb-1">וריאציית שאלה 3 (שלב בסכמה / דגש)</label>
-              <textarea id="new-concept-p3" rows="2" placeholder="ייווצר ע״י ה-AI או הזן ידנית..." class="w-full p-2 rounded-xl border border-slate-300 text-xs bg-white"></textarea>
+              <label for="new-concept-p3" class="block text-xs font-bold text-slate-600 mb-1">וריאציית שאלה 3 (שלב בסכמה / דגש - אופציונלי)</label>
+              <textarea id="new-concept-p3" rows="2" placeholder="הזן נוסח שאלה 3..." class="w-full p-2 rounded-xl border border-slate-300 text-xs bg-white"></textarea>
             </div>
           </div>
 
@@ -1024,7 +1002,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged }
       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc, setDoc, collection, getDocs }
+    import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, getDocs }
       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
     // ============================================================================
@@ -1255,6 +1233,7 @@
     const CUSTOM_SCHEMES_KEY = "concept_hebrew_custom_schemes_v9";
     const CONCEPT_OVERRIDES_KEY = "concept_hebrew_concept_overrides_v9";
     const DELETED_CONCEPTS_KEY = "concept_hebrew_deleted_concepts_v9";
+    const DISMISSED_FEEDBACK_KEY = "concept_hebrew_dismissed_feedback_v9";
     const DEV_FEEDBACK_BROADCAST_KEY = "concept_hebrew_dev_feedback_v9";
 
     let currentUser = null;
@@ -1279,6 +1258,7 @@
     let globalConceptOverrides = {}; // Developer global overrides from globalDatabasePatches/main
     let globalCustomConcepts = []; // Developer global custom concepts from globalDatabasePatches/main
     let deletedConceptIds = []; // Array of concept IDs permanently deleted by developer
+    let dismissedFeedbackIds = []; // Array of feedback/comment IDs addressed, ignored, or deleted by developer
     let developerFeedbackList = []; // Array of broadcasted feedback objects with full question & concept context
     let cloudUsersOverviewList = []; // Array of { uid, email, suspendedIds, commentsCount } from Firestore users
     let userStats = {
@@ -1293,6 +1273,7 @@
     let sessionMode = "due"; // 'due' | 'all'
     let activeSessionNoSchedule = false; // When true in Free Study, shows "ידעתי" / "לא ידעתי" without updating FSRS
     let activeManagerReviewMode = false; // When true, shows full manager controls & prompt switcher inside #study-section
+    let managerReviewSourceMode = "messages"; // 'messages' | 'all' | 'explorer_filtered'
     let managerReviewIndex = 0; // Index in sessionQueue during manager review mode
     let managerPreferredPromptByConcept = {}; // { [conceptId]: promptId } to open specific commented question
     let sessionSeenPromptsByConcept = {}; // { [conceptId]: [promptId, ...] }
@@ -1606,6 +1587,13 @@
             deletedConceptIds = parsedDel;
           }
         }
+        const rawDismissed = localStorage.getItem(DISMISSED_FEEDBACK_KEY);
+        if (rawDismissed) {
+          const parsedDis = JSON.parse(rawDismissed);
+          if (Array.isArray(parsedDis)) {
+            dismissedFeedbackIds = parsedDis;
+          }
+        }
         const rawFeedback = localStorage.getItem(DEV_FEEDBACK_BROADCAST_KEY);
         if (rawFeedback) {
           const parsedFb = JSON.parse(rawFeedback);
@@ -1660,6 +1648,7 @@
           localStorage.setItem(CONCEPT_OVERRIDES_KEY, JSON.stringify(customConceptOverrides));
           localStorage.setItem(CUSTOM_CONCEPTS_KEY, JSON.stringify(userCustomConcepts));
           localStorage.setItem(DELETED_CONCEPTS_KEY, JSON.stringify(deletedConceptIds));
+          localStorage.setItem(DISMISSED_FEEDBACK_KEY, JSON.stringify(dismissedFeedbackIds));
         }
         localStorage.setItem(DEV_FEEDBACK_BROADCAST_KEY, JSON.stringify(developerFeedbackList));
         updateDeveloperPatchSummaryUI();
@@ -1742,7 +1731,8 @@
                 updatedAt: new Date().toISOString(),
                 conceptOverrides: globalConceptOverrides,
                 customConcepts: globalCustomConcepts,
-                deletedConceptIds: deletedConceptIds
+                deletedConceptIds: deletedConceptIds,
+                dismissedFeedbackIds: dismissedFeedbackIds
               },
               { merge: true }
             );
@@ -1779,6 +1769,9 @@
             const pData = patchSnap.data();
             if (Array.isArray(pData.deletedConceptIds)) {
               deletedConceptIds = Array.from(new Set([...deletedConceptIds, ...pData.deletedConceptIds]));
+            }
+            if (Array.isArray(pData.dismissedFeedbackIds)) {
+              dismissedFeedbackIds = Array.from(new Set([...dismissedFeedbackIds, ...pData.dismissedFeedbackIds]));
             }
             if (pData.conceptOverrides && typeof pData.conceptOverrides === "object") {
               globalConceptOverrides = pData.conceptOverrides;
@@ -2336,8 +2329,7 @@
 
     function renderReferenceModalContent(scheme) {
       document.getElementById("ref-modal-badge").textContent = scheme.type || "סכמת טיפול / חומר עזר";
-      document.getElementById("ref-modal-id").textContent = scheme.id;
-      document.getElementById("ref-modal-title").textContent = scheme.title;
+            document.getElementById("ref-modal-title").textContent = scheme.title;
       document.getElementById("ref-modal-summary").textContent = scheme.summary || "";
 
       const imgWrap = document.getElementById("ref-modal-image-wrapper");
@@ -2419,8 +2411,7 @@
       const scheme = referenceSchemes[activeReferenceIdForModal];
       if (!scheme) return;
 
-      document.getElementById("ref-edit-id-label").textContent = scheme.id;
-      document.getElementById("ref-edit-title").value = scheme.title || "";
+            document.getElementById("ref-edit-title").value = scheme.title || "";
       document.getElementById("ref-edit-type").value = scheme.type || "";
       document.getElementById("ref-edit-summary").value = scheme.summary || "";
       document.getElementById("ref-edit-body").value = (scheme.steps || []).join("\n");
@@ -2817,7 +2808,7 @@
       const listEl = document.getElementById("card-existing-comments-list");
       const promptPill = document.getElementById("card-comment-prompt-id-pill");
       if (promptPill) {
-        promptPill.textContent = currentPrompt ? `שאלה: ${currentPrompt.id} (${currentPrompt.type})` : `קונספט: ${currentConcept.id}`;
+        promptPill.textContent = currentPrompt ? `סוג שאלה: ${currentPrompt.type || "שאלה"}` : (currentConcept.title || currentConcept.category || "");
       }
       if (!listEl) return;
 
@@ -2840,7 +2831,7 @@
           <div class="flex flex-wrap items-center justify-between gap-1.5">
             <div class="flex flex-wrap items-center gap-1.5">
               <span class="px-2 py-0.5 rounded-md font-bold text-[10px] ${isCurrentPrompt ? "bg-sky-100 text-sky-900" : "bg-slate-100 text-slate-700"}">
-                ${isCurrentPrompt ? "על שאלה זו" : `על שאלה אחרת (${escapeHtmlSafe(c.promptType || c.promptId)})`}
+                ${isCurrentPrompt ? "על שאלה זו" : `על שאלה אחרת בקונספט (${escapeHtmlSafe(c.promptType || "וריאציה אחרת")})`}
               </span>
               <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 font-bold text-[10px]">${escapeHtmlSafe(c.category || "הערה")}</span>
               ${c.broadcasted ? `<span class="px-2 py-0.5 rounded-md bg-violet-100 text-violet-800 font-extrabold text-[10px]">📡 שודר למפתח</span>` : ""}
@@ -3161,18 +3152,10 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2">
             <span class="px-2 py-0.5 rounded-lg bg-indigo-100 text-indigo-800 font-extrabold text-xs">וריאציה #${index + 1}</span>
-            <span class="text-[11px] font-mono text-slate-400">${escapeHtmlSafe(p.id || "")}</span>
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
             <input type="text" class="prompt-edit-type px-2.5 py-1 rounded-lg border border-slate-300 text-xs font-bold bg-white" value="${escapeHtmlSafe(p.type || "תרחיש קליני")}" placeholder="סוג שאלה (למשל: תרחיש קליני)">
-            <button type="button" class="toggle-row-ai-btn px-2.5 py-1 rounded-lg bg-violet-100 hover:bg-violet-200 text-violet-900 text-xs font-extrabold transition">✨ שנה עם AI</button>
-            <button type="button" class="remove-prompt-row-btn px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition">🗑️ הסר</button>
-          </div>
-        </div>
-        <div class="row-ai-prompt-box hidden p-2.5 rounded-xl bg-violet-50 border border-violet-200 space-y-2">
-          <div class="flex flex-wrap items-center gap-1.5">
-            <input type="text" class="row-ai-instruction flex-1 min-w-[180px] px-2.5 py-1.5 rounded-lg border border-violet-300 text-xs bg-white" placeholder="הנחיה ל-AI: למשל 'הפוך לתרחיש קליני' או 'הפוך להשלמת משפט Cloze'...">
-            <button type="button" class="run-row-ai-btn px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold transition">✨ החלף שאלה</button>
+            <button type="button" class="remove-prompt-row-btn px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition">🗑️ הסר שאלה</button>
           </div>
         </div>
         <div>
@@ -3184,37 +3167,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           <input type="text" class="prompt-edit-note w-full p-2 rounded-xl border border-slate-300 text-xs bg-white" value="${escapeHtmlSafe(p.note || "")}">
         </div>
       `;
-      row.querySelector(".toggle-row-ai-btn").addEventListener("click", () => {
-        const box = row.querySelector(".row-ai-prompt-box");
-        box.classList.toggle("hidden");
-        if (!box.classList.contains("hidden")) {
-          row.querySelector(".row-ai-instruction").focus();
-        }
-      });
-      row.querySelector(".run-row-ai-btn").addEventListener("click", async (ev) => {
-        const btn = ev.currentTarget;
-        const cTitle = document.getElementById("edit-concept-title").value.trim();
-        const cAns = document.getElementById("edit-concept-answer").value.trim();
-        if (!cAns) {
-          showToast("אנא הזן תחילה את משפט קונספט הליבה", "rose");
-          return;
-        }
-        const curText = row.querySelector(".prompt-edit-text").value.trim();
-        const curType = row.querySelector(".prompt-edit-type").value.trim();
-        const inst = row.querySelector(".row-ai-instruction").value.trim();
-        btn.disabled = true;
-        btn.textContent = "⏳ מייצר...";
-        const res = await rewriteSpecificQuestionWithAI(cTitle, cAns, { type: curType, text: curText, note: cAns }, inst);
-        btn.disabled = false;
-        btn.textContent = "✨ החלף שאלה";
-        if (res && res.text) {
-          row.querySelector(".prompt-edit-type").value = res.type || "תרחיש קליני";
-          row.querySelector(".prompt-edit-text").value = res.text;
-          row.querySelector(".prompt-edit-note").value = res.note || cAns;
-          row.querySelector(".row-ai-prompt-box").classList.add("hidden");
-          showToast("השאלה הוחלפה באמצעות AI!", "emerald");
-        }
-      });
       row.querySelector(".remove-prompt-row-btn").addEventListener("click", () => {
         const container = document.getElementById("edit-concept-prompts-list");
         if (container.querySelectorAll(".prompt-edit-row").length <= 1) {
@@ -3231,7 +3183,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       if (!node) return;
 
       document.getElementById("edit-concept-id").value = node.id;
-      document.getElementById("concept-editor-heading").textContent = `עריכת קונספט: ${node.title || node.category} (${node.id})`;
+      document.getElementById("concept-editor-heading").textContent = `עריכת קונספט: ${node.title || node.category}`;
       document.getElementById("edit-concept-title").value = node.title || node.category || "";
       document.getElementById("edit-concept-category").value = node.category || "";
       document.getElementById("edit-concept-answer").value = node.answer || "";
@@ -3297,7 +3249,11 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
       customConceptOverrides[cid] = updatedNode;
       applyConceptOverridesToMemory();
-      await persistUserStateToCloud();
+      if (isCurrentUserDeveloper()) {
+        await removeAllMessagesForConceptOrPrompt(cid, null, true);
+      } else {
+        await persistUserStateToCloud();
+      }
 
       // Update active study card if currently viewing this concept
       if (currentConcept && currentConcept.id === cid) {
@@ -3337,9 +3293,138 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     }
 
     // ============================================================================
-    // 8E. DEVELOPER HUB: USER MESSAGES, DECISIONS (DELETE/EDIT/REPLY) & NON-DESTRUCTIVE JSON SYNC
+    // 8E. DEVELOPER HUB: USER MESSAGES, DECISIONS (DELETE/EDIT/IGNORE/REPLY) & NON-DESTRUCTIVE JSON SYNC
     // ============================================================================
     const devFeedbackModal = document.getElementById("dev-feedback-modal");
+
+    function isFeedbackDismissed(idOrCommentId) {
+      if (!idOrCommentId) return false;
+      return Array.isArray(dismissedFeedbackIds) && dismissedFeedbackIds.includes(idOrCommentId);
+    }
+
+    // Permanently remove a single user message / feedback item (from memory, localStorage, and Firestore)
+    async function removeDeveloperFeedbackMessage(fbItem, silent = false) {
+      if (!fbItem) return;
+      const fbId = fbItem.id || (fbItem.commentId ? `devfb_${fbItem.commentId}` : "");
+      const cmtId = fbItem.commentId || (fbId.startsWith("devfb_") ? fbId.slice(6) : fbId);
+      const cid = fbItem.conceptContext?.conceptId;
+
+      if (fbId && !dismissedFeedbackIds.includes(fbId)) dismissedFeedbackIds.push(fbId);
+      if (cmtId && !dismissedFeedbackIds.includes(cmtId)) dismissedFeedbackIds.push(cmtId);
+
+      developerFeedbackList = developerFeedbackList.filter(x => x.id !== fbId && x.commentId !== cmtId);
+
+      if (cid && Array.isArray(userComments[cid])) {
+        userComments[cid] = userComments[cid].filter(c => c.id !== cmtId && `devfb_${c.id}` !== fbId);
+        if (userComments[cid].length === 0) {
+          delete userComments[cid];
+        }
+      }
+
+      if (!isDemoMode && currentUser && db) {
+        try {
+          if (fbId) {
+            await deleteDoc(doc(db, "developerFeedback", fbId));
+          }
+          if (fbItem.userUid && fbItem.userUid !== "demo_local_user" && cid) {
+            const targetUserRef = doc(db, "users", fbItem.userUid);
+            const targetSnap = await getDoc(targetUserRef);
+            if (targetSnap.exists()) {
+              const tData = targetSnap.data();
+              const tComments = tData.comments || {};
+              if (Array.isArray(tComments[cid])) {
+                tComments[cid] = tComments[cid].filter(c => c.id !== cmtId && `devfb_${c.id}` !== fbId);
+                if (tComments[cid].length === 0) delete tComments[cid];
+              }
+              const tSent = Array.isArray(tData.developerFeedbackSent)
+                ? tData.developerFeedbackSent.filter(f => f.id !== fbId && f.commentId !== cmtId)
+                : [];
+              await setDoc(targetUserRef, { comments: tComments, developerFeedbackSent: tSent }, { merge: true });
+            }
+          }
+        } catch (err) {
+          console.warn("Firestore message delete warning:", err);
+        }
+      }
+
+      await persistUserStateToCloud();
+      updateCommentAndFeedbackBadges();
+
+      if (!silent) {
+        if (!devFeedbackModal.classList.contains("hidden")) renderDeveloperFeedbackList();
+        if (!explorerSection.classList.contains("hidden")) renderExplorerView();
+        if (!studySection.classList.contains("hidden")) {
+          handlePostMessageRemovalInStudyView();
+        }
+        showToast("ההודעה הוסרה מרשימת ההודעות!", "emerald");
+      }
+    }
+
+    // Remove all user messages for a given concept (or specific promptId within a concept)
+    async function removeAllMessagesForConceptOrPrompt(conceptId, promptId = null, silent = true) {
+      if (!conceptId) return;
+      const allMsgs = getCombinedUserMessagesForDeveloper();
+      const matching = allMsgs.filter(m => {
+        if (m.conceptContext?.conceptId !== conceptId) return false;
+        if (promptId && m.questionContext?.promptId && m.questionContext.promptId !== promptId && m.questionContext.promptId !== "general") {
+          return false;
+        }
+        return true;
+      });
+
+      for (const m of matching) {
+        await removeDeveloperFeedbackMessage(m, true);
+      }
+
+      // Also clean local userComments for this concept/prompt
+      if (Array.isArray(userComments[conceptId])) {
+        if (!promptId) {
+          delete userComments[conceptId];
+        } else {
+          userComments[conceptId] = userComments[conceptId].filter(c => c.promptId !== promptId);
+          if (userComments[conceptId].length === 0) delete userComments[conceptId];
+        }
+      }
+
+      await persistUserStateToCloud();
+      updateCommentAndFeedbackBadges();
+      if (!devFeedbackModal.classList.contains("hidden")) renderDeveloperFeedbackList();
+      if (!explorerSection.classList.contains("hidden")) renderExplorerView();
+      if (!studySection.classList.contains("hidden")) {
+        handlePostMessageRemovalInStudyView();
+      }
+      if (!silent) {
+        showToast("ההודעות על שאלה/קונספט זה הוסרו!", "emerald");
+      }
+    }
+
+    function handlePostMessageRemovalInStudyView() {
+      if (!activeManagerReviewMode || !currentConcept) {
+        renderManagerFlashcardElements();
+        return;
+      }
+      const remainingOnCurrent = getMessagesForConcept(currentConcept.id);
+      if (managerReviewSourceMode === "messages" && remainingOnCurrent.length === 0) {
+        // Remove currentConcept from the messages review queue since all its messages were addressed!
+        sessionQueue = sessionQueue.filter(c => c.id !== currentConcept.id);
+        if (sessionQueue.length === 0) {
+          showToast("כל הודעות המשתמשים בתור טופלו והוסרו!", "emerald");
+          cardOuterWrapper.classList.add("hidden");
+          sessionCompleteCard.classList.remove("hidden");
+          document.getElementById("session-complete-summary").textContent =
+            "סיימת לטפל בכל הודעות המשתמשים! כל ההודעות שטופלו הוסרו והשינויים נשמרו.";
+          return;
+        }
+        managerReviewIndex = managerReviewIndex % sessionQueue.length;
+        const nextConcept = sessionQueue[0];
+        const prefPid = managerPreferredPromptByConcept[nextConcept.id];
+        const forcedPrompt = (nextConcept.prompts || []).find(p => p.id === prefPid) || nextConcept.prompts?.[0] || null;
+        const autoReveal = Boolean(document.getElementById("toggle-manager-auto-reveal")?.checked);
+        loadNextCard(forcedPrompt, autoReveal);
+      } else {
+        renderManagerFlashcardElements();
+      }
+    }
 
     async function deleteConceptFromDatabase(conceptId) {
       if (!isCurrentUserDeveloper()) {
@@ -3348,7 +3433,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       }
       if (!conceptId) return;
       const node = conceptNodes.find(n => n.id === conceptId);
-      const title = node ? (node.title || node.category || conceptId) : conceptId;
+      const title = node ? (node.title || node.category) : "הקונספט";
       if (!deletedConceptIds.includes(conceptId)) {
         deletedConceptIds.push(conceptId);
       }
@@ -3362,6 +3447,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           }
         }
       } catch (e) {}
+
+      // Automatically remove all user messages on this deleted concept
+      await removeAllMessagesForConceptOrPrompt(conceptId, null, true);
 
       applyConceptOverridesToMemory();
       await persistUserStateToCloud();
@@ -3379,7 +3467,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       if (!devFeedbackModal.classList.contains("hidden")) {
         renderDeveloperFeedbackList();
       }
-      showToast(`הקונספט "${title}" (${conceptId}) נמחק מה-JSON לצמיתות!`, "rose");
+      showToast(`הקונספט "${title}" נמחק מה-JSON לצמיתות וההודעות עליו הוסרו!`, "rose");
     }
 
     async function restoreAllDeletedConcepts() {
@@ -3398,10 +3486,14 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     // Build a unified list of all messages across developerFeedbackList, cloud users' comments, and local userComments
     function getCombinedUserMessagesForDeveloper() {
       const byKey = new Map();
+      const deletedSet = new Set(deletedConceptIds || []);
 
       // 1. Broadcasted developerFeedbackList items
       for (const fb of developerFeedbackList) {
         if (!fb) continue;
+        if (isFeedbackDismissed(fb.id) || isFeedbackDismissed(fb.commentId)) continue;
+        const cid = fb.conceptContext?.conceptId;
+        if (cid && deletedSet.has(cid)) continue;
         const key = fb.commentId || fb.id;
         byKey.set(key, {
           ...fb,
@@ -3411,10 +3503,12 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
       // 2. Current user's local/cloud comments on questions & concepts
       for (const [cid, arr] of Object.entries(userComments || {})) {
+        if (deletedSet.has(cid)) continue;
         if (!Array.isArray(arr)) continue;
         const node = conceptNodes.find(n => n.id === cid) || DEFAULT_CONCEPT_NODES.find(n => n.id === cid);
         const subj = SUBJECTS.find(s => s.id === (node?.subjectId || ""));
         for (const c of arr) {
+          if (isFeedbackDismissed(c.id) || isFeedbackDismissed(`devfb_${c.id}`)) continue;
           const key = c.id;
           const existing = byKey.get(key);
           const promptObj = (node?.prompts || []).find(p => p.id === c.promptId);
@@ -3432,7 +3526,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               subjectId: node?.subjectId || c.subjectId || "",
               subjectTitle: subj ? subj.title : (node?.subjectId || c.subjectId || ""),
               category: node?.category || c.conceptTitle || "",
-              title: node?.title || node?.category || c.conceptTitle || cid,
+              title: node?.title || node?.category || c.conceptTitle || "",
               coreAnswer: node?.answer || "",
               referenceId: node?.referenceId || ""
             },
@@ -3452,16 +3546,52 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       return allItems;
     }
 
+    function getMessagesForConcept(conceptId) {
+      if (!conceptId) return [];
+      const allDevMsgs = isCurrentUserDeveloper() ? getCombinedUserMessagesForDeveloper() : [];
+      const conceptMsgs = allDevMsgs.filter(m => m.conceptContext?.conceptId === conceptId);
+      const localConceptCmts = getConceptComments(conceptId);
+      const msgById = new Map();
+      for (const m of conceptMsgs) {
+        if (!isFeedbackDismissed(m.id) && !isFeedbackDismissed(m.commentId)) {
+          msgById.set(m.commentId || m.id, m);
+        }
+      }
+      for (const c of localConceptCmts) {
+        if (isFeedbackDismissed(c.id) || isFeedbackDismissed(`devfb_${c.id}`)) continue;
+        if (!msgById.has(c.id)) {
+          const node = conceptNodes.find(n => n.id === conceptId);
+          msgById.set(c.id, {
+            id: `devfb_${c.id}`,
+            commentId: c.id,
+            userUid: currentUser?.uid || "demo_local_user",
+            userEmail: c.userEmail || currentUser?.email || "משתמש מקומי",
+            feedbackType: c.category || "הערה על שאלה",
+            commentText: c.text,
+            developerReply: c.developerReply || null,
+            conceptContext: { conceptId, title: node?.title || node?.category || "" },
+            questionContext: { promptId: c.promptId || "general", promptType: c.promptType || "" }
+          });
+        }
+      }
+      return Array.from(msgById.values());
+    }
+
     async function syncAllCloudFeedbackAndUsers() {
       if (isDemoMode || !currentUser || !db || !isCurrentUserDeveloper()) return;
       try {
         const fbSnap = await getDocs(collection(db, "developerFeedback"));
         const cloudItems = [];
         fbSnap.forEach(d => {
-          if (d.exists()) cloudItems.push(d.data());
+          if (d.exists()) {
+            const item = d.data();
+            if (!isFeedbackDismissed(item.id) && !isFeedbackDismissed(item.commentId)) {
+              cloudItems.push(item);
+            }
+          }
         });
         if (cloudItems.length > 0) {
-          const byId = new Map(developerFeedbackList.map(x => [x.id, x]));
+          const byId = new Map(developerFeedbackList.filter(x => !isFeedbackDismissed(x.id) && !isFeedbackDismissed(x.commentId)).map(x => [x.id, x]));
           for (const item of cloudItems) {
             if (item && item.id) byId.set(item.id, item);
           }
@@ -3479,19 +3609,21 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           if (!uDoc.exists()) return;
           const uData = uDoc.data();
           const uid = uDoc.id;
-          const uEmail = uData.email || uData.developerFeedbackSent?.[0]?.userEmail || `משתמש (${uid.slice(0, 6)})`;
+          const uEmail = uData.email || uData.developerFeedbackSent?.[0]?.userEmail || "משתמש רשום";
           const prog = uData.progress || {};
           const suspendedIds = Object.keys(prog).filter(k => prog[k]?.suspended);
           let uCommentsCount = 0;
 
           if (uData.comments && typeof uData.comments === "object") {
             for (const [cid, cArr] of Object.entries(uData.comments)) {
+              if (deletedConceptIds.includes(cid)) continue;
               if (!Array.isArray(cArr)) continue;
               const node = conceptNodes.find(n => n.id === cid) || DEFAULT_CONCEPT_NODES.find(n => n.id === cid);
               const subj = SUBJECTS.find(s => s.id === (node?.subjectId || ""));
               for (const c of cArr) {
-                uCommentsCount += 1;
                 const fbId = `devfb_${c.id}`;
+                if (isFeedbackDismissed(c.id) || isFeedbackDismissed(fbId)) continue;
+                uCommentsCount += 1;
                 const existingIdx = developerFeedbackList.findIndex(x => x.commentId === c.id || x.id === fbId);
                 const promptObj = (node?.prompts || []).find(p => p.id === c.promptId);
                 const itemPayload = {
@@ -3508,7 +3640,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
                     subjectId: node?.subjectId || c.subjectId || "",
                     subjectTitle: subj ? subj.title : (node?.subjectId || c.subjectId || ""),
                     category: node?.category || c.conceptTitle || "",
-                    title: node?.title || node?.category || c.conceptTitle || cid,
+                    title: node?.title || node?.category || c.conceptTitle || "",
                     coreAnswer: node?.answer || "",
                     referenceId: node?.referenceId || ""
                   },
@@ -3563,7 +3695,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         developerFeedbackList.unshift(fbItem);
       }
 
-      // Update local userComments if this comment belongs to current user or local storage
       const cid = fbItem.conceptContext?.conceptId;
       if (cid && Array.isArray(userComments[cid])) {
         const cIdx = userComments[cid].findIndex(c => c.id === fbItem.commentId);
@@ -3574,7 +3705,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
       await persistUserStateToCloud();
 
-      // Also persist reply to Firestore developerFeedback/{id} and target user's document
       if (!isDemoMode && currentUser && db) {
         try {
           await setDoc(doc(db, "developerFeedback", fbItem.id), { developerReply: replyObj }, { merge: true });
@@ -3644,7 +3774,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         userFilterSelect.value = distinctUsers.includes(prevUser) ? prevUser : "all";
       }
 
-      // Render Beta Testers Activity Summary (including local user + cloud users)
+      // Render Beta Testers Activity Summary
       const localSuspendedIds = Object.keys(userProgress || {}).filter(k => userProgress[k]?.suspended);
       const combinedUsersOverview = [...cloudUsersOverviewList];
       const currentEmail = currentUser?.email || "משתמש מקומי (Local Storage)";
@@ -3665,8 +3795,8 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
             const uCard = document.createElement("div");
             uCard.className = "p-2.5 rounded-xl bg-white border border-slate-200 flex flex-col justify-between gap-1";
             const suspTitles = u.suspendedIds.map(id => {
-              const n = conceptNodes.find(x => x.id === id);
-              return n ? `${n.title || n.category} (${id})` : id;
+              const n = conceptNodes.find(x => x.id === id) || DEFAULT_CONCEPT_NODES.find(x => x.id === id);
+              return n ? (n.title || n.category) : "קונספט";
             });
             uCard.innerHTML = `
               <div class="flex items-center justify-between gap-2">
@@ -3701,14 +3831,14 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       }
 
       listEl.innerHTML = "";
-      footerCount.textContent = `מציג ${filtered.length} מתוך ${allMessages.length} הודעות משתמשים`;
+      footerCount.textContent = `מציג ${filtered.length} מתוך ${allMessages.length} הודעות משתמשים פעילות`;
 
       if (filtered.length === 0) {
         listEl.innerHTML = `
           <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center text-slate-500 text-xs space-y-1">
             <div class="text-lg">📭</div>
-            <div class="font-bold text-slate-700">אין הודעות משתמשים התואמות לסינון הנוכחי</div>
-            <div>כל הערה שמשתמש שומר או משדר על שאלה או קונספט מופיעה כאן עם אפשרות למחוק את הקונספט מה-JSON, לשנות את השאלה/הקונספט או להשיב למשתמש.</div>
+            <div class="font-bold text-slate-700">אין הודעות משתמשים ממתינות לטיפול</div>
+            <div>כל ההודעות שטופלו (באמצעות עריכת השאלה, מחיקת הקונספט או התעלמות/מחיקת ההודעה) מוסרות אוטומטית מהרשימה.</div>
           </div>
         `;
         return;
@@ -3722,9 +3852,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         const isDeleted = deletedConceptIds.includes(c.conceptId);
 
         const card = document.createElement("div");
-        card.className = isDeleted
-          ? "p-4 rounded-2xl border-2 border-rose-300 bg-rose-50/40 space-y-2.5 text-xs opacity-80"
-          : "p-4 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-2.5 text-xs";
+        card.className = "p-4 rounded-2xl border border-slate-200 bg-slate-50/70 space-y-2.5 text-xs";
         const dateStr = fb.createdAt ? new Date(fb.createdAt).toLocaleString("he-IL") : "";
 
         card.innerHTML = `
@@ -3732,17 +3860,16 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
             <div class="flex flex-wrap items-center gap-1.5">
               <span class="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-extrabold">👤 ${escapeHtmlSafe(fb.userEmail || "משתמש מקומי")}</span>
               <span class="px-2.5 py-0.5 rounded-lg bg-violet-100 text-violet-900 font-extrabold">${escapeHtmlSafe(fb.feedbackType || "הודעה")}</span>
-              <span class="px-2 py-0.5 rounded-lg bg-indigo-50 text-indigo-800 font-bold">${escapeHtmlSafe(c.subjectTitle || c.subjectId || "")}</span>
-              <span class="font-mono text-[11px] text-slate-500">${escapeHtmlSafe(c.conceptId || "")} / ${escapeHtmlSafe(q.promptId || "")}</span>
-              ${isDeleted ? `<span class="px-2 py-0.5 rounded-full bg-rose-600 text-white font-extrabold text-[10px]">🗑️ נמחק מה-JSON</span>` : ""}
+              <span class="px-2 py-0.5 rounded-lg bg-indigo-50 text-indigo-800 font-bold">${escapeHtmlSafe(c.subjectTitle || "")}</span>
+              <span class="px-2 py-0.5 rounded-lg bg-slate-200/80 text-slate-800 font-bold">${escapeHtmlSafe(liveNode?.title || c.title || "")}</span>
               ${fb.developerReply ? `<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-[10px]">✓ נענה למשתמש</span>` : ""}
               <span class="text-[11px] text-slate-400">${dateStr}</span>
             </div>
             <div class="flex flex-wrap items-center gap-1.5">
               <button type="button" class="dev-open-in-study-btn px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition shadow-2xs" title="פתח שאלה וקונספט זה בתצוגת כרטיסיית למידה עם אפשרויות ניהול">🎴 פתח בתצוגת למידה-ניהול</button>
-              <button type="button" class="dev-toggle-inline-change-btn px-2.5 py-1 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-extrabold transition">✨ שנה שאלה / קונספט</button>
-              <button type="button" class="edit-from-fb-btn px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition">✏️ עורך מלא</button>
-              <button type="button" class="dev-toggle-reply-btn px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition">↩️ השב למשתמש</button>
+              <button type="button" class="dev-toggle-inline-change-btn px-2.5 py-1 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-extrabold transition">✏️ שנה שאלה / קונספט</button>
+              <button type="button" class="dev-toggle-reply-btn px-2.5 py-1 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-extrabold transition">↩️ השב למשתמש</button>
+              <button type="button" class="dev-ignore-msg-btn px-2.5 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold transition" title="התעלם מהודעה זו ומחק אותה מרשימת ההודעות">🚫 התעלם / מחק הודעה</button>
               <button type="button" class="dev-delete-concept-btn px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-extrabold transition" ${isDeleted ? "disabled" : ""}>🗑️ מחק קונספט מה-JSON</button>
             </div>
           </div>
@@ -3761,13 +3888,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
             <div><strong class="text-slate-800">קונספט (${escapeHtmlSafe(liveNode?.title || c.title || "")}):</strong> ${escapeHtmlSafe(liveNode?.answer || c.coreAnswer || "")}</div>
           </div>
 
-          <!-- Inline Box 1: Quick Change Question or Concept (AI instruction or direct edit) -->
+          <!-- Inline Box 1: Direct Change Question or Concept (Removes message once saved) -->
           <div class="dev-inline-change-box hidden p-3 rounded-xl bg-violet-50 border border-violet-200 space-y-2.5">
-            <div class="font-extrabold text-violet-950">✨ שינוי מהיר של השאלה או הקונספט (נשמר מבלי לאבד שינויים בעדכון JSON):</div>
-            <div class="flex flex-wrap items-center gap-2">
-              <input type="text" class="dev-ai-change-instruction flex-1 min-w-[220px] p-2 rounded-lg border border-violet-300 bg-white text-xs" value="${escapeHtmlSafe(fb.commentText || "")}" placeholder="הנחיה לשינוי השאלה (למשל על בסיס הערת המשתמש)...">
-              <button type="button" class="dev-run-ai-change-btn px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-extrabold transition">✨ שכתב שאלה עם AI</button>
-            </div>
+            <div class="font-extrabold text-violet-950">✏️ עריכת השאלה או הקונספט (שמירה תעדכן את המאגר ותסיר אוטומטית את ההודעה):</div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div>
                 <label class="block text-[11px] font-bold text-slate-700 mb-0.5">נוסח השאלה המעודכן:</label>
@@ -3779,7 +3902,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               </div>
             </div>
             <div class="flex justify-end gap-2">
-              <button type="button" class="dev-save-inline-change-btn px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold transition">💾 שמור שינוי בקונספט ובשאלה</button>
+              <button type="button" class="dev-save-inline-change-btn px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold transition">💾 שמור שינוי והסר הודעה</button>
             </div>
           </div>
 
@@ -3787,7 +3910,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           <div class="dev-inline-reply-box hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 space-y-2">
             <label class="block font-extrabold text-emerald-950">↩️ שלח הודעה חזרה למשתמש (${escapeHtmlSafe(fb.userEmail || "משתמש")}):</label>
             <div class="flex flex-wrap items-center gap-2">
-              <input type="text" class="dev-reply-input flex-1 min-w-[220px] p-2 rounded-lg border border-emerald-300 bg-white text-xs" value="${escapeHtmlSafe(fb.developerReply?.text || "")}" placeholder="כתוב תגובה למשתמש (למשל: תודה! עדכנתי את השאלה בהתאם להערתך)...">
+              <input type="text" class="dev-reply-input flex-1 min-w-[220px] p-2 rounded-lg border border-emerald-300 bg-white text-xs" value="${escapeHtmlSafe(fb.developerReply?.text || "")}" placeholder="כתוב תגובה למשתמש...">
               <button type="button" class="dev-send-reply-confirm-btn px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold transition">📨 שלח הודעה למשתמש</button>
             </div>
           </div>
@@ -3814,24 +3937,8 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           }
         });
 
-        card.querySelector(".dev-run-ai-change-btn").addEventListener("click", async (ev) => {
-          if (!liveNode) {
-            showToast("הקונספט לא נמצא במאגר הפעיל", "rose");
-            return;
-          }
-          const btn = ev.currentTarget;
-          const inst = card.querySelector(".dev-ai-change-instruction").value.trim();
-          const curAns = card.querySelector(".dev-direct-concept-answer").value.trim() || liveNode.answer;
-          const curQ = card.querySelector(".dev-direct-prompt-text").value.trim();
-          btn.disabled = true;
-          btn.textContent = "⏳ משכתב...";
-          const rewritten = await rewriteSpecificQuestionWithAI(liveNode.title || liveNode.category, curAns, { type: livePrompt?.type || "תרחיש קליני", text: curQ, note: curAns }, inst);
-          btn.disabled = false;
-          btn.textContent = "✨ שכתב שאלה עם AI";
-          if (rewritten && rewritten.text) {
-            card.querySelector(".dev-direct-prompt-text").value = rewritten.text;
-            showToast("נוסח השאלה שוכתב עם AI — לחץ על 'שמור שינוי בקונספט ובשאלה' לאישור", "emerald");
-          }
+        card.querySelector(".dev-ignore-msg-btn").addEventListener("click", async () => {
+          await removeDeveloperFeedbackMessage(fb, false);
         });
 
         card.querySelector(".dev-save-inline-change-btn").addEventListener("click", async () => {
@@ -3859,22 +3966,15 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           };
           customConceptOverrides[liveNode.id] = updatedNode;
           applyConceptOverridesToMemory();
-          await persistUserStateToCloud();
+          await removeDeveloperFeedbackMessage(fb, true);
           renderDeveloperFeedbackList();
           if (!explorerSection.classList.contains("hidden")) renderExplorerView();
-          showToast("השאלה והקונספט עודכנו ונשמרו בשכבת השינויים המוגנת!", "emerald");
+          showToast("השאלה והקונספט עודכנו וההודעה הוסרה מרשימת ההודעות!", "emerald");
         });
 
         card.querySelector(".dev-send-reply-confirm-btn").addEventListener("click", async () => {
           const replyText = card.querySelector(".dev-reply-input").value;
           await sendDeveloperReplyToUser(fb, replyText);
-        });
-
-        card.querySelector(".edit-from-fb-btn").addEventListener("click", () => {
-          devFeedbackModal.classList.add("hidden");
-          if (c.conceptId) {
-            openConceptEditorModal(c.conceptId, q.promptId);
-          }
         });
 
         card.querySelector(".dev-delete-concept-btn").addEventListener("click", async () => {
@@ -3896,10 +3996,8 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       const topicSubjectIds = new Set(topicSubjects.map(s => s.id));
       const deletedSet = new Set(deletedConceptIds || []);
 
-      // All active concepts belonging to this topic (already includes overrides and custom added concepts, and excludes deletedConceptIds)
       const topicConcepts = conceptNodes.filter(c => topicSubjectIds.has(c.subjectId) && !deletedSet.has(c.id));
 
-      // Include relevant reference schemes for this topic
       const topicSchemes = {};
       for (const [k, v] of Object.entries(referenceSchemes || {})) {
         const isMtlsScheme = v.topicId === "mtls" || String(k).startsWith("ref_mtls_");
@@ -3936,8 +4034,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       showToast(`הקובץ ${filename} הורד בהצלחה עם כל העריכות, התוספות והמחיקות שלך (${topicConcepts.length} קונספטים)!`, "emerald");
     }
 
-    // Non-destructive JSON merge importer: updates base concepts/subjects from an external JSON file
-    // while strictly preserving all developer edits (customConceptOverrides), added concepts, and deletedConceptIds!
     async function mergeExternalJsonNonDestructively(file) {
       if (!isCurrentUserDeveloper() || !file) return;
       try {
@@ -3964,13 +4060,14 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
     // Launch the Flashcard Learning View (#study-section) in Manager/Review Mode
     // sourceMode: 'messages' (questions/concepts with user messages) | 'all' (all concepts) | 'explorer_filtered'
     function startManagerFlashcardReviewSession(sourceMode = "messages", startConceptId = null, startPromptId = null) {
+      managerReviewSourceMode = sourceMode;
       managerPreferredPromptByConcept = {};
       let targetConcepts = [];
 
       if (sourceMode === "messages") {
         const allMsgs = isCurrentUserDeveloper()
           ? getCombinedUserMessagesForDeveloper()
-          : Object.values(userComments || {}).flat().map(c => ({
+          : Object.values(userComments || {}).flat().filter(c => !isFeedbackDismissed(c.id)).map(c => ({
               conceptContext: { conceptId: c.conceptId },
               questionContext: { promptId: c.promptId }
             }));
@@ -3992,6 +4089,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         }
         if (targetConcepts.length === 0) {
           showToast("אין כרגע שאלות עם הודעות משתמשים — פותח את כלל השאלות במצב ניהול", "amber");
+          managerReviewSourceMode = "all";
           targetConcepts = [...conceptNodes];
         }
       } else if (sourceMode === "explorer_filtered") {
@@ -4016,7 +4114,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
           filtered = filtered.filter(n => {
             const commentsText = getConceptComments(n.id).map(c => c.text).join(" ");
             const promptsText = (n.prompts || []).map(p => `${p.text} ${p.note}`).join(" ");
-            const haystack = `${n.id} ${n.title || ""} ${n.category || ""} ${n.answer || ""} ${promptsText} ${commentsText}`.toLowerCase();
+            const haystack = `${n.title || ""} ${n.category || ""} ${n.answer || ""} ${promptsText} ${commentsText}`.toLowerCase();
             return haystack.includes(searchQuery);
           });
         }
@@ -4038,7 +4136,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       const foundIdx = startConceptId ? sessionQueue.findIndex(c => c.id === startConceptId) : 0;
       managerReviewIndex = foundIdx >= 0 ? foundIdx : 0;
 
-      // Put the current item at sessionQueue[0] while keeping full ordered list in sessionQueue
       if (managerReviewIndex > 0) {
         const rotated = [
           ...sessionQueue.slice(managerReviewIndex),
@@ -4095,7 +4192,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       const fsrsBox = document.getElementById("fsrs-grading-box");
       const freeBinaryBox = document.getElementById("free-binary-grading-box");
 
-      // Show toggle button in top bar if user is developer or in manager review mode
       if (topToggleWrap) {
         if (isCurrentUserDeveloper() || activeManagerReviewMode) {
           topToggleWrap.classList.remove("hidden");
@@ -4122,7 +4218,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         return;
       }
 
-      // Active Manager Review Mode UI
       if (topManagerBar) {
         topManagerBar.classList.remove("hidden");
         topManagerBar.classList.add("flex");
@@ -4132,37 +4227,21 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         posLabel.textContent = `קונספט ${managerReviewIndex + 1} מתוך ${sessionQueue.length} בתור`;
       }
 
-      // Hide regular grading boxes and show Manager Bottom Navigation Box
       if (fsrsBox) fsrsBox.classList.add("hidden");
       if (freeBinaryBox) freeBinaryBox.classList.add("hidden");
       if (managerBottomBox) managerBottomBox.classList.remove("hidden");
 
-      // Gather all messages for this concept (from all users if developer, or current user's comments)
-      const allDevMsgs = isCurrentUserDeveloper() ? getCombinedUserMessagesForDeveloper() : [];
-      const conceptMsgs = allDevMsgs.filter(m => m.conceptContext?.conceptId === currentConcept.id);
-      const localConceptCmts = getConceptComments(currentConcept.id);
+      const mergedConceptMessages = getMessagesForConcept(currentConcept.id);
 
-      // Merge any local comments not already in conceptMsgs
-      const msgById = new Map();
-      for (const m of conceptMsgs) {
-        msgById.set(m.commentId || m.id, m);
-      }
-      for (const c of localConceptCmts) {
-        if (!msgById.has(c.id)) {
-          msgById.set(c.id, {
-            id: `devfb_${c.id}`,
-            commentId: c.id,
-            userUid: currentUser?.uid || "demo_local_user",
-            userEmail: c.userEmail || currentUser?.email || "משתמש מקומי",
-            feedbackType: c.category || "הערה על שאלה",
-            commentText: c.text,
-            developerReply: c.developerReply || null,
-            conceptContext: { conceptId: currentConcept.id, title: currentConcept.title || currentConcept.category },
-            questionContext: { promptId: c.promptId || "general", promptType: c.promptType || "" }
-          });
+      // Show/hide "🚫 התעלם והסר הודעה" button in manager action bar if this concept has messages
+      const ignoreCardBtn = document.getElementById("btn-manager-ignore-card-messages");
+      if (ignoreCardBtn) {
+        if (mergedConceptMessages.length > 0) {
+          ignoreCardBtn.classList.remove("hidden");
+        } else {
+          ignoreCardBtn.classList.add("hidden");
         }
       }
-      const mergedConceptMessages = Array.from(msgById.values());
 
       // 1. Render Prompt Variations Switcher Tabs for currentConcept
       if (promptSwitcherBar) {
@@ -4197,7 +4276,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         }
       }
 
-      // 2. Render User Messages Banner on this Flashcard
+      // 2. Render User Messages Banner on this Flashcard (with direct Ignore / Delete message button)
       if (messagesPanel) {
         const msgListEl = document.getElementById("manager-card-messages-list");
         const msgCountEl = document.getElementById("manager-card-messages-count");
@@ -4216,13 +4295,13 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
                 <div class="flex flex-wrap items-center gap-1.5">
                   <span class="px-2 py-0.5 rounded-md bg-slate-900 text-white font-extrabold text-[11px]">👤 ${escapeHtmlSafe(m.userEmail || "משתמש")}</span>
                   <span class="px-2 py-0.5 rounded-md ${isThisPrompt ? "bg-violet-100 text-violet-900 font-extrabold" : "bg-slate-100 text-slate-600 font-bold"} text-[10px]">
-                    ${isThisPrompt ? "על וריאציית שאלה זו" : `על שאלה אחרת בקונספט (${escapeHtmlSafe(m.questionContext?.promptId || "")})`}
+                    ${isThisPrompt ? "על וריאציית שאלה זו" : `על שאלה אחרת בקונספט (${escapeHtmlSafe(m.questionContext?.promptType || "זווית אחרת")})`}
                   </span>
                   <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 font-bold text-[10px]">${escapeHtmlSafe(m.feedbackType || "הערה")}</span>
                 </div>
                 <div class="flex items-center gap-1.5">
                   ${!isThisPrompt && m.questionContext?.promptId ? `<button type="button" class="mgr-jump-to-msg-prompt px-2 py-0.5 rounded-lg bg-indigo-100 hover:bg-indigo-200 text-indigo-900 font-extrabold text-[11px]">עבור לשאלה זו</button>` : ""}
-                  <button type="button" class="mgr-use-msg-for-ai px-2 py-0.5 rounded-lg bg-violet-100 hover:bg-violet-200 text-violet-900 font-extrabold text-[11px]">✨ העבר להנחיית עריכה</button>
+                  <button type="button" class="mgr-delete-single-msg-btn px-2.5 py-0.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-extrabold text-[11px] transition" title="התעלם מהודעה זו ומחק אותה">🚫 התעלם / מחק הודעה</button>
                 </div>
               </div>
               <div class="text-slate-900 font-bold leading-relaxed whitespace-pre-wrap">💬 ${escapeHtmlSafe(m.commentText || "")}</div>
@@ -4248,14 +4327,8 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
                 }
               });
             }
-            mBox.querySelector(".mgr-use-msg-for-ai").addEventListener("click", () => {
-              const editorBox = document.getElementById("manager-card-inline-editor-box");
-              const aiInput = document.getElementById("manager-inline-ai-instruction");
-              if (editorBox && aiInput) {
-                editorBox.classList.remove("hidden");
-                aiInput.value = m.commentText || "";
-                aiInput.focus();
-              }
+            mBox.querySelector(".mgr-delete-single-msg-btn").addEventListener("click", async () => {
+              await removeDeveloperFeedbackMessage(m, false);
             });
             const replyBtn = mBox.querySelector(".mgr-card-send-reply-btn");
             if (replyBtn) {
@@ -4275,10 +4348,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       // 3. Render Manager Actions & Populate Inline Editor Fields for currentConcept & currentPrompt
       if (actionsPanel) {
         actionsPanel.classList.remove("hidden");
-        const cidBadge = document.getElementById("manager-card-concept-id-badge");
-        if (cidBadge) {
-          cidBadge.textContent = `${currentConcept.id} / ${currentPrompt?.id || ""}`;
-        }
         const delConceptBtn = document.getElementById("btn-manager-delete-current-concept");
         if (delConceptBtn) {
           if (isCurrentUserDeveloper()) {
@@ -4292,9 +4361,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         document.getElementById("manager-inline-prompt-text").value = currentPrompt?.text || "";
         document.getElementById("manager-inline-prompt-note").value = currentPrompt?.note || currentConcept.answer || "";
         document.getElementById("manager-inline-concept-answer").value = currentConcept.answer || "";
-        if (mergedConceptMessages.length > 0 && !document.getElementById("manager-inline-ai-instruction").value) {
-          document.getElementById("manager-inline-ai-instruction").value = mergedConceptMessages[0].commentText || "";
-        }
       }
     }
 
@@ -4462,8 +4528,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       // Populate Card Prompt
       promptText.innerHTML = formatPromptWithContinuousBlanks(currentPrompt.text);
       answerText.textContent = currentConcept.answer;
-      document.getElementById("concept-id-pill").textContent = currentConcept.id;
-
+      
       promptSpecificNote.textContent = currentPrompt.note || currentConcept.answer;
       promptSpecificNote.classList.remove("hidden");
 
@@ -4656,7 +4721,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
             <div class="flex flex-wrap items-center gap-2">
               <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-lg bg-indigo-100 text-indigo-800">${subj ? subj.shortTitle : node.subjectId}</span>
               <span class="text-sm font-extrabold text-slate-900">${escapeHtmlSafe(node.title || node.category)}</span>
-              <span class="text-[11px] font-mono text-slate-400">(${escapeHtmlSafe(node.id)})</span>
+              
               ${statusBadgeHtml}
               ${commentsBadgeHtml}
               ${editedBadgeHtml}
@@ -4710,11 +4775,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex flex-wrap items-center gap-1.5">
                   <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-800 font-extrabold text-[11px]">שאלה #${idx + 1}: ${escapeHtmlSafe(p.type)}</span>
-                  <span class="text-[10px] font-mono text-slate-400">${escapeHtmlSafe(p.id)}</span>
                   ${promptComments.length > 0 ? `<span class="px-2 py-0.5 rounded-full bg-sky-100 text-sky-900 font-extrabold text-[10px]">💬 ${promptComments.length} הערות</span>` : ""}
                 </div>
                 <div class="flex flex-wrap items-center gap-1.5">
-                  <button type="button" class="ai-rewrite-prompt-btn px-2.5 py-1 rounded-lg bg-violet-100 hover:bg-violet-200 text-violet-900 border border-violet-200 text-[11px] font-extrabold transition">✨ החלף שאלה עם AI</button>
                   <button type="button" class="add-prompt-cmt-btn px-2.5 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 text-[11px] font-bold transition">+ הוסף הערה לשאלה</button>
                   <button type="button" class="edit-this-prompt-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-800 text-[11px] font-bold transition">✏️ ערוך נוסח שאלה</button>
                 </div>
@@ -4722,18 +4785,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
               <div class="text-xs font-bold text-slate-900">${formatPromptWithContinuousBlanks(p.text)}</div>
               <div class="text-[11px] text-emerald-800 bg-emerald-50/60 px-2.5 py-1 rounded-lg border border-emerald-200/60">
                 <strong>דגש תשובה:</strong> ${escapeHtmlSafe(p.note || node.answer)}
-              </div>
-              <div class="prompt-ai-rewrite-form hidden p-2.5 rounded-xl bg-violet-50/90 border border-violet-200 space-y-2">
-                <div class="flex flex-wrap items-center gap-1.5 text-[11px]">
-                  <span class="font-extrabold text-violet-950">✨ החלפת שאלה זו עם AI:</span>
-                  <button type="button" data-ai-preset="הפוך לשאלת תרחיש קליני מעשי בשטח" class="ai-preset-chip px-2 py-0.5 rounded-md bg-white hover:bg-violet-100 text-violet-800 border border-violet-200 font-bold">תרחיש קליני</button>
-                  <button type="button" data-ai-preset="הפוך לשאלת השלמת משפט (Cloze) עם ───(רמז)───" class="ai-preset-chip px-2 py-0.5 rounded-md bg-white hover:bg-violet-100 text-violet-800 border border-violet-200 font-bold">השלמת משפט (Cloze)</button>
-                  <button type="button" data-ai-preset="צור שאלה חדשה מזווית אחרת על אותו קונספט" class="ai-preset-chip px-2 py-0.5 rounded-md bg-white hover:bg-violet-100 text-violet-800 border border-violet-200 font-bold">זווית חדשה</button>
-                </div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <input type="text" class="prompt-ai-instruction-input flex-1 min-w-[200px] p-2 rounded-lg border border-violet-300 text-xs bg-white" placeholder="כתוב הנחיה ל-AI לשינוי השאלה (או לחץ מיד על החלף שאלה)...">
-                  <button type="button" class="execute-ai-rewrite-btn px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold transition shadow-2xs">✨ החלף שאלה</button>
-                </div>
               </div>
               <div class="prompt-comments-container space-y-1.5"></div>
               <div class="prompt-new-cmt-form hidden pt-2 border-t border-slate-100 space-y-2">
@@ -4802,53 +4853,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
             pBox.querySelector(".edit-this-prompt-btn").addEventListener("click", () => {
               openConceptEditorModal(node.id, p.id);
-            });
-
-            pBox.querySelector(".ai-rewrite-prompt-btn").addEventListener("click", () => {
-              const aiForm = pBox.querySelector(".prompt-ai-rewrite-form");
-              aiForm.classList.toggle("hidden");
-              if (!aiForm.classList.contains("hidden")) {
-                pBox.querySelector(".prompt-ai-instruction-input").focus();
-              }
-            });
-
-            pBox.querySelectorAll(".ai-preset-chip").forEach(chip => {
-              chip.addEventListener("click", () => {
-                pBox.querySelector(".prompt-ai-instruction-input").value = chip.getAttribute("data-ai-preset") || "";
-              });
-            });
-
-            pBox.querySelector(".execute-ai-rewrite-btn").addEventListener("click", async (ev) => {
-              const btn = ev.currentTarget;
-              const inst = pBox.querySelector(".prompt-ai-instruction-input").value.trim();
-              btn.disabled = true;
-              btn.textContent = "⏳ מייצר שאלה...";
-              const rewritten = await rewriteSpecificQuestionWithAI(node.title || node.category, node.answer, p, inst);
-              btn.disabled = false;
-              btn.textContent = "✨ החלף שאלה";
-              if (rewritten && rewritten.text) {
-                const updatedPrompts = (node.prompts || []).map(origP => {
-                  if (origP.id === p.id) {
-                    return {
-                      ...origP,
-                      type: rewritten.type || origP.type,
-                      text: rewritten.text,
-                      note: rewritten.note || origP.note || node.answer
-                    };
-                  }
-                  return origP;
-                });
-                const updatedNode = {
-                  ...node,
-                  prompts: updatedPrompts
-                };
-                customConceptOverrides[node.id] = updatedNode;
-                applyConceptOverridesToMemory();
-                await persistUserStateToCloud();
-                explorerExpandedConcepts.add(node.id);
-                renderExplorerView();
-                showToast("השאלה שונתה והוחלפה באמצעות AI בהצלחה!", "emerald");
-              }
             });
 
             async function handleSavePromptComment(sendToDev) {
@@ -5119,37 +5123,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       newRow.querySelector(".prompt-edit-text").focus();
     });
 
-    document.getElementById("btn-ai-add-prompt-row").addEventListener("click", async (ev) => {
-      const btn = ev.currentTarget;
-      const cTitle = document.getElementById("edit-concept-title").value.trim();
-      const cAns = document.getElementById("edit-concept-answer").value.trim();
-      if (!cAns) {
-        showToast("אנא הזן תחילה את קונספט הליבה כדי שה-AI יוכל ליצור שאלה", "rose");
-        return;
-      }
-      const listEl = document.getElementById("edit-concept-prompts-list");
-      const cid = document.getElementById("edit-concept-id").value || "concept";
-      const idx = listEl.querySelectorAll(".prompt-edit-row").length;
-      const existingTexts = Array.from(listEl.querySelectorAll(".prompt-edit-text")).map(el => el.value.trim()).join(" | ");
-
-      btn.disabled = true;
-      btn.textContent = "⏳ מייצר שאלה עם AI...";
-      const generated = await rewriteSpecificQuestionWithAI(cTitle, cAns, { text: existingTexts }, "צור שאלה חדשה מזווית שונה עבור קונספט זה");
-      btn.disabled = false;
-      btn.innerHTML = "<span>✨ צור שאלה חדשה עם AI</span>";
-
-      if (generated && generated.text) {
-        const newRow = createPromptEditorRowHtml({
-          id: `${cid}_p${idx + 1}_${Date.now().toString(36).slice(-3)}`,
-          type: generated.type || "תרחיש קליני",
-          text: generated.text,
-          note: generated.note || cAns
-        }, idx);
-        listEl.appendChild(newRow);
-        showToast("נוספה שאלה חדשה לקונספט באמצעות AI!", "emerald");
-      }
-    });
-
     // Explorer Comments Filter, Search & Developer Feedback Hub Controls
     document.getElementById("explorer-filter-all-btn").addEventListener("click", () => {
       explorerCommentsOnlyFilter = false;
@@ -5393,32 +5366,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       }
     });
 
-    document.querySelectorAll(".mgr-ai-preset-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.getElementById("manager-inline-ai-instruction").value = btn.getAttribute("data-mgr-ai-preset") || "";
-      });
-    });
-
-    document.getElementById("btn-manager-run-inline-ai").addEventListener("click", async (ev) => {
+    document.getElementById("btn-manager-ignore-card-messages").addEventListener("click", async () => {
       if (!currentConcept) return;
-      const btn = ev.currentTarget;
-      const inst = document.getElementById("manager-inline-ai-instruction").value.trim();
-      const cTitle = document.getElementById("manager-inline-concept-title").value.trim() || currentConcept.title;
-      const cAns = document.getElementById("manager-inline-concept-answer").value.trim() || currentConcept.answer;
-      const curText = document.getElementById("manager-inline-prompt-text").value.trim();
-      const curType = document.getElementById("manager-inline-prompt-type").value.trim();
-
-      btn.disabled = true;
-      btn.textContent = "⏳ משכתב...";
-      const res = await rewriteSpecificQuestionWithAI(cTitle, cAns, { type: curType, text: curText, note: cAns }, inst);
-      btn.disabled = false;
-      btn.textContent = "✨ שכתב שאלה עם AI";
-      if (res && res.text) {
-        document.getElementById("manager-inline-prompt-type").value = res.type || curType || "תרחיש קליני";
-        document.getElementById("manager-inline-prompt-text").value = res.text;
-        document.getElementById("manager-inline-prompt-note").value = res.note || cAns;
-        showToast("נוסח השאלה שוכתב עם AI — לחץ על 'שמור שינויים בשאלה ובקונספט' לאישור", "emerald");
-      }
+      await removeAllMessagesForConceptOrPrompt(currentConcept.id, null, false);
     });
 
     document.getElementById("btn-manager-save-inline-edit").addEventListener("click", async () => {
@@ -5434,8 +5384,9 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
         return;
       }
 
+      const targetPromptId = currentPrompt.id;
       const updatedPrompts = (currentConcept.prompts || []).map(p => {
-        if (p.id === currentPrompt.id) {
+        if (p.id === targetPromptId) {
           return {
             ...p,
             type: newType,
@@ -5456,14 +5407,16 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
 
       customConceptOverrides[currentConcept.id] = updatedNode;
       applyConceptOverridesToMemory();
-      await persistUserStateToCloud();
 
       currentConcept = updatedNode;
       sessionQueue[0] = updatedNode;
-      currentPrompt = updatedNode.prompts.find(p => p.id === currentPrompt.id) || updatedNode.prompts[0];
+      currentPrompt = updatedNode.prompts.find(p => p.id === targetPromptId) || updatedNode.prompts[0];
       document.getElementById("manager-card-inline-editor-box").classList.add("hidden");
       loadNextCard(currentPrompt, !answerSection.classList.contains("hidden"));
-      showToast("השינויים בשאלה ובקונספט נשמרו בהצלחה ועודכנו בכרטיסייה!", "emerald");
+
+      // Automatically remove the user message(s) on this question/concept after addressing it!
+      await removeAllMessagesForConceptOrPrompt(currentConcept.id, targetPromptId, true);
+      showToast("השינויים בשאלה ובקונספט נשמרו וההודעה שטופלה הוסרה!", "emerald");
     });
 
     document.getElementById("btn-manager-delete-current-prompt").addEventListener("click", async () => {
@@ -5481,13 +5434,15 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       };
       customConceptOverrides[currentConcept.id] = updatedNode;
       applyConceptOverridesToMemory();
-      await persistUserStateToCloud();
 
       currentConcept = updatedNode;
       sessionQueue[0] = updatedNode;
       currentPrompt = remainingPrompts[0];
       loadNextCard(currentPrompt, !answerSection.classList.contains("hidden"));
-      showToast(`וריאציית השאלה (${removedId}) הוסרה מהקונספט!`, "amber");
+
+      // Automatically remove the user message(s) on the deleted question!
+      await removeAllMessagesForConceptOrPrompt(currentConcept.id, removedId, true);
+      showToast("וריאציית השאלה הוסרה מהקונספט וההודעות עליה הוסרו!", "amber");
     });
 
     document.getElementById("btn-manager-delete-current-concept").addEventListener("click", async () => {
@@ -5539,32 +5494,6 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       }
     });
 
-    document.getElementById("btn-ai-generate-new-concept-questions").addEventListener("click", async (ev) => {
-      const btn = ev.currentTarget;
-      const category = document.getElementById("new-concept-category").value.trim() || "קונספט קליני";
-      const answer = document.getElementById("new-concept-answer").value.trim();
-      const userPrompt = document.getElementById("new-concept-ai-prompt").value.trim();
-
-      if (!answer) {
-        showToast("אנא הזן תחילה את משפט קונספט הליבה כדי שה-AI ייצר ממנו שאלות", "rose");
-        document.getElementById("new-concept-answer").focus();
-        return;
-      }
-
-      btn.disabled = true;
-      btn.innerHTML = "<span>⏳ מייצר 3 שאלות עם AI...</span>";
-      const generatedList = await generateQuestionsFromConceptWithAI(category, answer, userPrompt);
-      btn.disabled = false;
-      btn.innerHTML = "<span>✨ צור שאלות לקונספט עם AI</span>";
-
-      if (Array.isArray(generatedList) && generatedList.length > 0) {
-        if (generatedList[0]) document.getElementById("new-concept-p1").value = generatedList[0].text || "";
-        if (generatedList[1]) document.getElementById("new-concept-p2").value = generatedList[1].text || "";
-        if (generatedList[2]) document.getElementById("new-concept-p3").value = generatedList[2].text || "";
-        showToast("נוצרו 3 וריאציות שאלה לקונספט באמצעות AI! ניתן לערוך ולשמור.", "emerald");
-      }
-    });
-
     document.getElementById("save-new-concept-btn").addEventListener("click", async () => {
       const subjectId = document.getElementById("new-concept-subject").value;
       const category = document.getElementById("new-concept-category").value.trim() || "קונספט מותאם";
@@ -5575,7 +5504,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       const p3 = document.getElementById("new-concept-p3")?.value.trim() || "";
 
       if (!answer || !p1) {
-        showToast("אנא מלא לפחות משפט קונספט ליבה ושאלה אחת (או לחץ על 'צור שאלות לקונספט עם AI')", "rose");
+        showToast("אנא מלא לפחות משפט קונספט ליבה ושאלה אחת", "rose");
         return;
       }
 
@@ -5615,8 +5544,7 @@ ${userInstruction ? `הנחיה נוספת מהמשתמש: ${userInstruction}` :
       document.getElementById("new-concept-category").value = "";
       document.getElementById("new-concept-ref-title").value = "";
       document.getElementById("new-concept-answer").value = "";
-      document.getElementById("new-concept-ai-prompt").value = "";
-      document.getElementById("new-concept-p1").value = "";
+            document.getElementById("new-concept-p1").value = "";
       document.getElementById("new-concept-p2").value = "";
       if (document.getElementById("new-concept-p3")) document.getElementById("new-concept-p3").value = "";
       document.getElementById("add-concept-form-box").classList.add("hidden");
