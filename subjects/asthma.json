@@ -1,0 +1,51 @@
+{
+  "version": "5.0-subtopic-modular",
+  "updatedAt": "2026-11-14T05:51:15.375Z",
+  "subjectId": "asthma",
+  "topicId": "routine_emergency",
+  "subject": {
+    "id": "asthma",
+    "topicId": "routine_emergency",
+    "title": "התקף אסתמה במבוגר",
+    "shortTitle": "התקף אסתמה",
+    "icon": "🌬️",
+    "jsonUrl": "./subjects/asthma.json",
+    "altJsonUrl": "./asthma.json"
+  },
+  "referenceSchemes": {
+    "ref_mda_asthma_adult": {
+      "id": "ref_mda_asthma_adult",
+      "topicId": "routine_emergency",
+      "subjectId": "asthma",
+      "shortLabel": "התקף אסתמה",
+      "title": "התקף אסתמה במבוגר (עמ׳ 62)",
+      "type": "סכמת טיפול ALS",
+      "summary": "אינהלציית ונטולין (2.5–5 מ״ג) + אירובנט (0.5 מ״ג), סולומדרול 125 מ״ג IV, ובהתקף קשה/מסכן חיים מגנזיום סולפט 2 גרם IV ואדרנלין IM.",
+      "steps": [
+        "התקף קל-בינוני: חמצן ליעד 92%–96%, אינהלציית ונטולין 2.5 מ״ג + אירובנט 0.5 מ״ג.",
+        "התקף קשה: ונטולין 5 מ״ג + אירובנט 0.5 מ״ג, סולומדרול 125 מ״ג IV, ומגנזיום סולפט 2 גרם ב-100 מ״ל סליין במשך 20 דקות.",
+        "בהחמרה / חזה שקט / סכנת חיים: אדרנלין 0.5 מ״ג IM (או 0.3 מ״ג מעל גיל 50 / מחלת לב כלילית)."
+      ],
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcyMCIgdmlld0JveD0iMCAwIDEyMDAgNzIwIiBkaXI9InJ0bCI+CiAgICAgIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcyMCIgZmlsbD0iI2ZmZmZmZiIvPgogICAgICA8cmVjdCB4PSIyNCIgeT0iMjQiIHdpZHRoPSIxMTUyIiBoZWlnaHQ9IjkyIiByeD0iMjAiIGZpbGw9IiMxZTFiNGIiLz4KICAgICAgPHRleHQgeD0iMTE0MCIgeT0iNjYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9ImVuZCI+15TXqten16Mg15DXodeq157XlCDXkdee15HXldeS16ggKNei157XsyA2Mik8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExNDAiIHk9Ijk4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNjN2QyZmUiIHRleHQtYW5jaG9yPSJlbmQiPteh15vXnteqINeY15nXpNeV15wgQUxTPC90ZXh0PgogICAgICA8cmVjdCB4PSI1MCIgeT0iMTQwIiB3aWR0aD0iMTEwMCIgaGVpZ2h0PSI2OCIgcng9IjE0IiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjExMjAiIHk9IjE4MiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIiBkaXJlY3Rpb249InJ0bCI+MS4g15TXqten16Mg16fXnC3XkdeZ16DXldeg15k6INeX157XptefINec15nXoteTIDkyJeKAkzk2JSwg15DXmdeg15TXnNem15nXmdeqINeV16DXmNeV15zXmdefIDIuNSDXnte015IgKyDXkNeZ16jXldeR16DXmCAwLjUg157XtNeSLjwvdGV4dD48cmVjdCB4PSI1MCIgeT0iMjI0IiB3aWR0aD0iMTEwMCIgaGVpZ2h0PSI2OCIgcng9IjE0IiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjExMjAiIHk9IjI2NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIiBkaXJlY3Rpb249InJ0bCI+Mi4g15TXqten16Mg16fXqdeUOiDXldeg15jXldec15nXnyA1INee17TXkiArINeQ15nXqNeV15HXoNeYIDAuNSDXnte015IsINeh15XXnNeV157Xk9eo15XXnCAxMjUg157XtNeSIElWLCDXldee15LXoNeW15nXldedINeh15XXnNek15ggMiDXkteo150g15EtMTA8L3RleHQ+PHJlY3QgeD0iNTAiIHk9IjMwOCIgd2lkdGg9IjExMDAiIGhlaWdodD0iNjgiIHJ4PSIxNCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiLz48dGV4dCB4PSIxMTIwIiB5PSIzNTAiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCIgZGlyZWN0aW9uPSJydGwiPjMuINeR15TXl9ee16jXlCAvINeX15bXlCDXqden15ggLyDXodeb16DXqiDXl9eZ15nXnTog15DXk9eo16DXnNeZ158gMC41INee17TXkiBJTSAo15DXlSAwLjMg157XtNeSINee16LXnCDXkteZ15wgNTAgLyDXnteX15zXqiDXnNeRINeb15zXmdec15nXqikuPC90ZXh0PgogICAgPC9zdmc+"
+    }
+  },
+  "concepts": [
+    {
+      "id": "asthma_01_severe_treatment",
+      "subjectId": "asthma",
+      "category": "התקף אסתמה קשה",
+      "title": "טיפול תרופתי בהתקף אסתמה קשה במבוגר",
+      "referenceId": "ref_mda_asthma_adult",
+      "answer": "בהתקף אסתמה קשה במבוגר: חמצן, אינהלציית ונטולין 5 מ״ג + אירובנט 0.5 מ״ג, סולומדרול 125 מ״ג IV, מגנזיום סולפט 2 גרם ב-100 מ״ל סליין במשך 20 דקות, ובסכנת חיים אדרנלין 0.5 מ״ג IM.",
+      "prompts": [
+        {
+          "id": "asthma_01_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "מטופל בן 28 בהתקף אסתמה קשה, מדבר במילים בודדות, סטורציה 88%. מהם מינוני הוונטולין, הסולומדרול והמגנזיום סולפט לפי הסכמה?",
+          "note": "ונטולין 5 מ״ג (+ אירובנט 0.5 מ״ג), סולומדרול 125 מ״ג IV, ומגנזיום סולפט 2 גרם ב-100 מ״ל סליין ב-20 דקות."
+        }
+      ]
+    }
+  ]
+}

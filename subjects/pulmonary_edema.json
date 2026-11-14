@@ -1,0 +1,51 @@
+{
+  "version": "5.0-subtopic-modular",
+  "updatedAt": "2026-11-14T05:51:15.154Z",
+  "subjectId": "pulmonary_edema",
+  "topicId": "routine_emergency",
+  "subject": {
+    "id": "pulmonary_edema",
+    "topicId": "routine_emergency",
+    "title": "בצקת ריאות קרדיוגנית",
+    "shortTitle": "בצקת ריאות",
+    "icon": "💧",
+    "jsonUrl": "./subjects/pulmonary_edema.json",
+    "altJsonUrl": "./pulmonary_edema.json"
+  },
+  "referenceSchemes": {
+    "ref_mda_pulmonary_edema": {
+      "id": "ref_mda_pulmonary_edema",
+      "topicId": "routine_emergency",
+      "subjectId": "pulmonary_edema",
+      "shortLabel": "בצקת ריאות",
+      "title": "בצקת ריאות קרדיוגנית במבוגר (עמ׳ 60)",
+      "type": "סכמת טיפול ALS",
+      "summary": "הושבה, חמצן/CPAP (PEEP עד 10 ס״מ מים), ניטרטים לפי ערכי לחץ דם (סיסטולי מעל 100 ממ״כ), ופוסיד IV.",
+      "steps": [
+        "הושבת המטופל, מתן חמצן וחיבור מוקדם ל-CPAP (התחלה ב-5 ס״מ מים ועלייה עד 10 ס״מ מים) במטופל בהכרה.",
+        "בל״ד סיסטולי > 100 ממ״כ: מתן ניטרולינגואל 0.4 מ״ג SL או איזוקט, ופוסיד IV (הכפלת המינון היומי הקבוע או 40 מ״ג למי שאינו נוטל).",
+        "שלילת התוויות-נגד לניטרטים: נטילת מעכבי PDE-5 (ויאגרה/סיאליס) או אוטם ימני."
+      ],
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcyMCIgdmlld0JveD0iMCAwIDEyMDAgNzIwIiBkaXI9InJ0bCI+CiAgICAgIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcyMCIgZmlsbD0iI2ZmZmZmZiIvPgogICAgICA8cmVjdCB4PSIyNCIgeT0iMjQiIHdpZHRoPSIxMTUyIiBoZWlnaHQ9IjkyIiByeD0iMjAiIGZpbGw9IiMxZTFiNGIiLz4KICAgICAgPHRleHQgeD0iMTE0MCIgeT0iNjYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9ImVuZCI+15HXpten16og16jXmdeQ15XXqiDXp9eo15PXmdeV15LXoNeZ16og15HXnteR15XXkteoICjXotee17MgNjApPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTQwIiB5PSI5OCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjYzdkMmZlIiB0ZXh0LWFuY2hvcj0iZW5kIj7Xodeb157XqiDXmNeZ16TXldecIEFMUzwvdGV4dD4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjE0MCIgd2lkdGg9IjExMDAiIGhlaWdodD0iNjgiIHJ4PSIxNCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiLz48dGV4dCB4PSIxMTIwIiB5PSIxODIiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCIgZGlyZWN0aW9uPSJydGwiPjEuINeU15XXqdeR16og15TXnteY15XXpNecLCDXnteq158g15fXntem158g15XXl9eZ15HXldeoINee15XXp9eT150g15wtQ1BBUCAo15TXqteX15zXlCDXkS01INeh17TXniDXnteZ150g15XXotec15nXmdeUINei15MgMTAg16HXtNeeINee15nXnSkg15HXnteY15XXpNecPC90ZXh0PjxyZWN0IHg9IjUwIiB5PSIyMjQiIHdpZHRoPSIxMTAwIiBoZWlnaHQ9IjY4IiByeD0iMTQiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHRleHQgeD0iMTEyMCIgeT0iMjY2IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiIGRpcmVjdGlvbj0icnRsIj4yLiDXkdec17TXkyDXodeZ16HXmNeV15zXmSAmZ3Q7IDEwMCDXntee17TXmzog157XqtefINeg15nXmNeo15XXnNeZ16DXkteV15DXnCAwLjQg157XtNeSIFNMINeQ15Ug15DXmdeW15XXp9eYLCDXldek15XXodeZ15MgSVYgKNeU15vXpNec16og15TXnteZ16DXldefPC90ZXh0PjxyZWN0IHg9IjUwIiB5PSIzMDgiIHdpZHRoPSIxMTAwIiBoZWlnaHQ9IjY4IiByeD0iMTQiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHRleHQgeD0iMTEyMCIgeT0iMzUwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiIGRpcmVjdGlvbj0icnRsIj4zLiDXqdec15nXnNeqINeU16rXldeV15nXldeqLdeg15LXkyDXnNeg15nXmNeo15jXmdedOiDXoNeY15nXnNeqINee16LXm9eR15kgUERFLTUgKNeV15nXkNeS16jXlC/XodeZ15DXnNeZ16EpINeQ15Ug15DXldeY150g15nXnteg15kuPC90ZXh0PgogICAgPC9zdmc+"
+    }
+  },
+  "concepts": [
+    {
+      "id": "pe_01_cpap_and_nitrates",
+      "subjectId": "pulmonary_edema",
+      "category": "CPAP וניטרטים בבצקת ריאות",
+      "title": "טיפול בבצקת ריאות קרדיוגנית לפי לחץ הדם",
+      "referenceId": "ref_mda_pulmonary_edema",
+      "answer": "בבצקת ריאות עם ל״ד סיסטולי מעל 100 ממ״כ: הושבה, חיבור ל-CPAP (PEEP 5–10 ס״מ מים), מתן ניטרטים (ניטרולינגואל 0.4 מ״ג SL או איזוקט) ופוסיד IV.",
+      "prompts": [
+        {
+          "id": "pe_01_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "מטופל בן 72 במצוקה נשימתית חריפה, חרחורים דו-צדדיים, ל״ד 165/95 וסטורציה 84%. נוטל פוסיד 40 מ״ג קבוע בבית. מהו הטיפול המיידי לפי הפרוטוקול?",
+          "note": "הושבה, חמצן/CPAP (עד 10 ס״מ מים), ניטרטים ופוסיד 80 מ״ג IV (הכפלת המינון הקבוע)."
+        }
+      ]
+    }
+  ]
+}

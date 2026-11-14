@@ -1,0 +1,51 @@
+{
+  "version": "5.0-subtopic-modular",
+  "updatedAt": "2026-11-14T05:51:16.254Z",
+  "subjectId": "seizure",
+  "topicId": "routine_emergency",
+  "subject": {
+    "id": "seizure",
+    "topicId": "routine_emergency",
+    "title": "פרכוס או לאחר פרכוס במבוגר",
+    "shortTitle": "פרכוס במבוגר",
+    "icon": "⚡",
+    "jsonUrl": "./subjects/seizure.json",
+    "altJsonUrl": "./seizure.json"
+  },
+  "referenceSchemes": {
+    "ref_mda_seizure_adult": {
+      "id": "ref_mda_seizure_adult",
+      "topicId": "routine_emergency",
+      "subjectId": "seizure",
+      "shortLabel": "פרכוס במבוגר",
+      "title": "פרכוס או לאחר פרכוס במבוגר (עמ׳ 84)",
+      "type": "סכמת טיפול ALS",
+      "summary": "בפרכוס פעיל: דורמיקום 5 מ״ג IV (או 10 מ״ג IM/IN), בדיקת סוכר ותיקון היפוגליקמיה, ובחשד לאקלמפסיה בהריון/משכב לידה — מגנזיום סולפט 4 גרם IV.",
+      "steps": [
+        "בפרכוס מתמשך: דורמיקום 5 מ״ג IV או 10 מ״ג IM / IN (ניתן לחזור לאחר 5–10 דקות).",
+        "בדיקת גלוקוז בדם: בערך < 60 מ״ג% מתן 25 גרם גלוקוז IV (100 מ״ל של תמיסת 25%).",
+        "באישה הרה משבוע 20 או עד 6 שבועות מהלידה: מגנזיום סולפט 4 גרם ב-100 מ״ל סליין במשך 10 דקות."
+      ],
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcyMCIgdmlld0JveD0iMCAwIDEyMDAgNzIwIiBkaXI9InJ0bCI+CiAgICAgIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcyMCIgZmlsbD0iI2ZmZmZmZiIvPgogICAgICA8cmVjdCB4PSIyNCIgeT0iMjQiIHdpZHRoPSIxMTUyIiBoZWlnaHQ9IjkyIiByeD0iMjAiIGZpbGw9IiMxZTFiNGIiLz4KICAgICAgPHRleHQgeD0iMTE0MCIgeT0iNjYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9ImVuZCI+16TXqNeb15XXoSDXkNeVINec15DXl9eoINek16jXm9eV16Eg15HXnteR15XXkteoICjXotee17MgODQpPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTQwIiB5PSI5OCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjYzdkMmZlIiB0ZXh0LWFuY2hvcj0iZW5kIj7Xodeb157XqiDXmNeZ16TXldecIEFMUzwvdGV4dD4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjE0MCIgd2lkdGg9IjExMDAiIGhlaWdodD0iNjgiIHJ4PSIxNCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiLz48dGV4dCB4PSIxMTIwIiB5PSIxODIiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCIgZGlyZWN0aW9uPSJydGwiPjEuINeR16TXqNeb15XXoSDXnteq157XqdeaOiDXk9eV16jXnteZ16fXldedIDUg157XtNeSIElWINeQ15UgMTAg157XtNeSIElNIC8gSU4gKNeg15nXqtefINec15fXlteV16gg15zXkNeX16ggNeKAkzEwINeT16fXldeqKS48L3RleHQ+PHJlY3QgeD0iNTAiIHk9IjIyNCIgd2lkdGg9IjExMDAiIGhlaWdodD0iNjgiIHJ4PSIxNCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiLz48dGV4dCB4PSIxMTIwIiB5PSIyNjYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCIgZGlyZWN0aW9uPSJydGwiPjIuINeR15PXmden16og15LXnNeV16fXldeWINeR15PXnTog15HXoteo15ogJmx0OyA2MCDXnte015IlINee16rXnyAyNSDXkteo150g15LXnNeV16fXldeWIElWICgxMDAg157XtNecINep15wg16rXnteZ16HXqiAyNSUpLjwvdGV4dD48cmVjdCB4PSI1MCIgeT0iMzA4IiB3aWR0aD0iMTEwMCIgaGVpZ2h0PSI2OCIgcng9IjE0IiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPjx0ZXh0IHg9IjExMjAiIHk9IjM1MCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIiBkaXJlY3Rpb249InJ0bCI+My4g15HXkNeZ16nXlCDXlNeo15Qg157XqdeR15XXoiAyMCDXkNeVINei15MgNiDXqdeR15XXoteV16og157XlNec15nXk9eUOiDXnteS16DXlteZ15XXnSDXodeV15zXpNeYIDQg15LXqNedINeRLTEwMCDXnte015wg16HXnNeZ15nXnyDXkdee16nXmiAxMCDXk9en15XXqjwvdGV4dD4KICAgIDwvc3ZnPg=="
+    }
+  },
+  "concepts": [
+    {
+      "id": "seizure_01_midazolam_dosing",
+      "subjectId": "seizure",
+      "category": "דורמיקום בפרכוס פעיל",
+      "title": "מינון דורמיקום בפרכוס פעיל במבוגר לפי נתיב המתן",
+      "referenceId": "ref_mda_seizure_adult",
+      "answer": "בפרכוס מתמשך במבוגר ניתן דורמיקום (מידאזולם) במינון 5 מ״ג בנתיב IV, או 10 מ״ג בנתיב IM / IN בהיעדר וריד פתוח, עם אפשרות למנה חוזרת לאחר 5–10 דקות.",
+      "prompts": [
+        {
+          "id": "seizure_01_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "מטופל בן 24 מפרכס פרכוס טוני-קלוני כללי מזה 4 דקות וטרם הושגה גישה ורידית. מהו מינון הדורמיקום המומלץ בנתיב IM או IN?",
+          "note": "10 מ״ג IM או IN (לעומת 5 מ״ג במתן IV)."
+        }
+      ]
+    }
+  ]
+}

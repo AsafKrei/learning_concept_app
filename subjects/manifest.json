@@ -1,0 +1,165 @@
+{
+  "version": "5.0-subtopic-modular",
+  "updatedAt": "2026-11-14T05:51:14.271Z",
+  "topics": [
+    {
+      "id": "routine_emergency",
+      "title": "חירום שבשגרה",
+      "icon": "🚑",
+      "color": "indigo",
+      "jsonUrl": "./database.json",
+      "loaded": true
+    },
+    {
+      "id": "mtls",
+      "title": "MTLS",
+      "icon": "🪖",
+      "color": "emerald",
+      "jsonUrl": "./mtls.json",
+      "loaded": true
+    }
+  ],
+  "subjects": [
+    {
+      "id": "pea_asystole",
+      "topicId": "routine_emergency",
+      "title": "דום לב במבוגר: PEA / Asystole",
+      "shortTitle": "PEA / Asystole",
+      "icon": "⚡",
+      "jsonUrl": "./subjects/pea_asystole.json",
+      "altJsonUrl": "./pea_asystole.json"
+    },
+    {
+      "id": "vf_vt",
+      "topicId": "routine_emergency",
+      "title": "דום לב במבוגר: VT / VF",
+      "shortTitle": "VT / VF",
+      "icon": "💓",
+      "jsonUrl": "./subjects/vf_vt.json",
+      "altJsonUrl": "./vf_vt.json"
+    },
+    {
+      "id": "post_rosc",
+      "topicId": "routine_emergency",
+      "title": "טיפול בחולה לאחר החייאה (ROSC)",
+      "shortTitle": "לאחר החייאה ROSC",
+      "icon": "🫁",
+      "jsonUrl": "./subjects/post_rosc.json",
+      "altJsonUrl": "./post_rosc.json"
+    },
+    {
+      "id": "pulmonary_edema",
+      "topicId": "routine_emergency",
+      "title": "בצקת ריאות קרדיוגנית",
+      "shortTitle": "בצקת ריאות",
+      "icon": "💧",
+      "jsonUrl": "./subjects/pulmonary_edema.json",
+      "altJsonUrl": "./pulmonary_edema.json"
+    },
+    {
+      "id": "asthma",
+      "topicId": "routine_emergency",
+      "title": "התקף אסתמה במבוגר",
+      "shortTitle": "התקף אסתמה",
+      "icon": "🌬️",
+      "jsonUrl": "./subjects/asthma.json",
+      "altJsonUrl": "./asthma.json"
+    },
+    {
+      "id": "anaphylaxis",
+      "topicId": "routine_emergency",
+      "title": "תגובה אלרגית / אנפילקסיס",
+      "shortTitle": "אנפילקסיס",
+      "icon": "🐝",
+      "jsonUrl": "./subjects/anaphylaxis.json",
+      "altJsonUrl": "./anaphylaxis.json"
+    },
+    {
+      "id": "acs",
+      "topicId": "routine_emergency",
+      "title": "תסמונת כלילית חריפה (ACS)",
+      "shortTitle": "ACS",
+      "icon": "❤️‍🩹",
+      "jsonUrl": "./subjects/acs.json",
+      "altJsonUrl": "./acs.json"
+    },
+    {
+      "id": "stroke",
+      "topicId": "routine_emergency",
+      "title": "גישה למטופל עם חשד לאירוע מוחי",
+      "shortTitle": "אירוע מוחי (Stroke)",
+      "icon": "🧠",
+      "jsonUrl": "./subjects/stroke.json",
+      "altJsonUrl": "./stroke.json"
+    },
+    {
+      "id": "seizure",
+      "topicId": "routine_emergency",
+      "title": "פרכוס או לאחר פרכוס במבוגר",
+      "shortTitle": "פרכוס במבוגר",
+      "icon": "⚡",
+      "jsonUrl": "./subjects/seizure.json",
+      "altJsonUrl": "./seizure.json"
+    },
+    {
+      "id": "mtls_rdcr",
+      "topicId": "mtls",
+      "title": "פרוטוקול החייאת בקרת נזקים בשדה בפצוע המדמם",
+      "shortTitle": "החייאת בקרת נזקים (RDCR)",
+      "icon": "🩸",
+      "jsonUrl": "./subjects/mtls_rdcr.json",
+      "altJsonUrl": "./mtls_rdcr.json",
+      "color": "rose"
+    },
+    {
+      "id": "mtls_chest",
+      "topicId": "mtls",
+      "title": "פרוטוקול הערכה וטיפול בפצוע חזה",
+      "shortTitle": "פצוע חזה",
+      "icon": "🫁",
+      "jsonUrl": "./subjects/mtls_chest.json",
+      "altJsonUrl": "./mtls_chest.json",
+      "color": "sky"
+    },
+    {
+      "id": "mtls_tbi",
+      "topicId": "mtls",
+      "title": "פגיעת ראש טראומטית",
+      "shortTitle": "פגיעת ראש (TBI)",
+      "icon": "🧠",
+      "jsonUrl": "./subjects/mtls_tbi.json",
+      "altJsonUrl": "./mtls_tbi.json",
+      "color": "violet"
+    },
+    {
+      "id": "mtls_msk",
+      "topicId": "mtls",
+      "title": "הטיפול בפציעות שריר שלד",
+      "shortTitle": "פציעות שריר שלד",
+      "icon": "🦴",
+      "jsonUrl": "./subjects/mtls_msk.json",
+      "altJsonUrl": "./mtls_msk.json",
+      "color": "amber"
+    },
+    {
+      "id": "mtls_eye",
+      "topicId": "mtls",
+      "title": "פציעות עיניים, ארובה וטפולות",
+      "shortTitle": "פציעות עיניים",
+      "icon": "👁️",
+      "jsonUrl": "./subjects/mtls_eye.json",
+      "altJsonUrl": "./mtls_eye.json",
+      "color": "teal"
+    },
+    {
+      "id": "mtls_burns",
+      "topicId": "mtls",
+      "title": "הטיפול בכוויות בשדה",
+      "shortTitle": "כוויות בשדה",
+      "icon": "🔥",
+      "jsonUrl": "./subjects/mtls_burns.json",
+      "altJsonUrl": "./mtls_burns.json",
+      "color": "rose"
+    }
+  ]
+}
