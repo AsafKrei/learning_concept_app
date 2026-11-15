@@ -1,0 +1,410 @@
+{
+  "version": "5.0-subtopic-modular",
+  "updatedAt": "2026-11-15T08:15:00Z",
+  "subjectId": "mtls_crush",
+  "topicId": "mtls",
+  "subject": {
+    "id": "mtls_crush",
+    "topicId": "mtls",
+    "title": "פרק 16: הטיפול בנפגע הלכוד ונפגע מעיכה",
+    "shortTitle": "נפגע לכוד ומעיכה (פרק 16)",
+    "icon": "🧱",
+    "jsonUrl": "./subjects/mtls_crush.json",
+    "altJsonUrl": "./mtls_crush.json"
+  },
+  "referenceSchemes": {
+    "ref_mtls_crush": {
+      "id": "ref_mtls_crush",
+      "topicId": "mtls",
+      "subjectId": "mtls_crush",
+      "shortLabel": "נפגע לכוד ומעיכה (פרק 16)",
+      "title": "פרק 16: הטיפול בנפגע הלכוד ונפגע מעיכה — סכמת טיפול",
+      "type": "סכמת MTLS",
+      "summary": "כל לכוד שחולץ (ובפרט מעל 45 דקות) חשוד לתסמונת מעיכה. התחלת סליין 0.9% (ללא הרטמן!) לפני החילוץ בקצב 1 ליטר/שעה בשעתיים הראשונות ו-500 מ״ל/שעה מעבר לכך, הימנעות מחוסם עורקים מונע, ניטור אק״ג רציף לאחר החילוץ וטיפול בהיפרקלמיה (קלציום, ונטולין, ביקרבונט).",
+      "steps": [
+        "שלב הלכידה (לפני השחרור): בטיחות, עצירת דימום פורץ (X-ABCDE), מתן חמצן, השגת 2 גישות ורידיות (או IO) והתחלת עירוי סליין 0.9% לפני שחרור האיבר הלכוד.",
+        "משטר נוזלים בלכוד: סליין 0.9% בלבד (איסור מתן הרטמן בשל תכולת אשלגן) בקצב 1 ליטר/שעה בשעתיים הראשונות; אם הלכידה נמשכת מעל שעתיים — הפחתת הקצב ל-500 מ״ל/שעה למניעת העמסת נוזלים.",
+        "מדיניות חוסם עורקים ושיכוך כאב: אין להניח חוסם עורקים באופן מונע נגד תסמונת מעיכה (אלא רק בדימום פורץ או צורך בקטיעה/חילוץ מציל חיים); שיכוך כאב בקטמין והימנעות מוחלטת מ-NSAIDs.",
+        "שלב החילוץ וניטור רפרפוזיה: חיבור מיידי למוניטור אק״ג והערכה חוזרת כל 10 דקות לזיהוי הלם היפוולמי וסימני היפרקלמיה באק״ג (גלי T מחודדים, השטחת P, התרחבות QRS).",
+        "טיפול בהיפרקלמיה בשדה: קלציום גלוקונט 10% (10–20 מ״ל IV) או קלציום כלוריד 10% (5–10 מ״ל IV) לייצוב שריר הלב, אינהלציית ונטולין רציפה (10–20 מ״ג) וסודיום ביקרבונט 50 mEq IV.",
+        "לאחר החילוץ והפינוי: ניטור תפוקת שתן (יעד ≥ 200–300 מ״ל/שעה במבוגר; בקטטר שתן אין לנפח בלונית לפני קבלת שתן), איסור מתן פוסיד בשדה ופינוי לבית חולים עם יכולת דיאליזה."
+      ],
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjEyODAiIHZpZXdCb3g9IjAgMCAxMjAwIDEyODAiIGRpcj0icnRsIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iMTI4MCIgZmlsbD0iI2ZmZmZmZiIvPgoKICAgICAgPCEtLSBUaXRsZSBCYW5uZXIgLS0+CiAgICAgIDxyZWN0IHg9IjI0IiB5PSIyMCIgd2lkdGg9IjExNTIiIGhlaWdodD0iOTYiIHJ4PSIyMCIgZmlsbD0iIzFlMWI0YiIvPgogICAgICA8dGV4dCB4PSIxMTQ4IiB5PSI2MCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0iZW5kIj7XpNeo16cgMTY6INeU15jXmdek15XXnCDXkdeg16TXkteiINeU15zXm9eV15Mg15XXoNek15LXoiDXntei15nXm9eUIOKAlCDXqteo16nXmdedINek16jXldeY15XXp9eV15wgKE1UTFMpPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTQ4IiB5PSI5NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjYzdkMmZlIiB0ZXh0LWFuY2hvcj0iZW5kIj7Xoten16jXldeg15XXqiDXoNeZ15TXldecINeR16nXnNeRINeU15zXm9eZ15PXlCwg15zXp9eo15DXqiDXlNeX15nXnNeV16Ug15XXnNeQ15fXqCDXlNeX15nXnNeV16Ug15zXnteg15nXoteqINeq16HXnteV16DXqiDXntei15nXm9eUINeV15TXmdek16jXp9ec157XmdeUPC90ZXh0PgoKICAgICAgPCEtLSBTdGVwIDE6IFdoaWxlIFRyYXBwZWQg4oCUIFNhZmV0eSwgQUJDREUgJiBFYXJseSBJViBBY2Nlc3MgLS0+CiAgICAgIDxyZWN0IHg9IjQwIiB5PSIxMzYiIHdpZHRoPSIxMTIwIiBoZWlnaHQ9IjE0MiIgcng9IjE2IiBmaWxsPSIjZWZmNmZmIiBzdHJva2U9IiMzYjgyZjYiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjE3MCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMWUzYThhIiB0ZXh0LWFuY2hvcj0iZW5kIj4xLiDXqdec15Eg15DXsyDigJQg15TXmNeZ16TXldecINeR16TXpteV16Ig15HXltee158g15TXnNeb15nXk9eUICjXnNek16DXmSDXpNeZ16DXldeZINeU15TXqNeZ16HXldeqIC8g15TXqdeX16jXldeoKTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMjAwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkdeY15nXl9eV16og15TXpteV15XXqiwg16LXpteZ16jXqiDXk9eZ157XldedINek15XXqNelIChYLUFCQ0RFKSwg157XqtefINeX157XptefLCDXlNeS16DXqiDXoNeq15nXkSDXkNeV15XXmdeoINee15DXkdenINeV157XoNeZ16LXqiDXlNeZ16TXldeq16jXnteZ15Q8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjIyOCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWQ0ZWQ4IiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15TXqdeS16og15LXmdep15Qg15XXqNeZ15PXmdeqICjXoteT15nXpNeV16og15wtMiDXldeo15nXk9eZ150g16TXqNeZ16TXqNeZ15nXnTsg15HXlNeZ16LXk9eoINeS15nXqdeUIOKAlCBJTykg15XXlNeq15fXnNeqINeg15XXltec15nXnSDXnNek16DXmSDXqdeX16jXldeoINeU15DXmdeR16gg15TXnNeb15XXkyE8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjI1NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjOTkxYjFiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15vXnCDXnNeb15XXkyDXqdeX15XXnNelICjXldeR16TXqNeYINeR15zXm9eZ15PXlCDXntei15wgNDUg15PXp9eV16og16nXnCDXnteh16og16nXqNeZ16gg157Xqdee16LXldeq15nXqikg157XldeS15PXqCDXm9eX16nXldeTINec16rXodee15XXoNeqINee16LXmdeb15Q8L3RleHQ+CgogICAgICA8bGluZSB4MT0iNjAwIiB5MT0iMjc4IiB4Mj0iNjAwIiB5Mj0iMzA2IiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjU5MiwzMDAgNjA4LDMwMCA2MDAsMzEwIiBmaWxsPSIjMjU2M2ViIi8+CgogICAgICA8IS0tIFN0ZXAgMjogRmx1aWQgUHJvdG9jb2wgJiBUb3VybmlxdWV0IFJ1bGUgLS0+CiAgICAgIDxyZWN0IHg9IjYxNSIgeT0iMzEyIiB3aWR0aD0iNTQ1IiBoZWlnaHQ9IjIxMCIgcng9IjE2IiBmaWxsPSIjZjBmZGY0IiBzdHJva2U9IiMxNmEzNGEiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgICAgIDx0ZXh0IHg9IjExMzgiIHk9IjM0NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMTY2NTM0IiB0ZXh0LWFuY2hvcj0iZW5kIj4y15AuINek16jXldeY15XXp9eV15wg157XqtefINeg15XXltec15nXnSDXkdeg16TXkteiINec15vXldeTIC8g157XoteZ15vXlDwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzOCIgeT0iMzc2IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxNDUzMmQiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXqtee15nXodeqINeU15HXl9eZ16jXlDog16HXnNeZ15nXnyAwLjklIChOb3JtYWwgU2FsaW5lKSDXkdec15HXkyE8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzgiIHk9IjQwNCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjYjkxYzFjIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15DXmdeh15XXqCDXnteV15fXnNeYINei15wg157XqtefINeq157Xmdeh16og15TXqNeY157XnyAo157Xm9eZ15zXlCDXkNep15zXktefINeV157Xl9ee15nXqNeUINeU15nXpNeo16fXnNee15nXlCk8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzgiIHk9IjQzMiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg16fXpteRINeU15bXnNek15Qg15EtMiDXlNep16LXldeqINeU16jXkNep15XXoNeV16og15zXnNeb15nXk9eUOiAxINec15nXmNeoINec16nXoteUICgxLDAwMCDXnte015wv16nXoteUKTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzOCIgeT0iNDYwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkdec15vXmdeT15Qg157XnteV16nXm9eqINee16LXnCDXqdei16rXmdeZ1506INeU16TXl9eq16og15TXp9em15Eg15wtNTAwINee17TXnC/Xqdei15QgKNeX16bXmSDXnNeZ15jXqC/Xqdei15QpPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM4IiB5PSI0ODgiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzQ3NTU2OSIgdGV4dC1hbmNob3I9ImVuZCI+ICDXkdep15wg15TXp9eV16nXmSDXkdeg15nXmNeV16gg15TXpNem15XXoiDXlNec15vXldeTINeV15TXodeZ15vXldefINec15TXotee16HXqiDXoNeV15bXnNeZ150g15XXkdem16fXqiDXqNeZ15DXldeqPC90ZXh0PgoKICAgICAgPHJlY3QgeD0iNDAiIHk9IjMxMiIgd2lkdGg9IjU0NSIgaGVpZ2h0PSIyMTAiIHJ4PSIxNiIgZmlsbD0iI2ZlZjJmMiIgc3Ryb2tlPSIjZGMyNjI2IiBzdHJva2Utd2lkdGg9IjIuNSIvPgogICAgICA8dGV4dCB4PSI1NjMiIHk9IjM0NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjOTkxYjFiIiB0ZXh0LWFuY2hvcj0iZW5kIj4y15EuINee15PXmdeg15nXldeqINeU16DXl9eqINeX15XXodedINei15XXqNen15nXnSDXldep15nXm9eV15og15vXkNeRINeR15zXm9eV15M8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjU2MyIgeT0iMzc2IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM5OTFiMWIiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkNeZ158g15zXlNeg15nXlyDXl9eV16HXnSDXoteV16jXp9eZ150g15HXkNeV16TXnyDXqdeS16jXqteZL9ee15XXoNeiINec16nXnSDXnteg15nXoteqINeq16HXnteV16DXqiDXntei15nXm9eUITwvdGV4dD4KICAgICAgPHRleHQgeD0iNTYzIiB5PSI0MDQiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeU16rXldeV15nXldeqINec15fXldeh150g16LXldeo16fXmdedINeR15LXpNeUINee16LXldeb15Q6INeo16cg15HXk9eZ157XldedINek15XXqNelINee16HXm9efINeX15nXmdedINep15DXmdeg15Ug16DXqdec15gsPC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9IjQzMiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gINeQ15Ug15vXqdeg15PXqNep16og16fXmNeZ16LXlCAvINeX15nXnNeV16Ug157XmdeZ15PXmSDXnNeU16bXnNeqINeX15nXmdedINee16rXl9eqINec15TXqNeZ16HXldeqPC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9IjQ2MCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg16nXmdeb15XXmiDXm9eQ15Eg15HXnNeb15XXkzog15TXoteT16TXlCDXnNen15jXnteZ158gKNep15XXnteoINei15wg15jXldeg15XXoSDXodeZ157XpNeq15jXmSDXldeg16nXmdee15QpPC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9IjQ4OCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjYjkxYzFjIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15DXmdeh15XXqCDXnteV15fXnNeYINei15wg157XqtefIE5TQUlEcyAo15HXqdecINeU15fXnteo16og15DXmS3Xodek15nXp9eqINeb15zXmdeV16og15fXqNeZ16TXlCk8L3RleHQ+CgogICAgICA8bGluZSB4MT0iNjAwIiB5MT0iNTIyIiB4Mj0iNjAwIiB5Mj0iNTUwIiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjU5Miw1NDQgNjA4LDU0NCA2MDAsNTU0IiBmaWxsPSIjMjU2M2ViIi8+CgogICAgICA8IS0tIFN0ZXAgMzogRXh0cmljYXRpb24gJiBJbW1lZGlhdGUgUmVwZXJmdXNpb24gTW9uaXRvcmluZyAtLT4KICAgICAgPHJlY3QgeD0iNDAiIHk9IjU1NiIgd2lkdGg9IjExMjAiIGhlaWdodD0iMTU2IiByeD0iMTYiIGZpbGw9IiNmZmZiZWIiIHN0cm9rZT0iI2Y1OWUwYiIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iNTkwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM5MjQwMGUiIHRleHQtYW5jaG9yPSJlbmQiPjMuINep15zXkSDXkdezIOKAlCDXqNeS16Ig15TXl9eZ15zXldelICjXqdeX16jXldeoINeU15zXl9elKSDXldeg15nXmNeV16gg157XmdeZ15PXmSDXnNeQ15fXqCDXlNeX15nXnNeV16U8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjYyMCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg16LXnSDXlNeh16jXqiDXlNec15fXpSDXnteU15DXmdeR16gg15TXntei15XXmiDXnteq16jXl9ep16og16jXpNeo16TXldeW15nXlDog15vXoNeZ16HXqiDXoNeV15bXnNeZ150g157XodeZ15HXmdeqINec16nXqNeZ16gg15TXpNeS15XXoiAo15TXnNedINeU15nXpNeV15XXnNee15kpINeV16nXl9eo15XXqCDXkNep15zXktefLCDXnteZ15XXktec15XXkdeZ158g15XXl9eV157XpteUINec15PXnTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iNjQ4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM3ODM1MGYiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXl9eZ15HXldeoINee15nXmdeT15kg15zXnteV16DXmdeY15XXqCDXkNen17TXkiAo15zXlteZ15TXldeZINeh15nXnteg15kg15TXmdek16jXp9ec157XmdeUOiDXktec15kgVCDXkteR15XXlNeZ150g15XXnteX15XXk9eT15nXnSwg15TXqdeY15fXqiBQLCDXlNeq16jXl9eR15XXqiBRUlMsINeR16jXk9eZ16fXqNeT15nXlCDXlS1WVC9WRik8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjY3NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15TXoteo15vXlCDXp9ec15nXoNeZ16og15fXldeW16jXqiDXm9ecIDEwINeT16fXldeqICjXk9eV16TXpywg15zXtNeTLCDXodeY15XXqNem15nXlCwg157XpteRINeU15vXqNeUINeV15HXk9eZ16fXqiDXlNeS16TXlCDXlNee16LXldeb15Qg15zXqteh157Xldeg16og157Xk9eV16gpPC90ZXh0PgoKICAgICAgPGxpbmUgeDE9IjYwMCIgeTE9IjcxMiIgeDI9IjYwMCIgeTI9Ijc0MCIgc3Ryb2tlPSIjMjU2M2ViIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSI1OTIsNzM0IDYwOCw3MzQgNjAwLDc0NCIgZmlsbD0iIzI1NjNlYiIvPgoKICAgICAgPCEtLSBTdGVwIDQ6IFRyZWF0bWVudCBvZiBTdXNwZWN0ZWQgSHlwZXJrYWxlbWlhIGluIHRoZSBGaWVsZCAtLT4KICAgICAgPHJlY3QgeD0iNDAiIHk9Ijc0NiIgd2lkdGg9IjExMjAiIGhlaWdodD0iMjMwIiByeD0iMTgiIGZpbGw9IiNmZGYyZjgiIHN0cm9rZT0iI2RiMjc3NyIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iNzgwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM5ZDE3NGQiIHRleHQtYW5jaG9yPSJlbmQiPjQuINep15zXkSDXktezIOKAlCDXmNeZ16TXldecINeR15fXqdeTINec15TXmdek16jXp9ec157XmdeUIC8g16nXmdeg15XXmdeZINeQ16fXtNeSINeR16DXpNeS16Ig157XoteZ15vXlCDXkdep15PXlDwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iODEwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM4MzE4NDMiIHRleHQtYW5jaG9yPSJlbmQiPteR15vXnCDXlNeV16TXoteqINep15nXoNeV15nXmSDXkNen17TXkiDXnteX16nXmdeT15nXnSDXnNeU15nXpNeo16fXnNee15nXlCDXkNeVINeU15nXk9eo15PXqNeV16og15TXnteV15PXmdeg157XmdeqL9eU16TXqNei16og16fXpteRINec15DXl9eoINeX15nXnNeV16U6PC90ZXh0PgoKICAgICAgPHJlY3QgeD0iNzgwIiB5PSI4MjgiIHdpZHRoPSIzNTYiIGhlaWdodD0iMTI4IiByeD0iMTIiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2UxMWQ0OCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDx0ZXh0IHg9IjExMjAiIHk9Ijg1NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjOWYxMjM5IiB0ZXh0LWFuY2hvcj0iZW5kIj4xKSDXlNeS16DXlCDXnteZ15nXk9eZ16og16LXnCDXqdeo15nXqCDXlNec15E6PC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTIwIiB5PSI4ODQiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINen15zXpteZ15XXnSDXktec15XXp9eV16DXmCAxMCUg4oCUIDEw4oCTMjAg157XtNecIElWPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTIwIiB5PSI5MTAiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+ICAo15DXlSDXp9ec16bXmdeV150g15vXnNeV16jXmdeTIDEwJSDigJQgNeKAkzEwINee17TXnCBJVik8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMjAiIHk9IjkzNiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjYmUxMjNjIiB0ZXh0LWFuY2hvcj0iZW5kIj4gINee15nXmdem15Eg157XnteR16jXoNeqINeq15DXmSDXqdeo15nXqCDXlNec15Eg16rXldeaINeT16fXldeqPC90ZXh0PgoKICAgICAgPHJlY3QgeD0iNDEyIiB5PSI4MjgiIHdpZHRoPSIzNTIiIGhlaWdodD0iMTI4IiByeD0iMTIiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2RiMjc3NyIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDx0ZXh0IHg9Ijc0OCIgeT0iODU2IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM5ZDE3NGQiIHRleHQtYW5jaG9yPSJlbmQiPjIpINeU15vXoNeh16og15DXqdec15LXnyDXnNeq15DXmdedICjXkdeY15At15DXkteV16DXmdeh15gpOjwvdGV4dD4KICAgICAgPHRleHQgeD0iNzQ4IiB5PSI4ODQiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeQ15nXoNeU15zXpteZ15nXqiDXldeg15jXldec15nXnyAoU2FsYnV0YW1vbCkg15HXnteZ16DXldefINeS15HXldeUPC90ZXh0PgogICAgICA8dGV4dCB4PSI3NDgiIHk9IjkxMCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gIDEw4oCTMjAg157XtNeSINeR15DXmdeg15TXnNem15nXlCDXqNem15nXpNeUPC90ZXh0PgogICAgICA8dGV4dCB4PSI3NDgiIHk9IjkzNiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjOWQxNzRkIiB0ZXh0LWFuY2hvcj0iZW5kIj4gINee15vXoNeZ16Eg15DXqdec15LXnyDXnNeq15XXmiDXlNeq15DXmdedINeV157Xldeo15nXkyBLKyDXkdeT1508L3RleHQ+CgogICAgICA8cmVjdCB4PSI2MCIgeT0iODI4IiB3aWR0aD0iMzM2IiBoZWlnaHQ9IjEyOCIgcng9IjEyIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiM3YzNhZWQiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICA8dGV4dCB4PSIzODAiIHk9Ijg1NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjNWIyMWI2IiB0ZXh0LWFuY2hvcj0iZW5kIj4zKSDXodeV15PXmdeV150g15HXmden16jXkdeV16DXmCDXldeU15HXodeh16og15TXqdeq1586PC90ZXh0PgogICAgICA8dGV4dCB4PSIzODAiIHk9Ijg4NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg16HXldeT15nXldedINeR15nXp9eo15HXldeg15ggNTAgbUVxIElWINeR15TXmdek16jXp9ec157XmdeUPC90ZXh0PgogICAgICA8dGV4dCB4PSIzODAiIHk9IjkxMCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gINeV157XoNeZ16LXqiDXqden15nXoteqINee15nXldeS15zXldeR15nXnyDXkdeQ15HXldeR15nXldeqINeU15vXnNeZ15Q8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjM4MCIgeT0iOTM2IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2ZDI4ZDkiIHRleHQtYW5jaG9yPSJlbmQiPiAgKNeQ15nXnyDXnNeq16og16fXnNem15nXldedINeV15HXmden16jXkdeV16DXmCDXkdeQ15XXqteVINen15Ug15zXnNeQINep15jXmdek15QhKTwvdGV4dD4KCiAgICAgIDxsaW5lIHgxPSI2MDAiIHkxPSI5NzYiIHgyPSI2MDAiIHkyPSIxMDA0IiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjU5Miw5OTggNjA4LDk5OCA2MDAsMTAwOCIgZmlsbD0iIzI1NjNlYiIvPgoKICAgICAgPCEtLSBTdGVwIDU6IFBvc3QtRXh0cmljYXRpb24gVXJpbmUgT3V0cHV0LCBDYXRoZXRlciAmIEV2YWN1YXRpb24gLS0+CiAgICAgIDxyZWN0IHg9IjQwIiB5PSIxMDEwIiB3aWR0aD0iMTEyMCIgaGVpZ2h0PSIyMzgiIHJ4PSIxOCIgZmlsbD0iI2Y4ZmFmYyIgc3Ryb2tlPSIjMzM0MTU1IiBzdHJva2Utd2lkdGg9IjIuNSIvPgogICAgICA8dGV4dCB4PSIxMTM2IiB5PSIxMDQ0IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwZjE3MmEiIHRleHQtYW5jaG9yPSJlbmQiPjUuINeg15nXmNeV16gg16rXpNeV16fXqiDXqdeq158sINeT15LXqdeZINeY15nXpNeV15wg157Xqtee16nXmiDXldek15nXoNeV15kgKNec15DXl9eoINeU15fXmdec15XXpSk8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjEwNzYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeU15fXk9eo16og16fXmNeY16gg16nXqtefICjXkNedINeU16TXmdeg15XXmSDXntee15XXqdeaINeV15HXlNeZ16LXk9eoINeX16nXkyDXnNen16jXoiDXkdep15XXpNeb15Q7INeQ150g15zXkCDXlNeq16fXkdecINep16rXnyDigJQg15DXmdefINec16DXpNeXINeQ16og15TXkdec15XXoNeZ16ohKTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMTEwNiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWUzYThhIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15nXoteTINeq16TXlden16og16nXqtefINeR157XkdeV15LXqCDXnNeQ15fXqCDXl9eZ15zXldelOiDXnNek15fXldeqIDIwMOKAkzMwMCDXnte015wv16nXoteUICjXnNep15jXmdek16og15TXnteZ15XXktec15XXkdeZ158g15XXnteg15nXoteqINeQ15kt16HXpNeZ16fXqiDXm9ec15nXldeqINeX16jXmdek15QpPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM2IiB5PSIxMTM2IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNiOTFjMWMiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkNeZ158g15zXqteqINek15XXodeZ15MgKEZ1cm9zZW1pZGUpINeR15PXqNeSINeU16nXk9eUINec16rXodee15XXoNeqINee16LXmdeb15QgKNee15fXnteZ16gg15TXmdek15XXldec157XmdeUINeV157Xl9ee15nXpSDXkNeqINeU16nXqtefKTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMTE2NiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15HXktek15Qg16LXnSDXqteh157Xldeg16og157Xk9eV16gg15HXqdeT15Q6INeQ15nXnyDXnNeR16bXoiDXpNeh15nXldeY15XXnteZ15Qg15HXk9eo15Ig15TXqdeT15Q7INeZ16kg15zXp9eR16Ig15DXqiDXlNeS16TXlCDXkdeS15XXkdeUINeU15zXkSDXldec16TXoNeV16og15HXk9eX15nXpNeV16o8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjExOTYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzBmNzY2ZSIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINek15nXoNeV15kg15PXl9eV16Mg15zXkdeZ16og15fXldec15nXnSDXotedINeZ15vXldec16og15jXmdek15XXnCDXoNee16jXpSDXldeT15nXkNec15nXlteUINeq15XXmiDXoNeZ15jXldeoINeQ16fXtNeSINeo16bXmdejINeV157Xldeb16DXldeqINec15TXl9eZ15nXkNeUPC90ZXh0PgogICAgPC9zdmc+",
+      "fixedSchemeV3": true
+    }
+  },
+  "concepts": [
+    {
+      "id": "mtls_crush_01_time_threshold",
+      "subjectId": "mtls_crush",
+      "category": "הגדרת חשד לתסמונת מעיכה",
+      "title": "סף זמן לכידה והנחת העבודה לתסמונת מעיכה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "כל פצוע לכוד שחולץ מוגדר כחשוד לתסמונת מעיכה, כאשר סיכון משמעותי מתפתח בלכידה של מסת שריר נרחבת למשך מעל 45 דקות.",
+      "prompts": [
+        {
+          "id": "mtls_crush_01_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "צוות רפואה מגיע לזירת קריסת מבנה שבה מספר פצועים לכודים תחת הריסות בזמני לכידה שונים. החל מאיזה פרק זמן של לכידת גפה קיים חשד גבוה להתפתחות תסמונת סיסטמית לאחר השחרור, ומהי הנחת העבודה לגבי כל לכוד שחולץ?",
+          "note": "לכידה מעל 45 דקות מעלה חשד גבוה, והנחת העבודה הבסיסית היא שכל לכוד שחולץ חשוד לתסמונת מעיכה."
+        },
+        {
+          "id": "mtls_crush_01_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בפרוטוקול הטיפול בנפגע לכוד, לכידה של מסת שריר מעבר ל-───(פרק זמן)─── מחייבת התייחסות מלאה לתסמונת מעיכה, והנחת העבודה היא ש───(אוכלוסיית יעד)─── חשוד לתסמונת זו.",
+          "note": "45 דקות • כל לכוד שחולץ."
+        },
+        {
+          "id": "mtls_crush_01_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "פצוע חולץ לאחר שהיה לכוד ברגלו במשך שעה, וכעת המדדים החיוניים שלו תקינים לחלוטין. כיצד יש להתייחס אליו מבחינת פרוטוקול המעיכה?",
+          "note": "יש להתייחס אליו כחשוד לתסמונת מעיכה ולהמשיך בפרוטוקול נוזלים וניטור מלא גם אם המדדים הראשוניים תקינים."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_02_fluid_choice",
+      "subjectId": "mtls_crush",
+      "category": "בחירת תמיסת הנוזלים במעיכה",
+      "title": "תמיסת הבחירה להחייאת נוזלים בפצוע לכוד והתוויית-נגד להרטמן",
+      "referenceId": "ref_mtls_crush",
+      "answer": "תמיסת הבחירה למתן נוזלים בפצוע לכוד או נפגע מעיכה היא סליין 0.9% (Normal Saline) בלבד; חל איסור לתת תמיסת הרטמן (Lactated Ringer's) משום שהיא מכילה אשלגן.",
+      "prompts": [
+        {
+          "id": "mtls_crush_02_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "השגת גישה ורידית לפצוע שלכוד בפלג גופו התחתון תחת קורת בטון. בתיק הרפואי יש שקיות סליין 0.9% ושקיות הרטמן. באיזו תמיסה יש לבחור ומדוע אסור להשתמש בתמיסה השנייה?",
+          "note": "סליין 0.9% בלבד; תמיסת הרטמן אסורה במעיכה כי היא מכילה אשלגן ועלולה להחמיר היפרקלמיה קטלנית."
+        },
+        {
+          "id": "mtls_crush_02_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בנפגע מעיכה תמיסת הקריסטלואידים המותרת היא ───(תמיסה מותרת)─── בלבד, ואילו מתן ───(תמיסה אסורה)─── אסור בשל תכולת ───(אלקטרוליט)───.",
+          "note": "סליין 0.9% • הרטמן (רינגר לקטט) • אשלגן."
+        },
+        {
+          "id": "mtls_crush_02_p3",
+          "type": "השוואה קלינית",
+          "interaction": "standard",
+          "text": "במה שונה בחירת תמיסת הקריסטלואידים בפצוע מעיכה לעומת פצוע טראומה מדמם רגיל בשדה?",
+          "note": "בפצוע מעיכה חובה להשתמש בסליין 0.9% בלבד ונאסר מתן הרטמן בשל סכנת היפרקלמיה."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_03_pre_extrication_timing",
+      "subjectId": "mtls_crush",
+      "category": "תזמון התחלת מתן הנוזלים",
+      "title": "התחלת מתן נוזלים לפני שחרור האיבר הלכוד",
+      "referenceId": "ref_mtls_crush",
+      "answer": "יש להשיג גישה ורידית ולהתחיל בהזלפת נוזלים מוקדם ככל הניתן עוד בזמן שהפצוע לכוד (לפני הסרת הלחץ והחילוץ), כדי למנוע קריסה המודינמית ורעילות כלייתית ברגע הרפרפוזיה.",
+      "prompts": [
+        {
+          "id": "mtls_crush_03_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "צוות החילוץ עומד להרים גוש בטון מעל שתי רגליו של פצוע שהיה לכוד במשך שעה וחצי. מהי הפעולה הטיפולית הקריטית שעל הצוות הרפואי להתחיל עוד לפני הרמת גוש הבטון?",
+          "note": "פתיחת וריד והתחלת מתן עירוי סליין 0.9% בקצב גבוה עוד לפני שחרור הלחץ מהגפיים."
+        },
+        {
+          "id": "mtls_crush_03_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בטיפול בנפגע לכוד, את מתן הנוזלים התוך-ורידי יש להתחיל ───(תזמון ביחס לחילוץ)───, במטרה למנוע ───(סיבוך המודינמי)─── עם חידוש זרימת הדם לאיבר.",
+          "note": "לפני החילוץ (בזמן הלכידה) • הלם היפוולמי / קריסה המודינמית."
+        },
+        {
+          "id": "mtls_crush_03_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "מדוע המתנה עם מתן הנוזלים עד לאחר חילוץ הפצוע מההריסות נחשבת לשגיאה מסכנת חיים?",
+          "note": "כי מיד עם שחרור הלחץ מתרחשת בריחת נפח מסיבית מהמערכת הווסקולרית אל השריר המעוך ושחרור רעלנים לדם."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_04_fluid_rate_trapped",
+      "subjectId": "mtls_crush",
+      "category": "קצב הזלפת נוזלים בזמן לכידה",
+      "title": "קצב מתן נוזלים בשעתיים הראשונות לעומת לכידה ממושכת מעל שעתיים",
+      "referenceId": "ref_mtls_crush",
+      "answer": "בזמן הלכידה יש לתת סליין 0.9% בקצב של 1 ליטר לשעה (1,000 מ״ל/שעה) בשעתיים הראשונות; אם החילוץ מתעכב מעבר לשעתיים, יש להפחית את הקצב ל-500 מ״ל לשעה (חצי ליטר/שעה) בשל הקושי לנטר את הפצוע הלכוד והסיכון להעמסת נוזלים.",
+      "prompts": [
+        {
+          "id": "mtls_crush_04_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "פצוע לכוד במבנה שקרס מטופל בעירוי נוזלים מזה שעתיים, אך צוותי החילוץ מעריכים שהחילוץ יימשך עוד שעה נוספת. מהו קצב הזלפת הנוזלים הנדרש בשעתיים הראשונות וכיצד יש לשנותו כעת?",
+          "note": "בשעתיים הראשונות 1 ליטר/שעה (1,000 מ״ל/שעה), ולאחר שעתיים של לכידה יש להוריד את הקצב ל-500 מ״ל/שעה (חצי ליטר/שעה)."
+        },
+        {
+          "id": "mtls_crush_04_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בפצוע לכוד קצב מתן הסליין בשעתיים הראשונות הוא ───(קצב התחלתי)───, ואם הלכידה נמשכת מעל שעתיים יש להפחיתו ל-───(קצב מופחת)─── למניעת עומס נוזלים.",
+          "note": "1 ליטר לשעה (1,000 מ״ל/שעה) • 500 מ״ל לשעה (חצי ליטר לשעה)."
+        },
+        {
+          "id": "mtls_crush_04_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "מהי הסיבה להורדת קצב מתן הנוזלים בחצי כאשר פצוע נותר לכוד מעבר לשעתיים?",
+          "note": "הקושי לנטר תפוקת שתן ומצב ריאתי בפצוע לכוד והסיכון לגרימת העמסת נוזלים ובצקת ריאות לפני החילוץ."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_05_tourniquet_policy",
+      "subjectId": "mtls_crush",
+      "category": "חוסם עורקים בפציעת מעיכה",
+      "title": "התוויות להנחת חוסם עורקים בגפה מעוכה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "אין להניח חוסם עורקים באופן שגרתי או מונע כדי למנוע תסמונת מעיכה לפני חילוץ; חוסם עורקים בגפה מעוכה יונח רק במקרה של דימום עורקי פורץ מסכן חיים או כשנדרשת קטיעה/חילוץ מיידי להצלת חיי הפצוע.",
+      "prompts": [
+        {
+          "id": "mtls_crush_05_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "לפני הרמת קורת בטון מעל רגלו של פצוע שהיה לכוד שעתיים ללא דימום חיצוני, אחד המטפלים מציע להניח חוסם עורקים מעל אזור המעיכה כדי למנוע שחרור אשלגן למחזור הדם. מהי ההנחיה הנכונה לפי הפרוטוקול?",
+          "note": "אין להניח חוסם עורקים למניעת תסמונת מעיכה; חוסם עורקים יונח רק בדימום פורץ שאינו נשלט או לצורך קטיעה/חילוץ מציל חיים."
+        },
+        {
+          "id": "mtls_crush_05_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בנפגע לכוד ───(מדיניות)─── להניח חוסם עורקים כמניעה לתסמונת מעיכה, והנחתו שמורה למצבים של ───(התוויה קלינית)─── בלבד.",
+          "note": "אין / אסור • דימום פורץ מסכן חיים (או קטיעת חירום לחילוץ מציל חיים)."
+        },
+        {
+          "id": "mtls_crush_05_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "באילו שני מצבים בלבד מוצדקת הנחת חוסם עורקים על גפה שעברה פציעת מעיכה?",
+          "note": "1. דימום חיצוני פורץ מסכן חיים מהגפה. 2. צורך בקטיעת הגפה או חילוץ מיידי מתחת להריסות עקב סכנת חיים מיידית."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_06_ecg_hyperkalemia_signs",
+      "subjectId": "mtls_crush",
+      "category": "ניטור אק״ג וזיהוי היפרקלמיה",
+      "title": "שינויי אק״ג אופייניים להיפרקלמיה לאחר חילוץ נפגע מעיכה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "מיד עם חילוץ נפגע מעיכה יש לחברו למוניטור אק״ג ולהעריכו כל 10 דקות; סימני היפרקלמיה באק״ג כוללים גלי T גבוהים ומחודדים (מוקדם), השטחת/היעלמות גלי P, הארכת PR והתרחבות קומפלקס QRS (תבנית גל סינוס) עד VF או אסיסטולה.",
+      "prompts": [
+        {
+          "id": "mtls_crush_06_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "דקות ספורות לאחר חילוץ פצוע שהיה לכוד 3 שעות תחת הריסות, המוניטור מציג גלי T גבוהים ומחודדים והתרחבות של קומפלקס ה-QRS. איזה סיבוך מסכן חיים התפתח ומהי הסכנה המיידית שלו?",
+          "note": "היפרקלמיה חריפה (בעקבות שחרור אשלגן מהשריר ההרוס ברפרפוזיה), המסכנת בדום לב מיידי (VF / אסיסטולה)."
+        },
+        {
+          "id": "mtls_crush_06_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "הביטוי המוקדם באק״ג לעליית האשלגן בנפגע מעיכה הוא ───(ממצא מוקדם באק״ג)───, ובהחמרה מופיעה ───(ממצא מתקדם באק״ג)─── המבשרת פרפור חדרים.",
+          "note": "גלי T גבוהים ומחודדים • התרחבות קומפלקס QRS (והשטחת גלי P / תבנית Sine wave)."
+        },
+        {
+          "id": "mtls_crush_06_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "באיזו תדירות יש לבצע הערכה קלינית חוזרת וניטור מדדים לפצוע מעיכה לאחר חילוצו?",
+          "note": "כל 10 דקות (בשילוב ניטור אק״ג רציף לזיהוי מוקדם של הפרעות קצב והיפרקלמיה)."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_07_calcium_cardioprotection",
+      "subjectId": "mtls_crush",
+      "category": "הגנה על שריר הלב בהיפרקלמיה",
+      "title": "מתן קלציום כקו ראשון לייצוב שריר הלב בהיפרקלמיה במעיכה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "בהופעת שינויי אק״ג או הפרעת קצב על רקע היפרקלמיה בנפגע מעיכה, תרופת הקו הראשון המיידית להגנה על שריר הלב היא קלציום גלוקונט 10% במינון 10–20 מ״ל IV (או קלציום כלוריד 10% במינון 5–10 מ״ל IV) בהזרקה איטית.",
+      "prompts": [
+        {
+          "id": "mtls_crush_07_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "פצוע שחולץ מקריסת מבנה מפתח ברדיקרדיה וקומפלקסים רחבים באק״ג. איזו תרופה יש להזריק לווריד בראש ובראשונה כדי לייצב מיידית את ממברנת שריר הלב ומה מינונה?",
+          "note": "קלציום גלוקונט 10% במינון 10–20 מ״ל IV (או קלציום כלוריד 10% במינון 5–10 מ״ל IV) בהזרקה איטית."
+        },
+        {
+          "id": "mtls_crush_07_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "לייצוב ממברנת שריר הלב בהיפרקלמיה של תסמונת מעיכה ניתנת התרופה ───(שם התרופה)─── 10% במינון ───(נפח במ״ל)─── במתן IV איטי.",
+          "note": "קלציום גלוקונט (10–20 מ״ל) או קלציום כלוריד (5–10 מ״ל)."
+        },
+        {
+          "id": "mtls_crush_07_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "איזה אמצעי זהירות טכני חובה לנקוט כאשר נותנים קלציום IV וסודיום ביקרבונט IV לאותו פצוע מעיכה?",
+          "note": "אסור לתת אותם יחד באותו קו עירוי ללא שטיפה יסודית בסליין ביניהם, משום שהם שוקעים כמלח קלציום-קרבונט."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_08_potassium_shift_therapy",
+      "subjectId": "mtls_crush",
+      "category": "הורדת רמת האשלגן בדם בשדה",
+      "title": "טיפול להכנסת אשלגן לתאים והבססה בנפגע מעיכה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "לצורך החדרת אשלגן מהדם לתוך התאים בשדה ניתנת אינהלציית ונטולין (Salbutamol) במינון גבוה ורציף (10–20 מ״ג) בשילוב סודיום ביקרבונט 50 mEq IV (המסייע גם בהבססת השתן ומניעת שקיעת מיוגלובין בכליה).",
+      "prompts": [
+        {
+          "id": "mtls_crush_08_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "לאחר מתן קלציום לייצוב הלב בפצוע מעיכה עם שינויי אק״ג, אילו שני טיפולים תרופתיים זמינים בדרג השדה להורדת ריכוז האשלגן החופשי בדם?",
+          "note": "אינהלציית ונטולין רציפה במינון גבוה (10–20 מ״ג) ומתן סודיום ביקרבונט (50 mEq IV)."
+        },
+        {
+          "id": "mtls_crush_08_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "להסטת אשלגן מהדם לתוך התאים בנפגע מעיכה בשדה ניתנת אינהלציה רציפה של ───(תרופה באינהלציה)─── במינון ───(מינון)───, לצד מתן תוך-ורידי של ───(תרופה בסיסית)───.",
+          "note": "ונטולין (סלבוטמול) • 10–20 מ״ג • סודיום ביקרבונט (50 mEq)."
+        },
+        {
+          "id": "mtls_crush_08_p3",
+          "type": "השוואה קלינית",
+          "interaction": "standard",
+          "text": "מהי התרומה הכפולה של מתן סודיום ביקרבונט בנפגע עם תסמונת מעיכה?",
+          "note": "1. תיקון החמצת המטבולית והכנסת אשלגן לתאים. 2. הבססת השתן (יעד pH מעל 6.5) למניעת שקיעת גלילי מיוגלובין באבוביות הכליה."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_09_urine_output_and_furosemide",
+      "subjectId": "mtls_crush",
+      "category": "יעד תפוקת שתן ואיסור מתן פוסיד",
+      "title": "יעד תפוקת השתן לאחר חילוץ והאיסור על מתן פוסיד בשדה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "לאחר חילוץ נפגע מעיכה יעד תפוקת השתן במבוגר הוא לפחות 200–300 מ״ל לשעה (לשטיפת המיוגלובין מהכליות), וחל איסור על מתן פוסיד (Furosemide) בדרג השדה.",
+      "prompts": [
+        {
+          "id": "mtls_crush_09_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "פצוע מעיכה חולץ והוכנס לו קטטר שתן שמדגים שתן כהה בצבע תה. מהו קצב תפוקת השתן השעתי שעלינו לשאוף אליו באמצעות מתן נוזלים, והאם יש לתת פוסיד בשדה כדי להגביר את מתן השתן?",
+          "note": "יעד תפוקת השתן הוא לפחות 200–300 מ״ל לשעה; אין לתת פוסיד בדרג השדה (עלול להחמיר תת-נפח ולהחמיץ את השתן)."
+        },
+        {
+          "id": "mtls_crush_09_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בנפגע מעיכה לאחר חילוץ, יעד תפוקת השתן במבוגר הוא ───(נפח שתן לשעה)───, ובדרג השדה ───(מדיניות לגבי משתן לולאה)─── לתת פוסיד.",
+          "note": "200–300 מ״ל/שעה • אין / אסור."
+        },
+        {
+          "id": "mtls_crush_09_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "מהו הכלל הבטיחותי המחייב בעת החדרת קטטר שתן לפצוע בשדה לפני ניפוח הבלונית?",
+          "note": "אין לנפח את בלונית הקטטר כל עוד לא התקבל שתן בצינורית (ובחשד לפגיעת אגן/קרע שופכה אין להחדיר קטטר כלל)."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_10_compartment_syndrome_field",
+      "subjectId": "mtls_crush",
+      "category": "תסמונת מדור בגפה מעוכה",
+      "title": "ניהול גפה מעוכה עם תסמונת מדור בדרג השדה",
+      "referenceId": "ref_mtls_crush",
+      "answer": "בגפה שעברה מעיכה ופיתחה תסמונת מדור (כאב עז, נפיחות קשה ומתח במדור), אין לבצע פסיוטומיה בדרג השדה; יש להסיר חבישות לוחצות, לקבע את הגפה בגובה הלב (ללא הרמה וללא קירור בקרח) ולפנות בדחיפות.",
+      "prompts": [
+        {
+          "id": "mtls_crush_10_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "לאחר חילוץ פצוע שהיה לכוד בשוק ימין, השוק נפוחה, מתוחה וקשה מאוד למגע והפצוע מתלונן על כאב עז שמחמיר בהנעה פסיבית של האצבעות. באיזה גובה יש להניח את הגפה והאם מבוצעת פסיוטומיה בשדה?",
+          "note": "יש להניח את הגפה בגובה הלב (לא להגביה מעל גובה הלב כדי לא להפחית פרפוזיה עורקית), ואין לבצע פסיוטומיה בדרג השדה."
+        },
+        {
+          "id": "mtls_crush_10_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בחשד לתסמונת מדור בגפה מעוכה בשדה, יש למקם את הגפה ───(מנח הגפה)─── ו───(מדיניות כירורגית בשדה)─── לבצע פסיוטומיה בטרום בית-החולים.",
+          "note": "בגובה הלב • אין / אסור."
+        },
+        {
+          "id": "mtls_crush_10_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "מדוע אסור להגביה גפה עם תסמונת מדור מעל גובה הלב או להניח עליה קרח?",
+          "note": "הגבהת הגפה וקירור מפחיתים עוד יותר את לחץ הזילוח העורקי לרקמת השריר האיסכמית ומחמירים את הנמק."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_11_analgesia_in_crush",
+      "subjectId": "mtls_crush",
+      "category": "שיכוך כאב בנפגע לכוד ומעיכה",
+      "title": "בחירת משכך כאבים בנפגע מעיכה ואיסור מתן NSAIDs",
+      "referenceId": "ref_mtls_crush",
+      "answer": "לשיכוך כאב בינוני-קשה בנפגע לכוד או מעיכה מועדף מתן קטמין (השומר על יציבות המודינמית וטונוס וסקולרי בזמן הרפרפוזיה), וחל איסור מוחלט על מתן תרופות ממשפחת ה-NSAIDs בשל החמרת הפגיעה הכלייתית.",
+      "prompts": [
+        {
+          "id": "mtls_crush_11_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "פצוע לכוד תחת הריסות סובל מכאבים עזים לקראת חילוץ שעלול לגרום לירידת לחץ דם. איזו תרופה לשיכוך כאב חזק מועדפת במצב זה, ואיזו קבוצת משככי כאבים אסורה לחלוטין בשל סכנה לכליות?",
+          "note": "קטמין הוא תרופת הבחירה (אינו מוריד לחץ דם); תרופות ממשפחת ה-NSAIDs אסורות לחלוטין בשל נפרוטוקסיות."
+        },
+        {
+          "id": "mtls_crush_11_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "לשיכוך כאב קשה בפצוע לכוד לקראת חילוץ מועדפת התרופה ───(תרופה מועדפת)───, וחל איסור על מתן תרופות ממשפחת ───(קבוצת תרופות אסורה)─── מחשש להחמרת אי-ספיקת כליות.",
+          "note": "קטמין • NSAIDs (נוגדי דלקת שאינם סטרואידים)."
+        },
+        {
+          "id": "mtls_crush_11_p3",
+          "type": "השוואה קלינית",
+          "interaction": "standard",
+          "text": "מדוע קטמין עדיף על פני מורפין בשיכוך כאב של פצוע לכוד עמוק רגע לפני שחרור הלחץ?",
+          "note": "ברגע שחרור הלחץ מתרחשת צניחה בנפח התוך-כלי (הלם רפרפוזיה); קטמין משמר לחץ דם ונשימה בעוד מורפין גורם להרחבת כלי דם והחמרת ההיפוטנסיה."
+        }
+      ]
+    },
+    {
+      "id": "mtls_crush_12_airway_and_hypothermia_trapped",
+      "subjectId": "mtls_crush",
+      "category": "הגנת נתיב אוויר וחום גוף בלכוד",
+      "title": "הגנה מאבק ורעלים וחימום אקטיבי של פצוע לכוד",
+      "referenceId": "ref_mtls_crush",
+      "answer": "בזירת הרס עם פצוע לכוד יש להגן על נתיב האוויר והעיניים מפני אבק כבד (מסכת חמצן/פילטר ומשקפי מגן), להיזהר משאיפת CO בחלל סגור, ולבצע חימום אקטיבי ומניעת היפותרמיה לאורך כל החילוץ.",
+      "prompts": [
+        {
+          "id": "mtls_crush_12_p1",
+          "type": "תרחיש קליני",
+          "interaction": "standard",
+          "text": "בעת חילוץ ממושך של פצוע מתוך מבנה שקרס ובו אבק בטון סמיך ושימוש בכלי חילוץ ממונעים, אילו אמצעי הגנה סביבתיים ופיזיולוגיים יש ליישם על הפצוע במקביל לעירוי הנוזלים?",
+          "note": "הגנה על דרכי הנשימה והעיניים מאבק ומפליטת CO (מתן חמצן במסכה וכיסוי עיניים), וחימום אקטיבי למניעת היפותרמיה."
+        },
+        {
+          "id": "mtls_crush_12_p2",
+          "type": "השלמת משפט (Cloze)",
+          "interaction": "standard",
+          "text": "בחילוץ ממושך מתחת להריסות יש להגן על נתיב האוויר מפני אבק וגז ───(גז רעיל מכלי חילוץ)─── באמצעות מתן חמצן, ולהקפיד על מניעת ───(סיבוך אקלימי)─── המחמירה הפרעות קצב וקרישה.",
+          "note": "פחמן חד-חמצני (CO) • היפותרמיה."
+        },
+        {
+          "id": "mtls_crush_12_p3",
+          "type": "שלב בסכמה",
+          "interaction": "standard",
+          "text": "מדוע פצועים הלכודים תחת הריסות מועדים במיוחד לפתח היפותרמיה גם במזג אוויר מתון?",
+          "note": "בשל חוסר יכולת לנוע, מגע ממושך עם בטון/קרקע קרה, אובדן דם ומתן נפחים גדולים של נוזלים בעירוי."
+        }
+      ]
+    }
+  ]
+}
