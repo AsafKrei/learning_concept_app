@@ -1,6 +1,6 @@
 {
   "version": "5.0-subtopic-modular",
-  "updatedAt": "2026-11-15T08:15:00Z",
+  "updatedAt": "2026-11-19T17:30:00Z",
   "topics": [
     {
       "id": "routine_emergency",
@@ -181,6 +181,33 @@
       "icon": "💊",
       "jsonUrl": "./subjects/mtls_antibiotics.json",
       "altJsonUrl": "./mtls_antibiotics.json"
+    },
+    {
+      "id": "mtls_tox",
+      "topicId": "mtls",
+      "title": "פרק 19: המענה הרפואי לאירוע טוקסיקולוגי המוני",
+      "shortTitle": "אירוע טוקסיקולוגי (פרק 19)",
+      "icon": "☣️",
+      "jsonUrl": "./subjects/mtls_tox.json",
+      "altJsonUrl": "./mtls_tox.json"
+    },
+    {
+      "id": "mtls_pediatric",
+      "topicId": "mtls",
+      "title": "פרק 21: הטיפול בטראומה בילדים",
+      "shortTitle": "טראומה בילדים (פרק 21)",
+      "icon": "🧒",
+      "jsonUrl": "./subjects/mtls_pediatric.json",
+      "altJsonUrl": "./mtls_pediatric.json"
+    },
+    {
+      "id": "mtls_canine",
+      "topicId": "mtls",
+      "title": "פרק 22: המענה הרפואי לטיפול בכלבים לצוות לא וטרינרי",
+      "shortTitle": "טיפול בכלבים (פרק 22)",
+      "icon": "🐕",
+      "jsonUrl": "./subjects/mtls_canine.json",
+      "altJsonUrl": "./mtls_canine.json"
     }
   ]
 }
