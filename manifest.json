@@ -1,0 +1,213 @@
+{
+  "version": "5.0-subtopic-modular",
+  "updatedAt": "2026-11-19T17:30:00Z",
+  "topics": [
+    {
+      "id": "routine_emergency",
+      "title": "חירום שבשגרה",
+      "icon": "🚑",
+      "color": "indigo",
+      "jsonUrl": "./database.json",
+      "loaded": true
+    },
+    {
+      "id": "mtls",
+      "title": "MTLS — טראומה ורפואה מבצעית",
+      "icon": "🪖",
+      "color": "emerald",
+      "jsonUrl": "./mtls.json",
+      "loaded": true
+    }
+  ],
+  "subjects": [
+    {
+      "id": "pea_asystole",
+      "topicId": "routine_emergency",
+      "title": "דום לב במבוגר: PEA / Asystole",
+      "shortTitle": "PEA / Asystole",
+      "icon": "⚡",
+      "jsonUrl": "./subjects/pea_asystole.json",
+      "altJsonUrl": "./pea_asystole.json"
+    },
+    {
+      "id": "vf_vt",
+      "topicId": "routine_emergency",
+      "title": "דום לב במבוגר: VT / VF",
+      "shortTitle": "VT / VF",
+      "icon": "💓",
+      "jsonUrl": "./subjects/vf_vt.json",
+      "altJsonUrl": "./vf_vt.json"
+    },
+    {
+      "id": "post_rosc",
+      "topicId": "routine_emergency",
+      "title": "טיפול בחולה לאחר החייאה (ROSC)",
+      "shortTitle": "לאחר החייאה ROSC",
+      "icon": "🫁",
+      "jsonUrl": "./subjects/post_rosc.json",
+      "altJsonUrl": "./post_rosc.json"
+    },
+    {
+      "id": "pulmonary_edema",
+      "topicId": "routine_emergency",
+      "title": "בצקת ריאות קרדיוגנית",
+      "shortTitle": "בצקת ריאות",
+      "icon": "💧",
+      "jsonUrl": "./subjects/pulmonary_edema.json",
+      "altJsonUrl": "./pulmonary_edema.json"
+    },
+    {
+      "id": "asthma",
+      "topicId": "routine_emergency",
+      "title": "התקף אסתמה במבוגר",
+      "shortTitle": "התקף אסתמה",
+      "icon": "🌬️",
+      "jsonUrl": "./subjects/asthma.json",
+      "altJsonUrl": "./asthma.json"
+    },
+    {
+      "id": "anaphylaxis",
+      "topicId": "routine_emergency",
+      "title": "תגובה אלרגית / אנפילקסיס",
+      "shortTitle": "אנפילקסיס",
+      "icon": "🐝",
+      "jsonUrl": "./subjects/anaphylaxis.json",
+      "altJsonUrl": "./anaphylaxis.json"
+    },
+    {
+      "id": "acs",
+      "topicId": "routine_emergency",
+      "title": "תסמונת כלילית חריפה (ACS)",
+      "shortTitle": "ACS",
+      "icon": "❤️‍🩹",
+      "jsonUrl": "./subjects/acs.json",
+      "altJsonUrl": "./acs.json"
+    },
+    {
+      "id": "stroke",
+      "topicId": "routine_emergency",
+      "title": "גישה למטופל עם חשד לאירוע מוחי",
+      "shortTitle": "אירוע מוחי (Stroke)",
+      "icon": "🧠",
+      "jsonUrl": "./subjects/stroke.json",
+      "altJsonUrl": "./stroke.json"
+    },
+    {
+      "id": "seizure",
+      "topicId": "routine_emergency",
+      "title": "פרכוס או לאחר פרכוס במבוגר",
+      "shortTitle": "פרכוס במבוגר",
+      "icon": "⚡",
+      "jsonUrl": "./subjects/seizure.json",
+      "altJsonUrl": "./seizure.json"
+    },
+    {
+      "id": "mtls_rdcr",
+      "topicId": "mtls",
+      "title": "פרוטוקול החייאת בקרת נזקים בשדה בפצוע המדמם",
+      "shortTitle": "החייאת בקרת נזקים (RDCR)",
+      "icon": "🩸",
+      "jsonUrl": "./subjects/mtls_rdcr.json",
+      "altJsonUrl": "./mtls_rdcr.json"
+    },
+    {
+      "id": "mtls_chest",
+      "topicId": "mtls",
+      "title": "פרוטוקול הערכה וטיפול בפצוע חזה",
+      "shortTitle": "פצוע חזה",
+      "icon": "🫁",
+      "jsonUrl": "./subjects/mtls_chest.json",
+      "altJsonUrl": "./mtls_chest.json"
+    },
+    {
+      "id": "mtls_tbi",
+      "topicId": "mtls",
+      "title": "פגיעת ראש טראומטית",
+      "shortTitle": "פגיעת ראש (TBI)",
+      "icon": "🪖",
+      "jsonUrl": "./subjects/mtls_tbi.json",
+      "altJsonUrl": "./mtls_tbi.json"
+    },
+    {
+      "id": "mtls_msk",
+      "topicId": "mtls",
+      "title": "הטיפול בפציעות שריר שלד",
+      "shortTitle": "פציעות שריר שלד",
+      "icon": "🦴",
+      "jsonUrl": "./subjects/mtls_msk.json",
+      "altJsonUrl": "./mtls_msk.json"
+    },
+    {
+      "id": "mtls_eye",
+      "topicId": "mtls",
+      "title": "פציעות עיניים, ארובה וטפולות",
+      "shortTitle": "פציעות עיניים",
+      "icon": "👁️",
+      "jsonUrl": "./subjects/mtls_eye.json",
+      "altJsonUrl": "./mtls_eye.json"
+    },
+    {
+      "id": "mtls_burns",
+      "topicId": "mtls",
+      "title": "הטיפול בכוויות בשדה",
+      "shortTitle": "כוויות בשדה",
+      "icon": "🔥",
+      "jsonUrl": "./subjects/mtls_burns.json",
+      "altJsonUrl": "./mtls_burns.json"
+    },
+    {
+      "id": "mtls_crush",
+      "topicId": "mtls",
+      "title": "פרק 16: הטיפול בנפגע הלכוד ונפגע מעיכה",
+      "shortTitle": "נפגע לכוד ומעיכה (פרק 16)",
+      "icon": "🧱",
+      "jsonUrl": "./subjects/mtls_crush.json",
+      "altJsonUrl": "./mtls_crush.json"
+    },
+    {
+      "id": "mtls_pain",
+      "topicId": "mtls",
+      "title": "פרק 17: טיפול בכאב בדרג השדה",
+      "shortTitle": "טיפול בכאב בשדה (פרק 17)",
+      "icon": "💉",
+      "jsonUrl": "./subjects/mtls_pain.json",
+      "altJsonUrl": "./mtls_pain.json"
+    },
+    {
+      "id": "mtls_antibiotics",
+      "topicId": "mtls",
+      "title": "פרק 18: הטיפול האנטיביוטי בשדה",
+      "shortTitle": "אנטיביוטיקה בשדה (פרק 18)",
+      "icon": "💊",
+      "jsonUrl": "./subjects/mtls_antibiotics.json",
+      "altJsonUrl": "./mtls_antibiotics.json"
+    },
+    {
+      "id": "mtls_tox",
+      "topicId": "mtls",
+      "title": "פרק 19: המענה הרפואי לאירוע טוקסיקולוגי המוני",
+      "shortTitle": "אירוע טוקסיקולוגי (פרק 19)",
+      "icon": "☣️",
+      "jsonUrl": "./subjects/mtls_tox.json",
+      "altJsonUrl": "./mtls_tox.json"
+    },
+    {
+      "id": "mtls_pediatric",
+      "topicId": "mtls",
+      "title": "פרק 21: הטיפול בטראומה בילדים",
+      "shortTitle": "טראומה בילדים (פרק 21)",
+      "icon": "🧒",
+      "jsonUrl": "./subjects/mtls_pediatric.json",
+      "altJsonUrl": "./mtls_pediatric.json"
+    },
+    {
+      "id": "mtls_canine",
+      "topicId": "mtls",
+      "title": "פרק 22: המענה הרפואי לטיפול בכלבים לצוות לא וטרינרי",
+      "shortTitle": "טיפול בכלבים (פרק 22)",
+      "icon": "🐕",
+      "jsonUrl": "./subjects/mtls_canine.json",
+      "altJsonUrl": "./mtls_canine.json"
+    }
+  ]
+}

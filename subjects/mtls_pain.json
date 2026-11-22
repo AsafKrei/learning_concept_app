@@ -1,0 +1,459 @@
+{
+  "version": "6.0-clinical-multiconcept",
+  "subjectId": "mtls_pain",
+  "topicId": "mtls",
+  "subject": {
+    "id": "mtls_pain",
+    "topicId": "mtls",
+    "title": "פרק 17: טיפול בכאב בדרג השדה",
+    "shortTitle": "טיפול בכאב בשדה (פרק 17)",
+    "icon": "💉",
+    "jsonUrl": "./subjects/mtls_pain.json",
+    "altJsonUrl": "./mtls_pain.json"
+  },
+  "referenceSchemes": {
+    "ref_mtls_pain": {
+      "id": "ref_mtls_pain",
+      "topicId": "mtls",
+      "subjectId": "mtls_pain",
+      "shortLabel": "טיפול בכאב בשדה (פרק 17)",
+      "title": "פרק 17: פרוטוקול טיפול בכאב בדרג השדה — סכמת טיפול ומינונים",
+      "type": "סכמת MTLS",
+      "summary": "אומדן כאב בסולם NRS (1–4 קל ← פומי בלבד; ≥ 5 בינוני-קשה ← קטמין / אקטק / מורפין בשילוב פומי). בפצוע בהלם או במצוקה נשימתית תרופת הבחירה היא קטמין בלבד (25–50 מ״ג IV או 50–100 מ״ג IM/IN). כל מתן נרקוטיקה/קטמין מחייב ניטור ופינוי בליווי מטפל בכיר.",
+      "steps": [
+        "הערכת כאב (NRS 1–10) וטיפול לא-תרופתי בכל פצוע: קיבוע שברים, חבישת פצעים וכוויות, ריפוד והקלה בתנוחה, הרגעה ובירור רגישות לתרופות (בדגש על אופטלגין).",
+        "כאב קל (NRS 1–4) ובסיס משולב: אקמול 500–1,000 מ״ג PO כל 6 שעות ו/או אופטלגין 1 גרם PO כל 6–8 שעות (מומלץ לשלב טיפול פומי גם בפצוע המקבל טיפול לכאב בינוני-קשה אם הוא בהכרה ומסוגל לבלוע).",
+        "כאב בינוני-קשה (NRS ≥ 5) בפצוע בהלם או במצוקה נשימתית: מתן קטמין בלבד! מינון IV: בולוס 25–50 מ״ג לאט כל 15 דקות; בהיעדר וריד (IM או IN): 50–100 מ״ג (חזרה לאחר 30–45 דקות). איסור מתן אופיאטים!",
+        "כאב בינוני-קשה (NRS ≥ 5) בפצוע יציב המודינמית ונשימתית ובהכרה מלאה: אקטק (סוכריית פנטניל 800 מק״ג לשפשוף בלחי עם הדבקה לאצבע הפצוע), או קטמין (25–50 מ״ג IV / 50–100 מ״ג IM/IN), או מורפין IV (מנה ראשונית 5 מ״ג / טיטרציה 2–5 מ״ג).",
+        "טיפול בתופעות לוואי ונוגדנים: בדיכוי נשימתי מאופיאטים ← נלוקסון (Narcan) 0.4 מ״ג IV/IM/IN; בבחילות/הקאות ← פרמין 10 מ״ג IV; בתגובת אי-שקט מקטמין ← מידזולם 1–2.5 מ״ג IV.",
+        "ניטור ופינוי מחייבים: כל מתן של קטמין, מורפין או פנטניל מחייב ניטור מדדים חוזר (בדגש על מצב נשימתי ומד סטורציה), תיעוד מדויק ופינוי בליווי מטפל בכיר."
+      ],
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjEzMjAiIHZpZXdCb3g9IjAgMCAxMjAwIDEzMjAiIGRpcj0icnRsIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iMTMyMCIgZmlsbD0iI2ZmZmZmZiIvPgoKICAgICAgPCEtLSBUaXRsZSBCYW5uZXIgLS0+CiAgICAgIDxyZWN0IHg9IjI0IiB5PSIyMCIgd2lkdGg9IjExNTIiIGhlaWdodD0iOTYiIHJ4PSIyMCIgZmlsbD0iIzFlMWI0YiIvPgogICAgICA8dGV4dCB4PSIxMTQ4IiB5PSI2MCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0iZW5kIj7XpNeo16cgMTc6INek16jXldeY15XXp9eV15wg15jXmdek15XXnCDXkdeb15DXkSDXkdeT16jXkiDXlNep15PXlCDigJQg16rXqNep15nXnSDXlteo15nXnteUINeV157Xmdeg15XXoNeZ150gKE1UTFMpPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTQ4IiB5PSI5NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjYzdkMmZlIiB0ZXh0LWFuY2hvcj0iZW5kIj7XlNei16jXm9eqINei15XXptee16og15TXm9eQ15EgKE5SUyAx4oCTMTApLCDXkdeX15nXqNeqINeq15vXqdeZ16gg15zXpNeZINee16bXkSDXlNee15XXk9eZ16DXnteZL9eg16nXmdee16rXmSDXldeb15zXnNeZINeg15nXmNeV16gg15XXkdeY15nXl9eV16o8L3RleHQ+CgogICAgICA8IS0tIFN0ZXAgMTogQXNzZXNzbWVudCAmIE5vbi1QaGFybWFjb2xvZ2ljYWwgQ2FyZSAtLT4KICAgICAgPHJlY3QgeD0iNDAiIHk9IjEzNiIgd2lkdGg9IjExMjAiIGhlaWdodD0iMTE0IiByeD0iMTYiIGZpbGw9IiNlZmY2ZmYiIHN0cm9rZT0iIzNiODJmNiIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMTcwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMxZTNhOGEiIHRleHQtYW5jaG9yPSJlbmQiPjEuINeU16LXqNeb16og16LXldem157XqiDXlNeb15DXkSAo16HXldec150g157Xodek16jXmSBOUlMgMeKAkzEwKSDXldeY15nXpNeV15wg15zXkC3Xqteo15XXpNeq15kg15HXm9ecINek16bXldeiPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM2IiB5PSIyMDAiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeY15nXpNeV15wg15zXkC3Xqteo15XXpNeq15kg15HXodeZ16HXmTog16fXmdeR15XXoiDXqdeR16jXmdedLCDXl9eR15nXqdeqINek16bXoteZ150g15XXm9eV15XXmdeV16osINeo15nXpNeV15Mg15XXlNen15zXlCDXkdep15vXmdeR15Qg16LXnCDXkNec15XXoNen15QsINeU16jXktei15Qg15XXnteg15nXoteqINeU15nXpNeV16rXqNee15nXlDwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMjI4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxZDRlZDgiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkdeZ16jXldeoINeQ15zXqNeS15nXldeqINec16rXqNeV16TXldeqICjXkdeT15LXqSDXotecINeQ15XXpNeY15zXkteZ158pINeV16rXmdei15XXkyDXnteV16LXkyDXldee15nXoNeV158g157Xk9eV15nXpyDXqdecINeb15wg16rXqNeV16TXlCDXkdeY15XXpNehINeU16TXpteV16I8L3RleHQ+CgogICAgICA8bGluZSB4MT0iNjAwIiB5MT0iMjUwIiB4Mj0iNjAwIiB5Mj0iMjc4IiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjU5MiwyNzIgNjA4LDI3MiA2MDAsMjgyIiBmaWxsPSIjMjU2M2ViIi8+CgogICAgICA8IS0tIFN0ZXAgMjogTWlsZCBQYWluIChOUlMgMS00KSAmIE11bHRpbW9kYWwgQmFzZSAtLT4KICAgICAgPHJlY3QgeD0iNDAiIHk9IjI4NCIgd2lkdGg9IjExMjAiIGhlaWdodD0iMTMyIiByeD0iMTYiIGZpbGw9IiNmMGZkZjQiIHN0cm9rZT0iIzE2YTM0YSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMzE4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMxNjY1MzQiIHRleHQtYW5jaG9yPSJlbmQiPjIuINeb15DXkSDXp9ecIChOUlMgMeKAkzQpICsg15HXodeZ16Eg16TXldee15kg157XqdeV15zXkSDXktedINeR15vXkNeRINeR15nXoNeV16DXmS3Xp9ep15QgKNeQ150g15TXpNem15XXoiDXkdeU15vXqNeUINee15zXkNeUINeV157XodeV15LXnCDXnNeR15zXldeiKTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMzUwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxNDUzMmQiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkNen157XldecIChQYXJhY2V0YW1vbCk6IDUwMOKAkzEsMDAwINee17TXkiBQTyDXkNeX16og15wtNiDXqdei15XXqiAo16LXkyA0INeS16jXnSDXkdeZ157XnteUKSAgIOKAoiDXkNeV16TXmNec15LXmdefIChEaXB5cm9uZSk6IDEg15LXqNedIFBPINeQ15fXqiDXnC024oCTOCDXqdei15XXqjwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMzgyIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXnteV157XnNelINec16nXnNeRINeY15nXpNeV15wg16TXldee15kgKNeQ16fXnteV15wv15DXldek15jXnNeS15nXnykg15LXnSDXkdek16bXldeiINeU157Xp9eR15wg16fXmNee15nXny/XpNeg15jXoNeZ15wv157Xldeo16TXmdefINec15nXpteZ16jXqiDXkNek16fXmCDXodeZ16DXqNeS15jXmSDXntee15XXqdeaIChNdWx0aW1vZGFsIEFuYWxnZXNpYSk8L3RleHQ+CgogICAgICA8bGluZSB4MT0iNjAwIiB5MT0iNDE2IiB4Mj0iNjAwIiB5Mj0iNDQ0IiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjU5Miw0MzggNjA4LDQzOCA2MDAsNDQ4IiBmaWxsPSIjMjU2M2ViIi8+CgogICAgICA8IS0tIFN0ZXAgMzogTW9kZXJhdGUgdG8gU2V2ZXJlIFBhaW4gKE5SUyA+PSA1KSDigJQgSGVtb2R5bmFtaWMgJiBSZXNwaXJhdG9yeSBCcmFuY2ggLS0+CiAgICAgIDxyZWN0IHg9IjQwIiB5PSI0NTAiIHdpZHRoPSIxMTIwIiBoZWlnaHQ9IjU4IiByeD0iMTQiIGZpbGw9IiMxZTI5M2IiLz4KICAgICAgPHRleHQgeD0iNjAwIiB5PSI0ODYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+My4g15vXkNeRINeR15nXoNeV16DXmSDXoteTINen16nXlCAoTlJTIOKJpSA1KSDigJQg15HXl9eZ16jXqiDXnteh15zXldecINec16TXmSDXntem15Eg15TXnteV15PXmdeg157XmSDXldeg16nXmdee16rXmTo8L3RleHQ+CgogICAgICA8IS0tIFJpZ2h0IENvbHVtbjogU2hvY2sgb3IgUmVzcGlyYXRvcnkgRGlzdHJlc3MgLT4gS0VUQU1JTkUgT05MWSAtLT4KICAgICAgPHJlY3QgeD0iNjE1IiB5PSI1MjQiIHdpZHRoPSI1NDUiIGhlaWdodD0iMjcwIiByeD0iMTYiIGZpbGw9IiNmZWYyZjIiIHN0cm9rZT0iI2RjMjYyNiIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iMTEzOCIgeT0iNTU4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM5OTFiMWIiIHRleHQtYW5jaG9yPSJlbmQiPtee16HXnNeV15wg15DXszog16TXpteV16Ig15HXlNec150gKNec17TXkyDXodeZ16HXmNeV15zXmSAmbHQ7IDkwIC8g15LXkdeV15zXmSk8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzgiIHk9IjU4NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjOTkxYjFiIiB0ZXh0LWFuY2hvcj0iZW5kIj7XkNeVINeR157XpteV16fXlCDXoNep15nXnteq15nXqiDihpAg16rXqNeV16TXqiDXlNeR15fXmdeo15Q6INen15jXnteZ158g15HXnNeR15MhPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM4IiB5PSI2MTYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINee16rXnyDXqteV15ot15XXqNeZ15PXmSAoSVYpIC8g16rXldeaLdeS16jXnteZIChJTyk6PC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM4IiB5PSI2NDIiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+ICDXkdeV15zXldehINep15wgMjXigJM1MCDXnte015Ig15HXlNeW16jXp9eUINeQ15nXmNeZ16ogKNee16LXnCDXk9en15QpOyDXoNeZ16rXnyDXnNeX15bXldeoINeb15wgMTUg15PXp9ezPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM4IiB5PSI2NzIiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeR15TXmdei15PXqCDXkteZ16nXlCDXldeo15nXk9eZ16og4oCUINee16rXnyDXqteV15ot16nXqNeZ16jXmSAoSU0pINeQ15Ug16rXldeaLdeQ16TXmSAoSU4pOjwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzOCIgeT0iNjk4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiPiAgNTDigJMxMDAg157XtNeSIElNINeQ15UgSU47INeg15nXqtefINec15fXlteV16gg15zXkNeX16ggMzDigJM0NSDXk9en15XXqjwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzOCIgeT0iNzMwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNiOTFjMWMiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkNeV16TXmdeQ15jXmdedICjXkNen15jXpyAvINee15XXqNek15nXnykg15DXodeV16jXmdedINeR16TXpteV16Ig15HXlNec150g15DXlSDXkdee16bXlden15Qg16DXqdeZ157XqteZ16ohPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTM4IiB5PSI3NTgiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzQ3NTU2OSIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeR15DXmS3Xqden15gv16rXkteV15HXqiDXlNeq16LXldeo16jXldeqINee16fXmNee15nXnzog157XmdeT15bXldec150gMeKAkzIuNSDXnte015IgSVY8L3RleHQ+CgogICAgICA8IS0tIExlZnQgQ29sdW1uOiBIZW1vZHluYW1pY2FsbHkgJiBSZXNwaXJhdG9yaWx5IFN0YWJsZSAtPiBBY3RpcSAvIEtldGFtaW5lIC8gTW9ycGhpbmUgLS0+CiAgICAgIDxyZWN0IHg9IjQwIiB5PSI1MjQiIHdpZHRoPSI1NDUiIGhlaWdodD0iMjcwIiByeD0iMTYiIGZpbGw9IiNmZmZiZWIiIHN0cm9rZT0iI2Q5NzcwNiIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iNTYzIiB5PSI1NTgiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzkyNDAwZSIgdGV4dC1hbmNob3I9ImVuZCI+157Xodec15XXnCDXkdezOiDXpNem15XXoiDXmdem15nXkSDXlNee15XXk9eZ16DXnteZ16og15XXoNep15nXnteq15nXqiDXldeR15TXm9eo15Qg157XnNeQ15Q8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjU2MyIgeT0iNTkwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM3ODM1MGYiIHRleHQtYW5jaG9yPSJlbmQiPjEpINeh15XXm9eo15nXmdeqINek16DXmNeg15nXnCDXpteZ15jXqNeQ15gg4oCUINeQ16fXmNenIChBY3RpcSA4MDAgbWNnIE9URkMpOjwvdGV4dD4KICAgICAgPHRleHQgeD0iNTYzIiB5PSI2MTYiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+ICAg4oCiINep16TXqdeV16Mg16LXnCDXqNeZ16jXmdeqINeU15zXl9eZINeU16TXoNeZ157XmdeqINeR157XqdeaINebLTE1INeT16fXldeqICjXkNeZ158g15zXnNei15XXoS/XnNeR15zXldeiKTwvdGV4dD4KICAgICAgPHRleHQgeD0iNTYzIiB5PSI2NDIiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2I0NTMwOSIgdGV4dC1hbmNob3I9ImVuZCI+ICAg4oCiINeX15XXkdeUINec15TXk9eR15nXpyDXnNeQ16bXkdeiINeU16TXpteV16Ig15zXoNeZ16rXldenINei16bXnteZINei150g15TXmdeo15PXnteV16ogKNeQ16HXldeoINec16fXkdeiINec16TXlCEpPC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9IjY3MiIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjNzgzNTBmIiB0ZXh0LWFuY2hvcj0iZW5kIj4yKSDXp9eY157XmdefIChLZXRhbWluZSk6PC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9IjY5OCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gICDigKIgMjXigJM1MCDXnte015IgSVYg15vXnCAxNSDXk9en15XXqiAo15DXlSA1MOKAkzEwMCDXnte015IgSU0vSU4g15HXlNeZ16LXk9eoINeV16jXmdeTKTwvdGV4dD4KICAgICAgPHRleHQgeD0iNTYzIiB5PSI3MjgiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzc4MzUwZiIgdGV4dC1hbmNob3I9ImVuZCI+Mykg157Xldeo16TXmdefIChNb3JwaGluZSk6PC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9Ijc1NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gICDigKIg157XqtefIElWINeR15zXkdeTOiDXnteg15Qg16jXkNep15XXoNeZ16ogNSDXnte015IgKNeQ15Ug15jXmdeY16jXpteZ15QgMuKAkzUg157XtNeSINeb15wgMTDigJMxNSDXk9en17MpPC90ZXh0PgogICAgICA8dGV4dCB4PSI1NjMiIHk9Ijc3OCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjOTkxYjFiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gICDigKIg15DXmdefINec16rXqiDXnteV16jXpNeZ158gSU0g15HXqdeT15QgKNeh16TXmdeS15Qg15zXkCDXptek15XXmdeUINeV16HXm9eg16og157XoNeqLdeZ16rXqCDXnteV16nXlNeZ16opPC90ZXh0PgoKICAgICAgPGxpbmUgeDE9IjYwMCIgeTE9Ijc5NCIgeDI9IjYwMCIgeTI9IjgyMiIgc3Ryb2tlPSIjMjU2M2ViIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSI1OTIsODE2IDYwOCw4MTYgNjAwLDgyNiIgZmlsbD0iIzI1NjNlYiIvPgoKICAgICAgPCEtLSBTdGVwIDQ6IENvbnRyYWluZGljYXRpb25zLCBBbnRpZG90ZXMgJiBBZGp1bmN0cyAtLT4KICAgICAgPHJlY3QgeD0iNDAiIHk9IjgyOCIgd2lkdGg9IjExMjAiIGhlaWdodD0iMjIwIiByeD0iMTgiIGZpbGw9IiNmZGYyZjgiIHN0cm9rZT0iI2RiMjc3NyIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iODYyIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM5ZDE3NGQiIHRleHQtYW5jaG9yPSJlbmQiPjQuINeU16rXldeV15nXldeqLdeg15LXkywg15jXmdek15XXnCDXkdeq15XXpNei15XXqiDXnNeV15XXkNeZINeV16DXldeS15PXoNeZ150gKEFudGlkb3Rlcyk8L3RleHQ+CgogICAgICA8cmVjdCB4PSI3ODAiIHk9Ijg4MiIgd2lkdGg9IjM1NiIgaGVpZ2h0PSIxNDQiIHJ4PSIxMiIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjZTExZDQ4IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgPHRleHQgeD0iMTEyMCIgeT0iOTEwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM5ZjEyMzkiIHRleHQtYW5jaG9yPSJlbmQiPteT15nXm9eV15kg16DXqdeZ157XqteZINee15DXldek15nXkNeY15nXnSAo15DXp9eY16cv157Xldeo16TXmdefKTo8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMjAiIHk9IjkzOCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15TXpNeh16fXqiDXnteq158g15TXkNeV16TXmdeQ15gg15XXqtee15nXm9eUINeg16nXmdee16rXmdeqL9eX157XptefPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMTIwIiB5PSI5NjQiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2JlMTIzYyIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeg15zXlden16HXldefIChOYWxveG9uZSAvIE5hcmNhbik6IDAuNCDXnte015I8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMjAiIHk9Ijk5MCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gINeR157XqtefIElWIC8gSU0gLyBJTiAo16DXmdeq158g15zXl9eW15XXqCDXm9ecIDLigJMzINeT16fXldeqKTwvdGV4dD4KCiAgICAgIDxyZWN0IHg9IjQxMiIgeT0iODgyIiB3aWR0aD0iMzUyIiBoZWlnaHQ9IjE0NCIgcng9IjEyIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNkYjI3NzciIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICA8dGV4dCB4PSI3NDgiIHk9IjkxMCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjOWQxNzRkIiB0ZXh0LWFuY2hvcj0iZW5kIj7XlNeq15XXldeZ15XXqi3XoNeS15Mg15zXkNen15jXpyAoQWN0aXEgODAwIG1jZyk6PC90ZXh0PgogICAgICA8dGV4dCB4PSI3NDgiIHk9IjkzOCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15nXqNeZ15PXlCDXkdee16bXkSDXlNeU15vXqNeUINeQ15Ug16TXkteZ16LXqiDXqNeQ16kg15HXmdeg15XXoNeZ16ot16fXqdeUPC90ZXh0PgogICAgICA8dGV4dCB4PSI3NDgiIHk9Ijk2NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15TXnNedINeU157Xldeo15LXmSDXkNeVINee16bXlden15Qv15PXmdeb15XXmSDXoNep15nXnteq15k8L3RleHQ+CiAgICAgIDx0ZXh0IHg9Ijc0OCIgeT0iOTkwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM5ZDE3NGQiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXkNeZ16DXlSDXnteQ15XXqdeoINec16nXmdee15XXqSDXkdeZ15zXk9eZ150g15HXk9eo15Ig15TXqdeT15Q8L3RleHQ+CgogICAgICA8cmVjdCB4PSI2MCIgeT0iODgyIiB3aWR0aD0iMzM2IiBoZWlnaHQ9IjE0NCIgcng9IjEyIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiM3YzNhZWQiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICA8dGV4dCB4PSIzODAiIHk9IjkxMCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjNWIyMWI2IiB0ZXh0LWFuY2hvcj0iZW5kIj7XmNeZ16TXldecINeR15HXl9eZ15zXldeqINeV15TXp9eQ15XXqjo8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjM4MCIgeT0iOTM4IiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxZTI5M2IiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXpNeo157XmdefIChNZXRvY2xvcHJhbWlkZSkgMTAg157XtNeSIElWPC90ZXh0PgogICAgICA8dGV4dCB4PSIzODAiIHk9Ijk2NCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj4gICjXkNeVINeW15XXpNeo158gLyBPbmRhbnNldHJvbiA0INee17TXkiBJVik8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjM4MCIgeT0iOTkwIiBmb250LWZhbWlseT0iSGVlYm8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2ZDI4ZDkiIHRleHQtYW5jaG9yPSJlbmQiPuKAoiDXl9eZ15XXoNeZINeR157XmdeV15fXkyDXkdek16bXmdei16og16LXmdefINeX15XXk9eo16og15zXnteg15nXoteqINeU16fXkNeUITwvdGV4dD4KCiAgICAgIDxsaW5lIHgxPSI2MDAiIHkxPSIxMDQ4IiB4Mj0iNjAwIiB5Mj0iMTA3NiIgc3Ryb2tlPSIjMjU2M2ViIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSI1OTIsMTA3MCA2MDgsMTA3MCA2MDAsMTA4MCIgZmlsbD0iIzI1NjNlYiIvPgoKICAgICAgPCEtLSBTdGVwIDU6IE1hbmRhdG9yeSBNb25pdG9yaW5nICYgRXZhY3VhdGlvbiBFc2NvcnQgUnVsZSAtLT4KICAgICAgPHJlY3QgeD0iNDAiIHk9IjEwODIiIHdpZHRoPSIxMTIwIiBoZWlnaHQ9IjIwNiIgcng9IjE4IiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiMzMzQxNTUiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjExMTgiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMSIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzBmMTcyYSIgdGV4dC1hbmNob3I9ImVuZCI+NS4g15vXnNec15kg16DXmdeY15XXqCDXnteX15nXmdeR15nXnSwg16nXmdec15XXkSDXqteo15XXpNeV16og15XXnNeZ15XXldeZINeR16TXmdeg15XXmSAo16LXntezIDI3MuKAkzI3OCk8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjExNTAiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFlM2E4YSIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeX15XXkdeqINeg15nXmNeV16gg15XXnNeZ15XXldeZOiDXm9ecINek16bXldeiINeU157Xp9eR15wg16fXmNee15nXnywg157Xldeo16TXmdefINeQ15Ug16TXoNeY16DXmdecICjXkNen15jXpykg15fXmdeZ15Eg15HXlNep15LXl9eUINem157XldeT15QsINeg15nXmNeV16gg157Xk9eT15nXnSDXl9eV15bXqCAo15HXk9eS16kg16LXnDwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMTE3OCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWUzYThhIiB0ZXh0LWFuY2hvcj0iZW5kIj4gINen16bXkSDXoNep15nXnteULCDXntem15Eg15TXm9eo15Qg15XXnteTINeh15jXldeo16bXmdeUKSDXldek15nXoNeV15kg15HXnNeZ15XXldeZINee15jXpNecINeR15vXmdeoICjXkNeVINec15vXnCDXlNek15fXldeqINeX15XXkdepINee15nXldee158g16LXnSDXoteo15vXqiDXlNeg16nXnteUINeV16DXnNeV16fXodeV158g15HXlNeZ16nXkiDXmdeTKTwvdGV4dD4KICAgICAgPHRleHQgeD0iMTEzNiIgeT0iMTIxMCIgZm9udC1mYW1pbHk9IkhlZWJvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMWUyOTNiIiB0ZXh0LWFuY2hvcj0iZW5kIj7igKIg15DXnSDXm9eQ15Eg16fXqdeUINeQ15nXoNeVINeg16nXnNeYINec15DXl9eoINee16rXnyDXkNen15jXpyDigJQg15TXoteT16TXlCDXnNeU15XXodek16og16fXmNee15nXnyDXkdee15nXoNeV158g15DXoNec15LXmNeZICgyNSDXnte015IgSVYpINei15wg16TXoNeZINee16rXnyDXkNeV16TXmdeQ15gg16DXldeh16M8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjExMzYiIHk9IjEyNDAiIGZvbnQtZmFtaWx5PSJIZWVibywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzFlMjkzYiIgdGV4dC1hbmNob3I9ImVuZCI+4oCiINeR15nXnNeT15nXnSDXotedINeb15DXkSDXkdeZ16DXldeg15kt16fXqdeUINec15zXkCDXkteZ16nXlCDXldeo15nXk9eZ16ogKNee15DXl9eoINep15DXp9eY16cg15DXmdeg15Ug157XkNeV16nXqCDXkdeZ15zXk9eZ150pOiDXnteq158g16fXmNee15nXnyDXkNeVINek16DXmNeg15nXnCDXkdee16HXnNeV15wg16rXldeaLdeQ16TXmSAoSU4pINeR157XqteWIChNQUQpPC90ZXh0PgogICAgPC9zdmc+",
+      "fixedSchemeV3": true
+    }
+  },
+  "concepts": [
+    {
+      "id": "mtls_pain_01_nrs_cutoff_and_oral",
+      "subjectId": "mtls_pain",
+      "category": "סולם NRS וטיפול פומי בכאב קל",
+      "title": "כאב קל (NRS 1–4): אקמול 500–1,000 מ״ג PO או אופטלגין 1 גרם PO בלבד; פוטנטי רק ב-NRS ≥ 5",
+      "answer": "כאב קל (NRS 1–4) מטופל פומית בלבד: אקמול 500–1,000 מ״ג PO כל 6 שעות ו/או אופטלגין 1 גרם PO. משככי כאבים פוטנטיים (קטמין/אופיאטים) מיועדים לכאב בינוני ומעלה (NRS ≥ 5).",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_1_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_01_nrs_cutoff_and_oral",
+            "mtls_pain_06_actiq_contraindications"
+          ],
+          "text": "לוחם בהכרה מלאה, מדדים תקינים, מדווח על כאב בקרסול בעוצמה 3 מתוך 10 (NRS 3) ומבקש 'משהו חזק כמו סוכרייה או זריקה'. האם לתת לו משכך כאב פוטנטי?",
+          "note": "לא! בכאב קל (NRS 1–4) מטפלים פומית בלבד (אקמול 500–1,000 מ״ג PO ו/או אופטלגין 1 גרם PO). אקטק ותרופות פוטנטיות מיועדות אך ורק לכאב בינוני-קשה (NRS ≥ 5)."
+        },
+        {
+          "id": "pn_p_1_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_01_nrs_cutoff_and_oral",
+            "mtls_pain_03_ketamine_iv_dosing"
+          ],
+          "text": "שני פצועים יציבים עם גישה ורידית: פצוע א׳ עם כאב קל NRS 4; פצוע ב׳ עם כאב בינוני-קשה NRS 7. מהו הטיפול והמינון המתאים לכל אחד?",
+          "note": "פצוע א׳ (NRS 4, כאב קל) — טיפול פומי בלבד: אקמול 500–1,000 מ״ג PO או אופטלגין 1 גרם PO. פצוע ב׳ (NRS 7) — מתאים לקטמין IV במנה התחלתית של 25 מ״ג (בולוס 25–50 מ״ג בהזרקה איטית)."
+        },
+        {
+          "id": "pn_p_ext_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_01_nrs_cutoff_and_oral",
+            "mtls_pain_10_mandatory_monitoring_and_escort"
+          ],
+          "text": "לוחם עם חבלה קלה בברך מדווח על כאב 3/10 (יציב). האם לתת לו קטמין 25 מ״ג IV כדי שיירגע מהר, והאם נדרש ליווי מטפל בכיר בטיפול המתאים לו?",
+          "note": "כאב קל (NRS 1–4) מטופל פומית בלבד (אקמול 500–1,000 מ״ג PO ו/או אופטלגין 1 גרם PO), ללא תרופות פוטנטיות — ולכן גם אינו מחייב ליווי מטפל בכיר עקב שיכוך הכאב."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_02_shock_analgesic_choice",
+      "subjectId": "mtls_pain",
+      "category": "בחירת תרופה בהלם או מצוקה נשימתית",
+      "title": "בכאב בינוני-קשה (NRS ≥ 5) בהלם או מצוקה נשימתית — קטמין הוא הבחירה היחידה (אסור אופיאטים)",
+      "answer": "בפצוע עם כאב בינוני-קשה (NRS ≥ 5) הנמצא בהלם המודינמי או במצוקה נשימתית, תרופת הבחירה היחידה היא קטמין. אסור לתת מורפין או אקטק (מחמירים תת-ל״ד ודיכוי נשימתי).",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_2_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_02_shock_analgesic_choice",
+            "mtls_pain_06_actiq_contraindications",
+            "mtls_pain_03_ketamine_iv_dosing"
+          ],
+          "text": "לוחם עם פגיעת רסיס בבטן, ל״ד 84/50, דופק 132, מתפתל מכאבים (NRS 9). חובש מציע לתת לו סוכריית פנטניל או מורפין IV כי אין לו חבלת ראש. מהי תרופת הבחירה היחידה ובאיזה מינון IV?",
+          "note": "קטמין הוא תרופת הבחירה היחידה בהלם המודינמי! אקטק ומורפין אסורים בהחלט בהלם עמוק. נותנים קטמין IV במנה ראשונית של 25 מ״ג (או 25–50 מ״ג בהזרקה איטית במשך דקה)."
+        },
+        {
+          "id": "pn_p_2_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_02_shock_analgesic_choice",
+            "mtls_pain_04_ketamine_im_in_dosing"
+          ],
+          "text": "פצוע חזה עם קוצר נשימה ניכר (28 נשימות/דקה, סטורציה 90%) וסובל מכאב חד בצלעות (NRS 8), טרם הושגה גישה ורידית. באיזו תרופה ובאיזה מינון ודרך מתן תטפל כעת?",
+          "note": "במצוקה נשימתית אסור לתת אופיאטים — תרופת הבחירה היחידה היא קטמין. בהיעדר גישה ורידית נותנים קטמין 50–100 מ״ג IM או IN."
+        },
+        {
+          "id": "pn_p_ext_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_02_shock_analgesic_choice",
+            "mtls_pain_03_ketamine_iv_dosing"
+          ],
+          "text": "פצוע עם הלם עמוק וכאב 9/10, יש לו גישה ורידית. מהי תרופת הבחירה היחידה עבורו, מה המינון ההתחלתי וכיצד מזריקים אותו למניעת דום נשימה זמני?",
+          "note": "בהלם המודינמי (או מצוקה נשימתית) תרופת הבחירה היחידה היא קטמין (מורפין ואקטק אסורים!). מנה התחלתית: 25 מ״ג IV (25–50 מ״ג) בהזרקה איטית במשך דקה, חזרה כל 20–30 דק׳ (או 25 מ״ג כל 15 דק׳)."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_03_ketamine_iv_dosing",
+      "subjectId": "mtls_pain",
+      "category": "מינון קטמין IV",
+      "title": "קטמין IV לכאב: מנה התחלתית 25 מ״ג (25–50 מ״ג איטי בדקה); חזרה כל 20–30 דק׳ (או רבע שעה 25 מ״ג)",
+      "answer": "מינון קטמין IV לשיכוך כאב: מנה התחלתית 25 מ״ג (בולוס 25–50 מ״ג בהזרקה איטית במשך דקה למניעת דום נשימה זמני). ניתן לחזור על המנה כל 20–30 דקות (או מנות קטנות של 25 מ״ג כל 15 דקות) עד הקלה או ניסטגמוס.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_3_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_03_ketamine_iv_dosing",
+            "mtls_pain_10_mandatory_monitoring_and_escort"
+          ],
+          "text": "פצוע שבר פתוח בשוק עם קו ורידי מקבל 25 מ״ג קטמין IV בפוש מהיר של 3 שניות, ומושאיר לבד באלונקה ללא מוניטור. אילו שתי טעויות בוצעו במתן ובניטור?",
+          "note": "1. קטמין IV חייב להינתן בהזרקה איטית במשך כדקה (בולוס מהיר עלול לגרום לדום נשימה זמני). 2. כל פצוע שקיבל קטמין חייב בהשגחה, ניטור מדדים חוזר (סטורציה ונשימה) ופינוי בליווי מטפל בכיר."
+        },
+        {
+          "id": "pn_p_3_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_03_ketamine_iv_dosing",
+            "mtls_pain_11_ketamine_emergence_midazolam"
+          ],
+          "text": "25 דקות לאחר קבלת 25 מ״ג קטמין IV, הפצוע עדיין מדווח על כאב NRS 7 (נינוח, ללא אי-שקט). האם לתת לו כעת אוטומטית מנה של מידזולם יחד עם המנה השנייה של הקטמין?",
+          "note": "לא! אין לתת מידזולם באופן שגרתי-מונע עם קטמין (ניתן רק אם מופיעים אי-שקט קיצוני או הזיות קשות). חוזרים על מנת קטמין 25 מ״ג (25–50 מ״ג איטי בדקה) מאחר שחלפו ≥ 15–20 דקות."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_04_ketamine_im_in_dosing",
+      "subjectId": "mtls_pain",
+      "category": "מינון קטמין IM / IN",
+      "title": "בהיעדר וריד: קטמין 50–100 מ״ג IM או IN (חזרה כל 20–30 דק׳)",
+      "answer": "בהיעדר גישה ורידית, קטמין לשיכוך כאב ניתן במינון 50–100 מ״ג תוך-שרירי (IM) או תוך-אפי (IN). ניתן לחזור על המנה כל 20–30 דקות לפי צורך, תוך ניטור נשימתי.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_4_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_04_ketamine_im_in_dosing",
+            "mtls_pain_07_morphine_iv_protocol"
+          ],
+          "text": "לוחם בהלם קל/ללא וריד זמין עם שבר פתוח בזרוע סובל מכאב NRS 8. חובש מציע לתת לו מורפין 10 מ״ג IM. מה אסור כאן ומה התרופה והמינון הנכונים?",
+          "note": "חל איסור לתת מורפין IM בשדה (ספיגה לא צפויה וסכנת הצטברות מאוחרת) וכן אופיאטים אסורים בהלם. בהיעדר וריד נותנים קטמין 50–100 מ״ג IM או IN (חזרה כל 20–30 דק׳)."
+        },
+        {
+          "id": "pn_p_4_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_04_ketamine_im_in_dosing",
+            "mtls_pain_12_tbi_and_eye_pain_considerations"
+          ],
+          "text": "פצוע בהלם עמוק עם חבלת ראש בינונית (AVPU=V) ושבר בירך מתפתל מכאב לפני שהוקם לו קו ורידי. איזו תרופה, באיזו דרך ובאיזה מינון בטוח לתת לו כעת?",
+          "note": "קטמין במינון אנלגטי בטוח בחבלת ראש (אינו מעלה ICP בצורה מסוכנת) והוא הבחירה היחידה בהלם. בהיעדר וריד נותנים קטמין 50–100 מ״ג IM או IN."
+        },
+        {
+          "id": "pn_p_ext_3",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_04_ketamine_im_in_dosing",
+            "mtls_pain_11_ketamine_emergence_midazolam"
+          ],
+          "text": "פצוע ללא גישה ורידית קיבל קטמין IM לכאב 8/10. מהו טווח המינון התקין ל-IM/IN, והאם נותנים יחד איתו מידזולם באופן מונע?",
+          "note": "קטמין IM/IN לכאב ניתן במינון 50–100 מ״ג (ניתן לחזור כל 20–30 דק׳). לא נותנים מידזולם מניעתי — רק בהתעוררות קשה/אי-שקט קיצוני המסכן את הפצוע או הצוות (1–2 מ״ג IV)."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_05_actiq_administration_and_safety",
+      "subjectId": "mtls_pain",
+      "category": "סוכריית פנטניל (Actiq) וכלל הבטיחות",
+      "title": "אקטק 800 מק״ג: שפשוף על רירית הלחי (15 דק׳, ללא לעיסה) והדבקת המקל לאצבע הפצוע!",
+      "answer": "סוכריית Actiq (800 מק״ג פנטניל) ניתנת בשפשוף על רירית הלחי הפנימית כ-15 דקות (ללא לעיסה/בליעה). כלל בטיחות מחייב: הצמדת מקל הסוכרייה לאצבע הפצוע בפלסטר כדי שאם יירדם ידו תיפול ותוציא את הסוכרייה מפיו.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_5_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_05_actiq_administration_and_safety",
+            "mtls_pain_08_naloxone_antidote"
+          ],
+          "text": "לוחם יציב (NRS 8) מקבל אקטק 800 מק״ג אך אינו מצמיד את המקל לאצבעו; לאחר 10 דקות הוא נרדם ונמדדות 6 נשימות לדקה וסטורציה 86%. אילו שתי טעויות בוצעו ומה הטיפול המיידי כעת?",
+          "note": "לא בוצע כלל הבטיחות של הצמדת מקל האקטק לאצבע הפצוע (ולא נשמר ניטור). כעת מופיע דיכוי נשימתי מאופיאט: מוציאים מיד את הסוכרייה, מנשימים באמבו וחמצן, ונותנים נלוקסון (0.4 מ״ג IV/IM/IN או 2 מ״ג IN, חזרה כל 2–3 דק׳)."
+        },
+        {
+          "id": "pn_p_5_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_05_actiq_administration_and_safety",
+            "mtls_pain_09_antiemetic_pramin"
+          ],
+          "text": "פצוע יציב ללא גישה ורידית עם כאב NRS 7 שואל אם למצוץ/ללעוס את סוכריית האקטק ולבלוע את הרוק, ולאחר 5 דקות מתחיל להרגיש בחילה. כיצד מנחים אותו על אופן השימוש ומה ניתן לבחילה?",
+          "note": "אין ללעוס או לבלוע — משפשפים על רירית הלחי הפנימית כ-15 דקות כשהמקל מודבק לאצבע הפצוע. לבחילה (תופעת לוואי שכיחה של אופיאטים) נותנים פרמין 10 מ״ג IV/IM."
+        },
+        {
+          "id": "pn_p_ext_4",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_05_actiq_administration_and_safety",
+            "mtls_pain_06_actiq_contraindications"
+          ],
+          "text": "לוחם יציב (ללא הלם או פגיעת ראש, 75 ק״ג) עם שבר בזרוע וכאב 7/10 סובל גם מכווייה ברירית הפה. האם מתאים לתת לו סוכריית Actiq 800 מק״ג, ומה כלל הבטיחות המחייב כשכן נותנים Actiq?",
+          "note": "פציעה/כווייה ברירית הפה היא התווית נגד לאקטק! כשכן נותנים אקטק (בשפשוף על רירית הלחי ~15 דק׳ ללא לעיסה), חובה להצמיד את מקל הסוכרייה לאצבע הפצוע בפלסטר."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_06_actiq_contraindications",
+      "subjectId": "mtls_pain",
+      "category": "התוויות-נגד לאקטק",
+      "title": "אקטק אסור ב: ירידה בהכרה/חבלת ראש, הלם, מצוקה נשימתית, ילדים (< 40 ק״ג) וכוויות כימיות בפה",
+      "answer": "התוויות-נגד לאקטק: ירידה בהכרה או פגיעת ראש בינונית-קשה, הלם המודינמי, מצוקה/דיכוי נשימתי, ילדים (< 40 ק״ג), ופציעה/כוויה ברירית הפה.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_6_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_06_actiq_contraindications",
+            "mtls_pain_02_shock_analgesic_choice"
+          ],
+          "text": "שלושה פצועים ללא וריד עם כאב NRS 8: פצוע א׳ עם חבלת ראש בינונית (AVPU=V); פצוע ב׳ במשקל 25 ק״ג (בן 8); פצוע ג׳ עם חבלת שוק מבודדת, ערני, ל״ד 124/76 וסטורציה 98%. למי מהם מותר אקטק ולמי נותנים קטמין?",
+          "note": "אקטק מותר רק לפצוע ג׳ (ערני, יציב, מבוגר, ללא מצוקה נשימתית). לפצוע א׳ (חבלת ראש בינונית) ולפצוע ב׳ (ילד < 40 ק״ג) אקטק אסור — לפצוע א׳ נותנים קטמין."
+        },
+        {
+          "id": "pn_p_6_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_06_actiq_contraindications",
+            "mtls_pain_04_ketamine_im_in_dosing"
+          ],
+          "text": "לוחם עם כוויות סביב הפה וברירית הפה ושבר בזרוע (כאב NRS 8, יציב המודינמית, עדיין ללא קו ורידי). מדוע אקטק אסור כאן ומה החלופה והמינון?",
+          "note": "כווייה/פציעה ברירית הפה היא התוויית-נגד לאקטק (ספיגה לקויה וחשש לבצקת נתיב אוויר). בהיעדר וריד נותנים קטמין 50–100 מ״ג IM (או IN אם האף לא כווי)."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_07_morphine_iv_protocol",
+      "subjectId": "mtls_pain",
+      "category": "פרוטוקול מתן מורפין IV",
+      "title": "מורפין רק ב-IV בפצוע יציב (עד 5 מ״ג / טיטרציה 2–5 מ״ג כל 10–15 דק׳); איסור מורפין IM בשדה",
+      "answer": "מורפין במבוגר ניתן רק IV בפצוע יציב המודינמית ונשימתית: עד 5 מ״ג IV (או טיטרציה 2–5 מ״ג כל 10–15 דק׳ עד 10–15 מ״ג סה״כ). חל איסור לתת מורפין IM בשדה (ספיגה איטית ומאוחרת בהלם). *חריג יחיד: בילדים < 40 ק״ג ללא וריד ניתן 0.1 מ״ג/ק״ג IM.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_7_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_07_morphine_iv_protocol",
+            "mtls_pain_08_naloxone_antidote"
+          ],
+          "text": "פצוע יציב קיבל 5 מ״ג מורפין IV לכאב NRS 8; כעבור 12 דקות הוא מקבל מנה נוספת של 5 מ״ג ולאחר מכן קצב הנשימות יורד ל-7/דקה עם ישנוניות. האם המינון היה תקין, ומה הטיפול כעת?",
+          "note": "טיטרציית מורפין (5 מ״ג + 5 מ״ג לאחר 12 דק׳) תקינה בפצוע יציב, אך הופיע דיכוי נשימתי! עוצרים מתן נוסף, מנשימים באמבו וחמצן ונותנים נלוקסון 0.4 מ״ג IV (או 0.4–2 מ״ג IM/IN), חזרה כל 2–3 דקות."
+        },
+        {
+          "id": "pn_p_7_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_07_morphine_iv_protocol",
+            "mtls_pain_10_mandatory_monitoring_and_escort"
+          ],
+          "text": "לוחם עם פגיעת גפה יציבה (ל״ד 118/74) מקבל מורפין 4 מ״ג IV ומועבר לפינוי. מהן שתי דרישות הבטיחות בפינוי, ואילו תרופות נוספות מתלוות בשיקול הפינוי המוסק?",
+          "note": "חובה לבצע ניטור מדדים חוזר (נשימה, סטורציה) ופינוי בליווי מטפל בכיר. בפינוי מוסק תחת אופיאטים שוקלים מתן מונע של פרמין (10 מ״ג IV/IM) נגד בחילות והקאות."
+        },
+        {
+          "id": "pn_p_ext_5",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_07_morphine_iv_protocol",
+            "mtls_pain_08_naloxone_antidote"
+          ],
+          "text": "פצוע יציב קיבל 10 מ״ג מורפין IV ופיתח דיכוי נשימתי (6 נשימות/דקה, סטורציה 84%). האם מותר לתת מורפין IM בשדה במבוגר, ומהו הטיפול המיידי בדיכוי הנשימתי?",
+          "note": "אסור לתת מורפין IM בשדה במבוגר (רק IV בפצוע יציב, עד 5 מ״ג למנה). בדיכוי נשימתי: מפסיקים את התרופה, מנשימים באמבו וחמצן, ונותנים נלוקסון 0.4 מ״ג IV (או 0.4–2 מ״ג IM/IN) כל 2–3 דק׳ עד חזרת נשימה."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_08_naloxone_antidote",
+      "subjectId": "mtls_pain",
+      "category": "אנטידוט נלוקסון לדיכוי נשימתי",
+      "title": "דיכוי נשימתי מאופיאטים: עצירת תרופה, אמבו+חמצן, ונלוקסון 0.4 מ״ג IV (או 0.4–2 מ״ג IM/IN) כל 2–3 דק׳",
+      "answer": "בדיכוי נשימתי לאחר מורפין/אקטק: מפסיקים את התרופה (ומוציאים אקטק מהפה), תומכים באמבו וחמצן, ונותנים נלוקסון (Narcan) 0.4 מ״ג IV (או 0.4–2 מ״ג IM/IN), עם אפשרות לחזרה כל 2–3 דקות עד חזרת נשימה תקינה.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_8_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_08_naloxone_antidote",
+            "mtls_pain_05_actiq_administration_and_safety"
+          ],
+          "text": "פצוע שמקבל סוכריית אקטק נרדם ומפתח נשימה שטחית בקצב 5 לדקה וסטורציה 84%. מהם שלושת הצעדים המיידיים לפי סדר ומה מינון האנטידוט ב-IV או ב-IN?",
+          "note": "1. מוציאים מיד את הסוכרייה מהפה (למרות הדבקת המקל לאצבע, מוודאים הוצאה). 2. תמיכה נשימתית באמבו וחמצן. 3. נלוקסון 0.4 מ״ג IV (או 0.4–2 מ״ג IM/IN), חזרה כל 2–3 דקות."
+        },
+        {
+          "id": "pn_p_8_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_08_naloxone_antidote",
+            "mtls_pain_10_mandatory_monitoring_and_escort"
+          ],
+          "text": "לאחר מתן נלוקסון 0.4 מ״ג IV, נשימת הפצוע התאוששה לקצב 14/דקה וסטורציה 95%. האם ניתן להפסיק את הניטור ולשלוח אותו עם חובש בלבד?",
+          "note": "לא! חייבים להמשיך בהשגחה ובניטור מדדים רציף (זמן הפעולה של נלוקסון קצר יותר משל חלק מהאופיאטים ועלולה להופיע שקיעה חוזרת) ובליווי מטפל בכיר."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_09_antiemetic_pramin",
+      "subjectId": "mtls_pain",
+      "category": "נוגד הקאות — פרמין",
+      "title": "פרמין (Metoclopramide) 10 מ״ג IV/IM בבחילה/הקאה, ומונע בפציעת עין חודרת או לפני פינוי מוסק תחת אופיאטים",
+      "answer": "בבחילות/הקאות (או כטיפול מונע בפציעת עין חודרת, או לפני פינוי מוסק תחת אופיאטים) נותנים פרמין 10 מ״ג IV או IM (במבוגר).",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_9_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_09_antiemetic_pramin",
+            "mtls_pain_12_tbi_and_eye_pain_considerations"
+          ],
+          "text": "לוחם בהכרה עם פציעת עין חודרת וכאב NRS 8 מועלה למסוק פינוי; הוא עדיין אינו מקיא. איזה משכך כאב מתאים (בהיעדר התוויית נגד) ואיזו תרופה מונעת תוסיף לו ומה מינונה?",
+          "note": "קטמין (25 מ״ג IV או 50–100 מ״ג IM/IN) בטוח בפציעת עין חודרת ואינו מעלה לחץ תוך-עיני. מוסיפים פרמין 10 מ״ג IV/IM כטיפול מונע להקאות (בגלל סכנת פריצת תוכן העין בהקאה ובגלל טיסה/אנלגזיה)."
+        },
+        {
+          "id": "pn_p_9_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_09_antiemetic_pramin",
+            "mtls_pain_07_morphine_iv_protocol"
+          ],
+          "text": "פצוע יציב עם שבר בקרסול קיבל מורפין 5 מ״ג IV ומועמס למסוק ללא בחילות כעת. האם יש הצדקה למתן פרמין?",
+          "note": "כן! לפני פינוי מוסק תחת אופיאטים יש לשקול/לתת פרמין 10 מ״ג IV/IM כטיפול מונע למניעת הקאות באוויר."
+        },
+        {
+          "id": "pn_p_ext_6",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_09_antiemetic_pramin",
+            "mtls_pain_12_tbi_and_eye_pain_considerations"
+          ],
+          "text": "לוחם עם חשד לפציעת עין חודרת וכאב 8/10 ממתין לפינוי מוסק. האם קטמין בטוח לשימוש אצלו, ואיזו תרופה נוספת (ומינון) נותנים כאן כמניעה?",
+          "note": "קטמין במינון אנלגטי בטוח בפציעת עין חודרת (ובפגיעת ראש). נותנים גם פרמין 10 מ״ג IV/IM כמניעת הקאות בפציעת עין חודרת (וכן לפני פינוי מוסק תחת אופיאטים)."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_10_mandatory_monitoring_and_escort",
+      "subjectId": "mtls_pain",
+      "category": "חובת ניטור וליווי מט״ב",
+      "title": "כל פצוע שקיבל קטמין, מורפין או אקטק חייב ניטור מדדים חוזר (סטורציה/נשימה) וליווי מטפל בכיר",
+      "answer": "כל פצוע המקבל תרופה פוטנטית לכאב (קטמין, מורפין, אקטק) חייב בניטור מדדים חוזר ורציף (נשימה, סטורציה ול״ד) ובפינוי בליווי מטפל בכיר.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_10_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_10_mandatory_monitoring_and_escort",
+            "mtls_pain_01_nrs_cutoff_and_oral"
+          ],
+          "text": "שני לוחמים מפונים לאחר תאונת אימונים: לוחם א׳ קיבל 1 גרם אופטלגין PO לנקע (NRS 3); לוחם ב׳ קיבל 50 מ״ג קטמין IM לפריקת כתף (NRS 8). מי מהם מחייב ליווי מטפל בכיר וניטור סטורציה רציף?",
+          "note": "רק לוחם ב׳ (שקיבל קטמין — תרופה פוטנטית) מחייב ניטור מדדים חוזר (נשימה וסטורציה) וליווי מטפל בכיר בפינוי. לוחם א׳ (טיפול פומי לכאב קל) אינו מחייב זאת על רקע שיכוך הכאב."
+        },
+        {
+          "id": "pn_p_10_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_10_mandatory_monitoring_and_escort",
+            "mtls_pain_11_ketamine_emergence_midazolam"
+          ],
+          "text": "פצוע קיבל 25 מ״ג קטמין IV ומפונה כעת עם מטפל בכיר תחת מד סטורציה. כעבור 8 דקות הוא חווה הזיה קלה אך מדדיו תקינים והוא משתף פעולה. מה נדרש לעשות?",
+          "note": "ממשיכים בניטור המדדים ובהרגעה מילולית — אין לתת מידזולם בהזיה קלה אלא רק באי-שקט קיצוני או הזיות קשות מסכנות טיפול."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_11_ketamine_emergence_midazolam",
+      "subjectId": "mtls_pain",
+      "category": "תגובת התעוררות מקטמין",
+      "title": "אין מידזולם שגרתי עם קטמין; רק באי-שקט קיצוני/הזיות קשות נותנים Midazolam 1–2 מ״ג IV (בזהירות ל״ד)",
+      "answer": "אין לתת מידזולם (דורמיקום) באופן שגרתי-מונע עם כל מנת קטמין לכאב. רק אם מתפתחת תגובת התעוררות קשה (אי-שקט קיצוני/הזיות קשות המסכנות את הפצוע או הצוות) נותנים Midazolam 1–2 מ״ג IV (או עד 2.5 מ״ג) בזהירות ותוך ניטור ל״ד.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_11_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_11_ketamine_emergence_midazolam",
+            "mtls_pain_03_ketamine_iv_dosing"
+          ],
+          "text": "10 דקות לאחר קבלת 25 מ״ג קטמין IV, לוחם נתקף בחרדה קיצונית, משתולל באלונקה ומנסה למשוך את העירוי (ל״ד 124/76). כיצד מטפלים?",
+          "note": "מאחר שמופיעים אי-שקט קיצוני/הזיות קשות המסכנות את הטיפול, נותנים Midazolam במינון קטן של 1–2 מ״ג IV בזהירות ותוך ניטור המודינמי ונשימתי (בניגוד לשימוש מונע שאסור מראש)."
+        },
+        {
+          "id": "pn_p_11_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_11_ketamine_emergence_midazolam",
+            "mtls_pain_02_shock_analgesic_choice"
+          ],
+          "text": "פצוע בהלם קל עם ל״ד 92/60 מקבל קטמין IV לשיכוך כאב, והחובש מכין 2 מ״ג דורמיקום להזרקה מיד אחרי הקטמין 'ליתר ביטחון'. מדוע זה מסוכן ושגוי?",
+          "note": "אין לתת מידזולם באופן שגרתי-מונע עם קטמין, ובפרט בפצוע עם ל״ד גבולי/הלם שבו מידזולם עלול להפיל את לחץ הדם ולהחמיר הלם. שומרים מידזולם 1–2 מ״ג IV רק לתגובת אי-שקט קיצונית מסכנת."
+        }
+      ]
+    },
+    {
+      "id": "mtls_pain_12_tbi_and_eye_pain_considerations",
+      "subjectId": "mtls_pain",
+      "category": "קטמין בפגיעת ראש ופציעת עין",
+      "title": "קטמין במינון אנלגטי בטוח בפגיעת ראש ובפציעת עין חודרת (אינו מעלה ICP/IOP באופן מסכן)",
+      "answer": "קטמין במינון אנלגטי בטוח לשימוש בפגיעת ראש ובפציעת עין חודרת (אינו מעלה לחץ תוך-גולגולתי או תוך-עיני באופן מסכן), ומועדף על אופיאטים כשיש ירידה בהכרה או הלם.",
+      "referenceId": "ref_mtls_pain",
+      "prompts": [
+        {
+          "id": "pn_p_12_1",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_12_tbi_and_eye_pain_considerations",
+            "mtls_pain_06_actiq_contraindications",
+            "mtls_pain_03_ketamine_iv_dosing"
+          ],
+          "text": "לוחם עם חבלת ראש בינונית (AVPU=V) ושבר פתוח באמה סובל מכאב ניכר (ל״ד 114/72). החובש פוסל גם אקטק וגם קטמין וחושש שאין מה לתת לו. כיצד תנחה אותו?",
+          "note": "אקטק אכן אסור בפגיעת ראש בינונית-קשה, אך קטמין במינון אנלגטי בטוח לחלוטין בפגיעת ראש (אינו מעלה ICP בצורה מסוכנת)! נותנים קטמין 25 מ״ג IV בהזרקה איטית במשך דקה תחת ניטור."
+        },
+        {
+          "id": "pn_p_12_2",
+          "type": "תרחיש קליני משולב",
+          "testedConceptIds": [
+            "mtls_pain_12_tbi_and_eye_pain_considerations",
+            "mtls_pain_09_antiemetic_pramin"
+          ],
+          "text": "פצוע עם פציעת רסיס חודרת בעין ושבר ביד מבקש משכך כאבים (NRS 8). החובש חושש לתת קטמין בגלל העין ומציע מורפין 5 מ״ג IV בלבד. מה שיקול הדעת הנכון?",
+          "note": "קטמין במינון אנלגטי בטוח בפציעת עין חודרת (ואיגודו עדיף כי אינו גורם להקאות כפי שאופיאטים עלולים לגרום). בין אם ניתן קטמין ובין אם מורפין — בפציעת עין חודרת מוסיפים פרמין 10 מ״ג IV/IM למניעת הקאות."
+        }
+      ]
+    }
+  ]
+}
